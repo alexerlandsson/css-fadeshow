@@ -1,7 +1,8 @@
 # CSS Fadeshow
 This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow is built in SCSS which provides customisation and easy adaption to your site. All you have to do is to change the variables in css-slideshow.scss.
 
-**Demo: [https://alexerlandsson.com/github/css-fadeshow/](https://alexerlandsson.com/github/css-fadeshow/)**
+**Demo: [https://alexerlandsson.com/github/css-fadeshow/](https://alexerlandsson.com/github/css-fadeshow/)**  
+**CodePen Demo: [http://codepen.io/alexerlandsson/pen/ONqdZY](http://codepen.io/alexerlandsson/pen/ONqdZY)**
 
 ## Quick start
 ### 1. Create the HTML markup
@@ -94,7 +95,9 @@ $dot-active-color 		| Color of the active dot (navigation).
 $fade-color 			| Background color behind the iamges. Will be a part of the transitions between images. Default `#fff`.
 
 ## Browser Compatibility
-Coming soon...
+Chome 	 | Safari  | Firefox | Opera   | IE
+---------|---------|---------|---------|---------
+? 		 | ?	   | ?       | ? 	   | ?
 
 ## License
 The MIT License (MIT)
