@@ -73,7 +73,7 @@ Add the following line to your HTML file in the head tag:
 <link rel="stylesheet" href="YOUR_PATH/fadeshow.min.css">
 ```
 
-## Customize Installation
+## Customized Installation
 To customize the installation, download the SCSS file (fadeshow.scss) and include in in your project. If you're already using SCSS as preprocessor, include the file in your structure and concatenate into your main CSS file.
 
 ### Options
