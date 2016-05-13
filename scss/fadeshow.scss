@@ -1,7 +1,7 @@
 /*
 Name:			CSS Fadeshow (css-fadeshow)
 Description: 	Easy to use fadeshow built in CSS only
-Github URL:		https://github.com/alexerlandsson/css-fadeshow.git
+Github URL:		https://github.com/alexerlandsson/css-fadeshow
 Author:			Alexander Erlandsson (@alexerlandsson)
 Author URL:		https://alexerlandsson.com
 */
@@ -10,30 +10,20 @@ Author URL:		https://alexerlandsson.com
 /* 
 ===== VARIABLES =====
 
-Change these variables to match your preferences
+Change these variables to match your preferences. For a more detailed
+description of what each variable do, visit https://github.com/alexerlandsson/css-fadeshow
 */
 
-/* Change this to the number of maximum images allowed. The higher number, the bigger the generated CSS will be. */
 $max-images:				5;
-
-/* Change this to false to compile into an unprefixed css file. */
 $prefix:					true;
-
-/* Fadeshow Preferences */
 $fade-time:					1000ms;
-
-/* Styling for previous/next navigation */
 $prev-next-fontfamily: 		sans-serif;
 $prev-next-icon-size:		3vw;
 $prev-icon:					'❮';
 $next-icon:					'❯';
 $autohide-next-prev:		true;
-
-/* Colors */
 $dot-color:					rgba(255,255,255,0.8);
 $dot-active-color:			coral;
-
-/* This is the background color behind the fadeshow. This color will be a part of the transitions. */
 $fade-color:				#fff;
 
 
