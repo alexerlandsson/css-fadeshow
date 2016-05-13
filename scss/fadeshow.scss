@@ -1,15 +1,15 @@
 /*
-	Name:			CSS Fadeshow (css-fadeshow)
-	Description:	Easy to use fadeshow built in CSS only
-	Github URL:		https://github.com/alexerlandsson/css-fadeshow.git
-	Author:			Alexander Erlandsson (@alexerlandsson)
-	Author URL:		https://alexerlandsson.com
+Name:			CSS Fadeshow (css-fadeshow)
+Description:	Easy to use fadeshow built in CSS only
+Github URL:		https://github.com/alexerlandsson/css-fadeshow.git
+Author:			Alexander Erlandsson (@alexerlandsson)
+Author URL:		https://alexerlandsson.com
 */
 
 
 /* 
-	===== VARIABLES ===== 
-	Change these variables to match your preferences
+===== VARIABLES ===== 
+Change these variables to match your preferences
 */
 
 
@@ -38,10 +38,10 @@ $fade-color:				#fff;
 
 
 /*
-	===== MIXINS ===== 
+===== MIXINS ===== 
 
-	This section contains mixin used
-	Do not change anything here unless you know what you are doing.
+This section contains mixin used
+Do not change anything here unless you know what you are doing.
 */
 
 /* Mixin to handle which next/prev buttons to display */
@@ -118,10 +118,10 @@ $fade-color:				#fff;
 	
 
 /*
-	===== FADESHOW =====
+===== FADESHOW =====
 
-	Base functionality for the fadeshow.
-	Do not change anything here unless you know what you are doing.
+Base functionality for the fadeshow.
+Do not change anything here unless you know what you are doing.
 */
 
 [data-am-fadeshow] {
@@ -253,11 +253,11 @@ $fade-color:				#fff;
 }
 
 /* 
-	===== GALLERY MODIFIERS =====
+===== GALLERY MODIFIERS =====
 
-	Loop to generate modifiers on [data-am-fadeshow] for number of images (up to $max-images).
-	This is required to handle the prev and next buttons.
-	The slideshow will still function without a modifier set, but will lose it's prev and next buttons functionlity.
+Loop to generate modifiers on [data-am-fadeshow] for number of images (up to $max-images).
+This is required to handle the prev and next buttons.
+The slideshow will still function without a modifier set, but will lose it's prev and next buttons functionlity.
 */
 
 $img-count: $max-images;
