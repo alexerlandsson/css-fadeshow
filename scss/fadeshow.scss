@@ -1,0 +1,292 @@
+/*
+	Name:			CSS Fadeshow (css-fadeshow)
+	Description:	Easy to use fadeshow built in CSS only
+	Github URL:		https://github.com/alexerlandsson/css-fadeshow.git
+	Author:			Alexander Erlandsson (@alexerlandsson)
+	Author URL:		https://alexerlandsson.com
+*/
+
+
+/* 
+	===== VARIABLES ===== 
+	Change these variables to match your preferences
+*/
+
+
+/* Change this to the number of maximum images allowed. The higher number, the bigger the generated CSS will be. */
+$max-images:				5;
+
+/* Change this to false to compile into an unprefixed css file. */
+$prefix:					true;
+
+/* Fadeshow Preferences */
+$fade-time:					1000ms;
+
+/* Styling for previous/next navigation */
+$prev-next-fontfamily: 		sans-serif;
+$prev-next-icon-size:		3vw;
+$prev-icon:					'❮';
+$next-icon:					'❯';
+$autohide-next-prev:		true;
+
+/* Colors */
+$dot-color:					rgba(255,255,255,0.8);
+$dot-active-color:			coral;
+
+/* This is the background color behind the fadeshow. This color will be a part of the transitions. */
+$fade-color:				#fff;
+
+
+/*
+	===== MIXINS ===== 
+
+	This section contains mixin used
+	Do not change anything here unless you know what you are doing.
+*/
+
+/* Mixin to handle which next/prev buttons to display */
+@mixin handleNextPrev($imgs) {
+	input[type="radio"] {
+		&:checked {
+			$i: $imgs;
+			@while $i > 0 {
+				&:nth-child(#{$i}) {
+					~ .prev-container {
+						$prev: $i - 1;
+						@if $prev == 0 {
+							.prev:nth-child(#{$imgs}) {
+								display: block;
+							}
+						} @else {
+							.prev:nth-child(#{$prev}) {
+								display: block;
+							}	
+						}
+					}
+					~ .next-container {
+						$next: $i + 1;
+						@if $next == ($imgs + 1) {
+							.next:nth-child(1) {
+								display: block;
+							}
+						} @else {
+							.next:nth-child(#{$next}) {
+								display: block;
+							}
+						}
+					}
+				}
+			  $i: $i - 1;
+			}
+		}	
+	}
+}
+
+/* Mixins to handle prefixes */
+@mixin transition($value...) {
+	@if length($value) < 1 {
+		$value: all 150ms linear;
+	}
+	@if $prefix == true {
+		-webkit-transition: $value;
+		   -moz-transition: $value;
+			 -o-transition: $value;
+	}
+				transition: $value;
+}
+
+@mixin transform($value...) {
+	@if length($value) < 1 {
+		$value: all 150ms linear;
+	}
+	@if $prefix == true {
+		-webkit-transform: $value;
+		   -moz-transform: $value;
+			-ms-transform: $value;
+			 -o-transform: $value;
+	}
+				transform: $value;
+}
+
+@mixin box-shadow($value...) {
+	@if $prefix == true {
+		-webkit-box-shadow: $value;
+		   -moz-box-shadow: $value;
+	}
+				box-shadow: $value;
+}
+	
+
+/*
+	===== FADESHOW =====
+
+	Base functionality for the fadeshow.
+	Do not change anything here unless you know what you are doing.
+*/
+
+[data-am-fadeshow] {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: $fade-color;
+
+	.image {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		@include transition(opacity $fade-time ease);
+	}
+
+	input[type="radio"] {
+		position: fixed;
+		top: -9999px;
+		&:checked {
+			/* This loop handles the image switching and dot active state */
+			$i: 5;
+			@while $i > 0 {
+				&:nth-child(#{$i}) {
+					//Show image
+					~ .images {
+						.image:nth-child(#{$i}) {
+							opacity: 1;
+						}
+					}
+					//Add active state to dot
+					~ .navigation {
+						.dot:nth-child(#{$i}) {
+							background-color: $dot-active-color;
+							&:hover {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			  $i: $i - 1;
+			}	
+		}
+	}
+
+	/* Dot Navigation */
+
+	.navigation {
+		position: absolute;
+		bottom: 15px;
+		left: 50%;
+		@include transform(translateX(-50%));
+	}
+
+	.dot {
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		margin: 0 2px;
+		border-radius: 50%;
+		background-color: $dot-color;
+		cursor: pointer;
+		@include transition(opacity 200ms ease);
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	/* Next/Prev Navigation */
+
+	%prev-next {
+		position: absolute;
+		display: none;
+		top: 0;
+		bottom: 0;
+		width: 100px;
+		cursor: pointer;
+		font-family: $prev-next-fontfamily;
+		@include transition(all 200ms ease);
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: $prev-next-icon-size;
+			color: rgba(255,255,255,0.5);
+			@include transform(translate(-50%, -50%));
+		}
+		&:hover {
+			background-color: rgba(255,255,255,0.1);	
+		}
+	}
+
+	.prev {
+		@extend %prev-next;
+		left: 0;
+		&:before {
+			content: "#{$prev-icon}";
+		}
+		@if $autohide-next-prev == true {
+			@include transform(translateX(-100%));
+		}
+	}
+
+	.next {
+		@extend %prev-next;
+		right: 0;
+		&:before {
+			content: "#{$next-icon}";
+		}
+		@if $autohide-next-prev == true {
+			@include transform(translateX(100%));
+		}
+	}
+
+	@if $autohide-next-prev == true {
+		&:hover {
+			.prev,
+			.next {
+				@include transform(translateX(0));
+			}
+		}
+	}
+
+}
+
+/* 
+	===== GALLERY MODIFIERS =====
+
+	Loop to generate modifiers on [data-am-fadeshow] for number of images (up to $max-images).
+	This is required to handle the prev and next buttons.
+	The slideshow will still function without a modifier set, but will lose it's prev and next buttons functionlity.
+*/
+
+$img-count: $max-images;
+@while $img-count > 0 {
+	@if $img-count == 1 {
+		[data-am-fadeshow~="#{$img-count}"] {
+			.navigation {
+				display: none;
+			}
+		}
+	} @else {
+		[data-am-fadeshow~="#{$img-count}"] {
+			//Hide additional radio buttons, images and dots if more than set in data-am-fadeshow
+			$i: $max-images;
+			@while $i > $img-count {
+				input[type="radio"],
+				.navigation .dot,
+				.image {
+					&:nth-child(#{$i}) {
+						display: none !important;
+					}
+				}
+			  $i: $i - 1;
+			}
+			//Handle next and prev buttons
+			&[data-am-fadeshow~="next-prev-navigation"] {
+				@include handleNextPrev($img-count);
+			}
+		}
+	}
+	$img-count: $img-count - 1;
+}
