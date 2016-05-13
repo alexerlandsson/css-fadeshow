@@ -29,12 +29,14 @@ The default markup looks like this:
 		<label class="dot" for="img-3"></label>
 	</div>
 	
-	<!-- Prev next navigation -->
+	<!-- Prev Navigation -->
 	<div class="prev-container">
 		<label class="prev" for="img-1"></label>
 		<label class="prev" for="img-2"></label>
 		<label class="prev" for="img-3"></label>
 	</div>
+	
+	<!-- Next Navigation -->
 	<div class="next-container">
 		<label class="next" for="img-1"></label>
 		<label class="next" for="img-2"></label>
@@ -47,7 +49,7 @@ The default markup looks like this:
 ### 2. Modify the markup
 
 #### Adding images, navigation dots and prev/next navigation
-The fadeshow contains of four sections (radio, images, navigation and prev/next navigation). To add a image, you need to add one if each (as markup shows above). It is important to keep the same structure and order. The CSS will check for the nth-child inside it's containers, so be sure to not change the class names.
+The fadeshow contains of five sections (radio, images, navigation, prev navigation and next navigation). To add a image, you need to add one if each (as markup shows above). It is important to keep the same structure and order. The CSS will check for the nth-child inside it's containers, so be sure to not change the class names.
 
 #### Modifiers
 
