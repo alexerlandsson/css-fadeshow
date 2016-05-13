@@ -1,2 +1,2 @@
 # css-fadeshow
-More information coming soon...
+Demo: <a href="https://alexerlandsson.com/github/css-fadeshow/" target="_blank">https://alexerlandsson.com/github/css-fadeshow/</a>
