@@ -95,7 +95,7 @@ $dot-active-color 		| Color of the active dot (navigation).
 $fade-color 			| Background color behind the iamges. Will be a part of the transitions between images. Default `#fff`.
 
 ## Browser Compatibility
-Chome 	 | Safari  | Firefox | Opera   | IE  ![IE](https://github.com/alrra/browser-logos/blob/master/internet-explorer/internet-explorer_64x64.png?raw=true)
+![Chrome](https://github.com/alrra/browser-logos/blob/master/chrome/chrome_64x64.png?raw=true) | ![Safari](https://github.com/alrra/browser-logos/blob/master/safari/safari_64x64.png?raw=true) | ![Firefox](https://github.com/alrra/browser-logos/blob/master/firefox/firefox_64x64.png?raw=true) | ![Opera](https://github.com/alrra/browser-logos/blob/master/opera/opera_64x64.png?raw=true) | ![IE](https://github.com/alrra/browser-logos/blob/master/internet-explorer/internet-explorer_64x64.png?raw=true)
 ---------|---------|---------|---------|---------
 ? 		 | ?	   | ?       | ? 	   | ?
 
