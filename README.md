@@ -57,7 +57,7 @@ The fadeshow contains of five sections (radio, images, navigation, prev navigati
 Set the number of images the fadeshow has. The fadeshow will work without this set, but the prev/next navigation won't. Example (three images):
 
 ```html
-<div data-am-fadeshow="next-prev-navigation"></div>
+<div data-am-fadeshow="3"></div>
 ```
 
 ##### next-prev-navigation
