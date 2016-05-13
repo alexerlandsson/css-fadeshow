@@ -67,7 +67,7 @@ To customize the installation, download the SCSS file (fadeshow.scss) and includ
 The first section of fadeshow.scss contains varaibles which are made to be modified to go with your preferences. DO NOT change anything else in the file than the varibles if you don't know what you are doing.
 
 Variable | Description
--------- | --------
+---------------- | --------
 $max-images | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
 $prefix | Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
 **$fade-time**: Change to the desired transition time of the fade between images. May be set with ms or s unit. Default `1000ms`.
