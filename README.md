@@ -47,15 +47,18 @@ The default markup looks like this:
 ### 2. Modify the markup
 There are different modifiers you could add to `[data-am-fadeshow]`.
 
-**Number of images (int)**
+#### Number of images (int)
 Set the number of images the fadeshow has. The fadeshow will work without this set, but the prev/next navigation won't. Example: If fadeshow contains three (3) images, add `3` as a modifier.
 
-**next-prev-navigation**
+#### next-prev-navigation
 Decides if the prev/next buttons should be used or not. If set, the buttons will be used. This also requires the number of images set as a modifier.
 
 
 ### 3. Include the CSS to the HTML
+Add the following line to your HTML file in the head tag:
+```html
 <link rel="stylesheet" href="YOUR_PATH/fadeshow.min.css">
+```
 
 ## Customize Installation
 To customize the installation, download the SCSS file (fadeshow.scss) and include in in your project. If you're already using SCSS as preprocessor, include the file in your structure and concatenate into your main CSS file.
@@ -63,8 +66,10 @@ To customize the installation, download the SCSS file (fadeshow.scss) and includ
 ### Options
 The first section of fadeshow.scss contains varaibles which are made to be modified to go with your preferences. DO NOT change anything else in the file than the varibles if you don't know what you are doing.
 
-**$max-images**: Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
-**$prefix**: Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
+Variable | Description
+-------- | --------
+$max-images | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
+$prefix | Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
 **$fade-time**: Change to the desired transition time of the fade between images. May be set with ms or s unit. Default `1000ms`.
 **$prev-next-fontfamily**: Set the CSS font-family for prev/next button's icons. Useful if you want to include icons from a font library. Default `sans-serif`.
 **$prev-next-icons-size**: Set the font-size of prev/next button's icons. Default `3vw`.
