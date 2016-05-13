@@ -67,18 +67,18 @@ To customize the installation, download the SCSS file (fadeshow.scss) and includ
 The first section of fadeshow.scss contains varaibles which are made to be modified to go with your preferences. DO NOT change anything else in the file than the varibles if you don't know what you are doing.
 
 Variable | Description
----------------- | --------
+-------- | --------
 $max-images | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
 $prefix | Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
-**$fade-time**: Change to the desired transition time of the fade between images. May be set with ms or s unit. Default `1000ms`.
-**$prev-next-fontfamily**: Set the CSS font-family for prev/next button's icons. Useful if you want to include icons from a font library. Default `sans-serif`.
-**$prev-next-icons-size**: Set the font-size of prev/next button's icons. Default `3vw`.
-**$prev-icon**: Icon to use for previous button.
-**$next-icon**: Icon to use for next button.
-**$autohide-next-prev**: Set to `false` if you want the prev/next buttons to be visible all the time. If true, the buttons will be visible on hover over the fadeshow. Default `true`.
-**$dot-color**: Color of the inactive dots (navigation).
-**$dot-active-color**: Color of the active dot (navigation).
-**$fade-color**: Background color behind the iamges. Will be a part of the transitions between images. Default `#fff`.
+$fade-time | Change to the desired transition time of the fade between images. May be set with ms or s unit. Default `1000ms`.
+$prev-next-fontfamily | Set the CSS font-family for prev/next button's icons. Useful if you want to include icons from a font library. Default `sans-serif`.
+$prev-next-icons-size | Set the font-size of prev/next button's icons. Default `3vw`.
+$prev-icon | Icon to use for previous button.
+$next-icon | Icon to use for next button.
+$autohide-next-prev | Set to `false` if you want the prev/next buttons to be visible all the time. If true, the buttons will be visible on hover over the fadeshow. Default `true`.
+$dot-color | Color of the inactive dots (navigation).
+$dot-active-color | Color of the active dot (navigation).
+$fade-color | Background color behind the iamges. Will be a part of the transitions between images. Default `#fff`.
 
 ## Browser Compatibility
 Coming soon...
