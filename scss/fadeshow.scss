@@ -171,6 +171,7 @@ Do not change anything here unless you know what you are doing.
 		position: absolute;
 		bottom: 15px;
 		left: 50%;
+		z-index: 1;
 		@include fadeshow-transform(translateX(-50%));
 	}
 
