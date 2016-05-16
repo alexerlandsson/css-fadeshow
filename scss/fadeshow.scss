@@ -307,30 +307,3 @@ $img-count: $max-images;
 	}
 	$img-count: $img-count - 1;
 }
-
-/*
-@if $responsive == true {
-	@media (max-width: $breakpoint-small) {
-		[data-am-fadeshow~="next-prev-navigation"] {
-			.prev,
-			.next {
-				width: 50%;
-				@include fadeshow-transform(translate(0));
-				&:hover {
-					background-color: rgba(255,255,255,0);
-				}
-			}
-			.prev {
-				&:before {
-					left: 30px;
-				}
-			}
-			.next {
-				&:before {
-					right: 30px;
-				}
-			}
-		}
-	}
-}
-*/
