@@ -107,6 +107,15 @@ Do not change anything here unless you know what you are doing.
 	}
 				box-shadow: $value;
 }
+
+@mixin fadeshow-unselectable() {
+	@if $prefix == true {
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+			-ms-user-select: none;
+	}
+				user-select: none;
+}
 	
 
 /*
@@ -172,6 +181,7 @@ Do not change anything here unless you know what you are doing.
 		bottom: 15px;
 		left: 50%;
 		z-index: 1;
+		@include fadeshow-unselectable();
 		@include fadeshow-transform(translateX(-50%));
 	}
 
