@@ -35,7 +35,7 @@ Do not change anything here unless you know what you are doing.
 */
 
 /* Mixin to handle which next/prev buttons to display */
-@mixin handleNextPrev($imgs) {
+@mixin fadeshow-next-prev($imgs) {
 	input[type="radio"] {
 		&:checked {
 			$i: $imgs;
@@ -73,7 +73,7 @@ Do not change anything here unless you know what you are doing.
 }
 
 /* Mixins to handle prefixes */
-@mixin transition($value...) {
+@mixin fadeshow-transition($value...) {
 	@if length($value) < 1 {
 		$value: all 150ms linear;
 	}
@@ -85,7 +85,7 @@ Do not change anything here unless you know what you are doing.
 				transition: $value;
 }
 
-@mixin transform($value...) {
+@mixin fadeshow-transform($value...) {
 	@if length($value) < 1 {
 		$value: all 150ms linear;
 	}
@@ -98,7 +98,7 @@ Do not change anything here unless you know what you are doing.
 				transform: $value;
 }
 
-@mixin box-shadow($value...) {
+@mixin fadeshow-box-shadow($value...) {
 	@if $prefix == true {
 		-webkit-box-shadow: $value;
 		   -moz-box-shadow: $value;
@@ -130,7 +130,7 @@ Do not change anything here unless you know what you are doing.
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-		@include transition(opacity $fade-time ease);
+		@include fadeshow-transition(opacity $fade-time ease);
 	}
 
 	input[type="radio"] {
@@ -168,7 +168,7 @@ Do not change anything here unless you know what you are doing.
 		position: absolute;
 		bottom: 15px;
 		left: 50%;
-		@include transform(translateX(-50%));
+		@include fadeshow-transform(translateX(-50%));
 	}
 
 	.dot {
@@ -179,7 +179,7 @@ Do not change anything here unless you know what you are doing.
 		border-radius: 50%;
 		background-color: $dot-color;
 		cursor: pointer;
-		@include transition(opacity 200ms ease);
+		@include fadeshow-transition(opacity 200ms ease);
 		&:hover {
 			opacity: 0.8;
 		}
@@ -195,14 +195,14 @@ Do not change anything here unless you know what you are doing.
 		width: 100px;
 		cursor: pointer;
 		font-family: $prev-next-fontfamily;
-		@include transition(all 200ms ease);
+		@include fadeshow-transition(all 200ms ease);
 		&:before {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			font-size: $prev-next-icon-size;
 			color: rgba(255,255,255,0.5);
-			@include transform(translate(-50%, -50%));
+			@include fadeshow-transform(translate(-50%, -50%));
 		}
 		&:hover {
 			background-color: rgba(255,255,255,0.1);	
@@ -216,7 +216,7 @@ Do not change anything here unless you know what you are doing.
 			content: "#{$prev-icon}";
 		}
 		@if $autohide-next-prev == true {
-			@include transform(translateX(-100%));
+			@include fadeshow-transform(translateX(-100%));
 		}
 	}
 
@@ -227,7 +227,7 @@ Do not change anything here unless you know what you are doing.
 			content: "#{$next-icon}";
 		}
 		@if $autohide-next-prev == true {
-			@include transform(translateX(100%));
+			@include fadeshow-transform(translateX(100%));
 		}
 	}
 
@@ -235,7 +235,7 @@ Do not change anything here unless you know what you are doing.
 		&:hover {
 			.prev,
 			.next {
-				@include transform(translateX(0));
+				@include fadeshow-transform(translateX(0));
 			}
 		}
 	}
@@ -274,7 +274,7 @@ $img-count: $max-images;
 			}
 			//Handle next and prev buttons
 			&[data-am-fadeshow~="next-prev-navigation"] {
-				@include handleNextPrev($img-count);
+				@include fadeshow-next-prev($img-count);
 			}
 		}
 	}
