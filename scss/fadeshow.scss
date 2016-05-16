@@ -118,6 +118,7 @@ Do not change anything here unless you know what you are doing.
 	position: relative;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 	background-color: $fade-color;
 
 	.image {
