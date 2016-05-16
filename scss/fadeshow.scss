@@ -202,7 +202,6 @@ Do not change anything here unless you know what you are doing.
 		@if $responsive == true {
 			@media (max-width: $breakpoint-small) {
 				width: 50%;
-				@include fadeshow-transform(translate(0));
 			}
 		}
 		&:before {
@@ -237,6 +236,11 @@ Do not change anything here unless you know what you are doing.
 		}
 		@if $autohide-next-prev == true {
 			@include fadeshow-transform(translateX(-100%));
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					@include fadeshow-transform(translate(0));
+				}
+			}
 		}
 	}
 
@@ -255,6 +259,11 @@ Do not change anything here unless you know what you are doing.
 		}
 		@if $autohide-next-prev == true {
 			@include fadeshow-transform(translateX(100%));
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					@include fadeshow-transform(translate(0));
+				}
+			}
 		}
 	}
 
