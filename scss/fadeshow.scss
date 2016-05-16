@@ -16,6 +16,8 @@ description of what each variable do, visit https://github.com/alexerlandsson/cs
 
 $max-images:				5;
 $prefix:					true;
+$responsive:				true;
+$breakpoint-small:			500px;
 $fade-time:					1000ms;
 $prev-next-fontfamily: 		sans-serif;
 $prev-next-icon-size:		3vw;
@@ -197,6 +199,12 @@ Do not change anything here unless you know what you are doing.
 		cursor: pointer;
 		font-family: $prev-next-fontfamily;
 		@include fadeshow-transition(all 200ms ease);
+		@if $responsive == true {
+			@media (max-width: $breakpoint-small) {
+				width: 50%;
+				@include fadeshow-transform(translate(0));
+			}
+		}
 		&:before {
 			position: absolute;
 			top: 50%;
@@ -204,7 +212,13 @@ Do not change anything here unless you know what you are doing.
 			color: rgba(255,255,255,0.5);
 		}
 		&:hover {
-			background-color: rgba(255,255,255,0.1);	
+			background-color: rgba(255,255,255,0.1);
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					background-color: rgba(255,255,255,0);
+				}
+			}
+			
 		}
 	}
 
@@ -215,6 +229,11 @@ Do not change anything here unless you know what you are doing.
 			content: "#{$prev-icon}";
 			left: 50%;
 			@include fadeshow-transform(translate(-50%, -50%));
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					left: 30px;
+				}
+			}
 		}
 		@if $autohide-next-prev == true {
 			@include fadeshow-transform(translateX(-100%));
@@ -228,6 +247,11 @@ Do not change anything here unless you know what you are doing.
 			content: "#{$next-icon}";
 			right: 50%;
 			@include fadeshow-transform(translate(50%, -50%));
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					right: 30px;
+				}
+			}
 		}
 		@if $autohide-next-prev == true {
 			@include fadeshow-transform(translateX(100%));
@@ -283,3 +307,30 @@ $img-count: $max-images;
 	}
 	$img-count: $img-count - 1;
 }
+
+/*
+@if $responsive == true {
+	@media (max-width: $breakpoint-small) {
+		[data-am-fadeshow~="next-prev-navigation"] {
+			.prev,
+			.next {
+				width: 50%;
+				@include fadeshow-transform(translate(0));
+				&:hover {
+					background-color: rgba(255,255,255,0);
+				}
+			}
+			.prev {
+				&:before {
+					left: 30px;
+				}
+			}
+			.next {
+				&:before {
+					right: 30px;
+				}
+			}
+		}
+	}
+}
+*/
