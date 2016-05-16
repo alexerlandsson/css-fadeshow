@@ -200,10 +200,8 @@ Do not change anything here unless you know what you are doing.
 		&:before {
 			position: absolute;
 			top: 50%;
-			left: 50%;
 			font-size: $prev-next-icon-size;
 			color: rgba(255,255,255,0.5);
-			@include fadeshow-transform(translate(-50%, -50%));
 		}
 		&:hover {
 			background-color: rgba(255,255,255,0.1);	
@@ -215,6 +213,8 @@ Do not change anything here unless you know what you are doing.
 		left: 0;
 		&:before {
 			content: "#{$prev-icon}";
+			left: 50%;
+			@include fadeshow-transform(translate(-50%, -50%));
 		}
 		@if $autohide-next-prev == true {
 			@include fadeshow-transform(translateX(-100%));
@@ -226,6 +226,8 @@ Do not change anything here unless you know what you are doing.
 		right: 0;
 		&:before {
 			content: "#{$next-icon}";
+			right: 50%;
+			@include fadeshow-transform(translate(50%, -50%));
 		}
 		@if $autohide-next-prev == true {
 			@include fadeshow-transform(translateX(100%));
