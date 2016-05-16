@@ -83,6 +83,8 @@ Variable 				| Description
 ----------------------- | -----------------------
 $max-images 			| Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
 $prefix 				| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
+$responsive 			| Set to `false` if you don't want the slideshow to be responsive. Default `true`.
+$breakpoint-small 		| Set to the desired max-width for smaller screens. Default `500px`.
 $fade-time 				| Change to the desired transition time of the fade between images. May be set with ms or s unit. Default `1000ms`.
 $prev-next-fontfamily 	| Set the CSS font-family for prev/next button's icons. Useful if you want to include icons from a font library. Default `sans-serif`.
 $prev-next-icons-size 	| Set the font-size of prev/next button's icons. Default `3vw`.
