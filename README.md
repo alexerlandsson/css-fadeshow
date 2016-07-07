@@ -49,7 +49,7 @@ The default markup looks like this:
 ### 2. Modify the markup
 
 #### Adding images, navigation dots and prev/next navigation
-The fadeshow contains of five sections (radio, images, navigation, prev navigation and next navigation). To add a image, you need to add one if each (as markup shows above). It is important to keep the same structure and order. The CSS will check for the nth-child inside it's containers, so be sure to not change the class names.
+The fadeshow contains of five sections (radio, slides, quick navigation, prev navigation and next navigation). To add a slide, you need to add one if each (as markup shows above). It is important to keep the same structure and order. The CSS will check for the nth-child inside it's containers, so be sure to not change the class names.
 
 #### Modifiers
 
