@@ -60,6 +60,13 @@ Decides if the prev/next buttons should be used or not. If set, the buttons will
 <div data-am-fadeshow="next-prev-navigation"></div>
 ```
 
+##### autoplay
+Add autoplay to the gallery. Interaction with navigation will result in cancelation of autoplay. Example:
+
+```html
+<div data-am-fadeshow="autoplay"></div>
+```
+
 ### 3. Include the CSS to the HTML
 Add the following line to your HTML file in the head tag:
 ```html
@@ -78,7 +85,7 @@ $max-images 			| Defines the maximum of images allowed. There is no technical li
 $prefix 				| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
 $responsive 			| Set to `false` if you don't want the slideshow to be responsive. Default `true`.
 $breakpoint-small 		| Set to the desired max-width for smaller screens. Default `500px`.
-$fade-time 				| Change to the desired transition time of the fade between images. May be set with ms or s unit. Default `1000ms`.
+$fade-time 				| Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
 $prev-next-fontfamily 	| Set the CSS font-family for prev/next button's icons. Useful if you want to include icons from a font library. Default `sans-serif`.
 $prev-next-icons-size 	| Set the font-size of prev/next button's icons. Default `3vw`.
 $prev-next-icons-color 	| Color of prev/next button's icons.
@@ -90,6 +97,8 @@ $autohide-next-prev 	| Set to `false` if you want the prev/next buttons to be vi
 $quick-nav-color 		| Color of the inactive quick navigation buttons
 $quick-nav-active-color | Color of the active quick navigation button
 $fade-color 			| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
+$autoplay 				| Set to `false` if you are not going to use the autoplay function. Default `true`
+$autoplay-duration 		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
 
 ## Browser Compatibility
 ![Chrome](https://github.com/alrra/browser-logos/blob/master/chrome/chrome_64x64.png?raw=true) | ![Safari](https://github.com/alrra/browser-logos/blob/master/safari/safari_64x64.png?raw=true) | ![Firefox](https://github.com/alrra/browser-logos/blob/master/firefox/firefox_64x64.png?raw=true) | ![Opera](https://github.com/alrra/browser-logos/blob/master/opera/opera_64x64.png?raw=true) | ![IE](https://github.com/alrra/browser-logos/blob/master/internet-explorer/internet-explorer_64x64.png?raw=true)

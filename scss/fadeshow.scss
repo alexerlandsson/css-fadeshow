@@ -1,6 +1,6 @@
 /*
  * Name:			CSS Fadeshow (css-fadeshow)
- * Description: 	Easy to use fadeshow built in CSS only
+ * Description:		Easy to use fadeshow built in CSS only
  * Github URL:		https://github.com/alexerlandsson/css-fadeshow
  * Author:			Alexander Erlandsson (@alexerlandsson)
  * Author URL:		https://alexerlandsson.com
@@ -18,8 +18,8 @@ $max-slides:				5;
 $prefix:					true;
 $responsive:				true;
 $breakpoint-small:			500px;
-$fade-time:					1000ms;
-$prev-next-fontfamily: 		sans-serif;
+$fade-time:					1;
+$prev-next-fontfamily:		sans-serif;
 $prev-next-icon-size:		3vw;
 $prev-next-icon-color:		rgba(255,255,255,0.5);
 $prev-next-bg:				rgba(255,255,255,0);
@@ -30,6 +30,8 @@ $autohide-next-prev:		true;
 $quick-nav-color:			rgba(255,255,255,0.8);
 $quick-nav-active-color:	coral;
 $fade-color:				#fff;
+$autoplay:					true;
+$autoplay-duration:			5;
 
 
 /*
@@ -62,6 +64,20 @@ $fade-color:				#fff;
 				transform: $value;
 }
 
+@mixin fadeshow-animation($value...) {
+	@if $prefix == true {
+		-webkit-animation: $value;
+	}
+				  animation: $value;
+}
+
+@mixin fadeshow-animation-delay($value) {
+	@if $prefix == true {
+		-webkit-animation-delay: $value;
+	}
+				  animation-delay: $value;
+}
+
 @mixin fadeshow-unselectable() {
 	@if $prefix == true {
 		-webkit-user-select: none;
@@ -69,6 +85,22 @@ $fade-color:				#fff;
 			-ms-user-select: none;
 	}
 				user-select: none;
+}
+
+/* Mixins to handle Quick Navigation Button states */
+
+@mixin quickNavBtnActive() {
+	background-color: $quick-nav-active-color;
+	/*&:hover {
+		opacity: 1;
+	}*/
+}
+
+@mixin quickNavBtnInactive() {
+	background-color: $quick-nav-color;
+	/*&:hover {
+		opacity: 0.8;
+	}*/
 }
 
 
@@ -86,6 +118,8 @@ $fade-color:				#fff;
 	overflow: hidden;
 	background-color: $fade-color;
 
+	/* Slides */
+
 	.fs-slide {
 		position: absolute;
 		top: 0;
@@ -96,43 +130,10 @@ $fade-color:				#fff;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-		@include fadeshow-transition(opacity $fade-time ease);
-	}
-
-	input[type="radio"] {
-		position: fixed;
-		top: -9999px;
-		&:checked {
-			/* This loop handles the slide switching and quick navigation active state */
-			$i: $max-slides;
-			@while $i > 0 {
-				&:nth-of-type(#{$i}) {
-					//Show slide
-					~ .fs-slides {
-						.fs-slide:nth-child(#{$i}) {
-							opacity: 1;
-						}
-					}
-					//Add active state to dot
-					~ .fs-quick-nav {
-						.fs-quick-btn:nth-child(#{$i}) {
-							background-color: $quick-nav-active-color;
-							&:hover {
-								opacity: 1;
-							}
-						}
-					}
-				}
-			  $i: $i - 1;
-			}
-			//Hide navigation if only one slide
-			&:first-of-type:last-of-type {
-				~ .fs-quick-nav,
-				~ .fs-prev-nav,
-				~ .fs-next-nav {
-					display: none !important;
-				}
-			}
+		@include fadeshow-transition(opacity #{$fade-time}s ease);
+		//Display first child on load
+		&:first-child {
+			opacity: 1;
 		}
 	}
 
@@ -153,11 +154,12 @@ $fade-color:				#fff;
 		height: 15px;
 		margin: 0 2px;
 		border-radius: 50%;
-		background-color: $quick-nav-color;
 		cursor: pointer;
 		@include fadeshow-transition(opacity 200ms ease);
-		&:hover {
-			opacity: 0.8;
+		@include quickNavBtnInactive();
+		//Set active state to first button on load
+		&:first-child {
+			@include quickNavBtnActive();
 		}
 	}
 
@@ -242,6 +244,55 @@ $fade-color:				#fff;
 		}
 	}
 
+	/* Functionality */
+
+	input[type="radio"] {
+		position: fixed;
+		top: -9999px;
+		&:checked {
+			/* This loop handles the slide switching and quick navigation active state */
+			$i: $max-slides;
+			@while $i > 0 {
+				&:nth-of-type(#{$i}) {
+					//Show slide
+					~ .fs-slides {
+						.fs-slide {
+							//Cancel autoplay
+							opacity: 0;
+							@include fadeshow-animation(none !important);
+						}
+						.fs-slide:nth-child(#{$i}) {
+							opacity: 1;
+						}
+					}
+					//Add active state to dot
+					~ .fs-quick-nav {
+						.fs-quick-btn {
+							@include quickNavBtnInactive();
+							//Cancel autoplay
+							@include fadeshow-animation(none !important);
+						}
+						.fs-quick-btn:nth-child(#{$i}) {
+							background-color: $quick-nav-active-color;
+							&:hover {
+								opacity: 1;
+							}
+						}
+					}
+				}
+				$i: $i - 1;
+			}
+			//Hide navigation if only one slide
+			&:first-of-type:last-of-type {
+				~ .fs-quick-nav,
+				~ .fs-prev-nav,
+				~ .fs-next-nav {
+					display: none !important;
+				}
+			}
+		}
+	}
+
 	/* Autohide Prev/Next */
 
 	@if $autohide-next-prev == true {
@@ -268,6 +319,9 @@ $fade-color:				#fff;
 					//Show previous button
 					@if $prev > 0 {
 						~ .fs-prev-nav {
+							.fs-prev-btn {
+								display: none;
+							}
 							.fs-prev-btn:nth-child(#{$prev}) {
 								display: block;
 							}
@@ -276,9 +330,12 @@ $fade-color:				#fff;
 					//Show next button
 					@if $next < ($max-slides + 1) {
 						~ .fs-next-nav {
-						.fs-next-btn:nth-child(#{$next}) {
-							display: block;
-						}
+							.fs-next-btn {
+								display: none;
+							}
+							.fs-next-btn:nth-child(#{$next}) {
+								display: block;
+							}
 						}
 					}
 					//Show last prev button if first slide
@@ -300,6 +357,103 @@ $fade-color:				#fff;
 				}
 			  $i: $i - 1;
 			}
+		}
+	}
+
+	//Display first pair of Prev/Next Buttons on load
+	.fs-prev-btn:last-child {
+		display: block;
+	}
+	.fs-next-btn:nth-child(2) {
+		display: block
+	}
+
+}
+
+
+/*
+ * ===== AUTOPLAY =====
+ *
+ * Functions to handle autoplay.
+ * If you're not going to use autoplay, set $autoplay to false.
+ * This part tends to compile into a lot of uneccesary CSS otherwise.
+ */
+
+@if $autoplay == true {
+
+	$i: $max-slides;
+
+	@while $i > 0 {
+
+		$total-duration: $autoplay-duration * $i;
+
+		/* Animation keyframes */
+
+		@keyframes quickNavAnimation-#{$i} {
+			0% { @include quickNavBtnInactive();  }
+			#{100% * $fade-time / $total-duration},
+			#{100% * $autoplay-duration / $total-duration} { @include quickNavBtnActive(); }
+			#{100% * ($autoplay-duration + $fade-time) / $total-duration},
+			100% { @include quickNavBtnInactive(); }
+		}
+		@if $prefix == true {
+			@-webkit-keyframes quickNavAnimation-#{$i} {
+				0% { @include quickNavBtnInactive();  }
+				#{100% * $fade-time / $total-duration},
+				#{100% * $autoplay-duration / $total-duration} { @include quickNavBtnActive(); }
+				#{100% * ($autoplay-duration + $fade-time) / $total-duration},
+				100% { @include quickNavBtnInactive(); }
+			}
+		}
+
+		@keyframes slidesAnimation-#{$i} {
+			0% { opacity: 0; }
+			#{100% * $fade-time / $total-duration},
+			#{100% * $autoplay-duration / $total-duration} { opacity: 1; }
+			#{100% * ($autoplay-duration + $fade-time) / $total-duration},
+			100% { opacity: 0; }
+		}
+		@if $prefix == true {
+			@-webkit-keyframes slidesAnimation-#{$i} {
+				0% { opacity: 0; }
+				#{100% * $fade-time / $total-duration},
+				#{100% * $autoplay-duration / $total-duration} { opacity: 1; }
+				#{100% * ($autoplay-duration + $fade-time) / $total-duration},
+				100% { opacity: 0; }
+			}
+		}
+
+		/* Add animations */
+
+		[data-am-fadeshow~="autoplay"] {
+			input[type="radio"]:nth-of-type(#{$i}):last-of-type {
+
+			//Slide animation
+			~ .fs-slides {
+				.fs-slide {
+					@include fadeshow-animation(slidesAnimation-#{$i} #{$total-duration}s infinite);
+				}
+			}
+
+			//Quick navigation animation
+			~ .fs-quick-nav {
+				.fs-quick-btn {
+					@include fadeshow-animation(quickNavAnimation-#{$i} #{$total-duration}s infinite);
+				}
+			}
+
+			@for $j from 1 through $i {
+				//Animation Delay
+				~ .fs-slides .fs-slide:nth-child(#{$j}),
+				~ .fs-quick-nav .fs-quick-btn:nth-child(#{$j}) {
+					$animation-delay: #{($j - 1) * ($autoplay-duration) - $fade-time}s;
+					@include fadeshow-animation-delay(#{$animation-delay});
+				}
+			}
+
+			}
+
+			$i: $i - 1;
 		}
 	}
 }
