@@ -11,36 +11,36 @@ The default markup looks like this:
 <div data-am-fadeshow="next-prev-navigation">
 
 	<!-- Radio -->
-	<input type="radio" name="gallery" id="img-1" checked />
-	<input type="radio" name="gallery" id="img-2" />
-	<input type="radio" name="gallery" id="img-3" />
+	<input type="radio" name="css-fadeshow" id="img-1" checked />
+	<input type="radio" name="css-fadeshow" id="img-2" />
+	<input type="radio" name="css-fadeshow" id="img-3" />
 
 	<!-- Images -->
-	<div class="images">
-		<div class="image" style="background-image: url();"></div>
-		<div class="image" style="background-image: url();"></div>
-		<div class="image" style="background-image: url();"></div>
+	<div class="fs-slides">
+		<div class="fs-slide" style="background-image: url();"></div>
+		<div class="fs-slide" style="background-image: url();"></div>
+		<div class="fs-slide" style="background-image: url();"></div>
 	</div>
 
 	<!-- Navigation -->
-	<div class="navigation">
-		<label class="dot" for="img-1"></label>
-		<label class="dot" for="img-2"></label>
-		<label class="dot" for="img-3"></label>
+	<div class="fs-quick-nav">
+		<label class="fs-quick-btn" for="img-1"></label>
+		<label class="fs-quick-btn" for="img-2"></label>
+		<label class="fs-quick-btn" for="img-3"></label>
 	</div>
 
 	<!-- Prev Navigation -->
-	<div class="prev-container">
-		<label class="prev" for="img-1"></label>
-		<label class="prev" for="img-2"></label>
-		<label class="prev" for="img-3"></label>
+	<div class="fs-prev-nav">
+		<label class="fs-prev-btn" for="img-1"></label>
+		<label class="fs-prev-btn" for="img-2"></label>
+		<label class="fs-prev-btn" for="img-3"></label>
 	</div>
 
 	<!-- Next Navigation -->
-	<div class="next-container">
-		<label class="next" for="img-1"></label>
-		<label class="next" for="img-2"></label>
-		<label class="next" for="img-3"></label>
+	<div class="fs-next-nav">
+		<label class="fs-next-btn" for="img-1"></label>
+		<label class="fs-next-btn" for="img-2"></label>
+		<label class="fs-next-btn" for="img-3"></label>
 	</div>
 
 </div>
@@ -87,8 +87,8 @@ $prev-next-bg-hover 	| Background color of prev/next buttons on hover .
 $prev-icon 				| Icon to use for previous button.
 $next-icon 				| Icon to use for next button.
 $autohide-next-prev 	| Set to `false` if you want the prev/next buttons to be visible all the time. If true, the buttons will be visible on hover over the fadeshow. Default `true`.
-$dot-color 				| Color of the inactive dots (navigation).
-$dot-active-color 		| Color of the active dot (navigation).
+$quick-nav-color 		| Color of the inactive slides (quick navigation).
+$quick-nav-active-color | Color of the active slide (quick navigation).
 $fade-color 			| Background color behind the iamges. Will be a part of the transitions between images. Default `#fff`.
 
 ## Browser Compatibility

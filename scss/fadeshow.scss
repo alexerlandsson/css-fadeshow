@@ -14,7 +14,7 @@
  * description of what each variable do, visit https://github.com/alexerlandsson/css-fadeshow
  */
 
-$max-images:				5;
+$max-slides:				5;
 $prefix:					true;
 $responsive:				true;
 $breakpoint-small:			500px;
@@ -27,8 +27,8 @@ $prev-next-bg-hover:		rgba(255,255,255,0.1);
 $prev-icon:					'❮';
 $next-icon:					'❯';
 $autohide-next-prev:		true;
-$dot-color:					rgba(255,255,255,0.8);
-$dot-active-color:			coral;
+$quick-nav-color:			rgba(255,255,255,0.8);
+$quick-nav-active-color:	coral;
 $fade-color:				#fff;
 
 
@@ -86,7 +86,7 @@ $fade-color:				#fff;
 	overflow: hidden;
 	background-color: $fade-color;
 
-	.image {
+	.fs-slide {
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -103,20 +103,20 @@ $fade-color:				#fff;
 		position: fixed;
 		top: -9999px;
 		&:checked {
-			/* This loop handles the image switching and dot active state */
-			$i: $max-images;
+			/* This loop handles the slide switching and quick navigation active state */
+			$i: $max-slides;
 			@while $i > 0 {
 				&:nth-of-type(#{$i}) {
-					//Show image
-					~ .images {
-						.image:nth-child(#{$i}) {
+					//Show slide
+					~ .fs-slides {
+						.fs-slide:nth-child(#{$i}) {
 							opacity: 1;
 						}
 					}
 					//Add active state to dot
-					~ .navigation {
-						.dot:nth-child(#{$i}) {
-							background-color: $dot-active-color;
+					~ .fs-quick-nav {
+						.fs-quick-btn:nth-child(#{$i}) {
+							background-color: $quick-nav-active-color;
 							&:hover {
 								opacity: 1;
 							}
@@ -125,20 +125,20 @@ $fade-color:				#fff;
 				}
 			  $i: $i - 1;
 			}
-			//Hide navigation if only one image
+			//Hide navigation if only one slide
 			&:first-of-type:last-of-type {
-				~ .navigation,
-				~ .prev-container,
-				~ .next-container {
+				~ .fs-quick-nav,
+				~ .fs-prev-nav,
+				~ .fs-next-nav {
 					display: none !important;
 				}
 			}
 		}
 	}
 
-	/* Dot Navigation */
+	/* Quick Navigation */
 
-	.navigation {
+	.fs-quick-nav {
 		position: absolute;
 		bottom: 15px;
 		left: 50%;
@@ -147,13 +147,13 @@ $fade-color:				#fff;
 		@include fadeshow-transform(translateX(-50%));
 	}
 
-	.dot {
+	.fs-quick-btn {
 		display: inline-block;
 		width: 15px;
 		height: 15px;
 		margin: 0 2px;
 		border-radius: 50%;
-		background-color: $dot-color;
+		background-color: $quick-nav-color;
 		cursor: pointer;
 		@include fadeshow-transition(opacity 200ms ease);
 		&:hover {
@@ -195,7 +195,7 @@ $fade-color:				#fff;
 		}
 	}
 
-	.prev {
+	.fs-prev-btn {
 		@extend %prev-next;
 		left: 0;
 		&:before {
@@ -218,7 +218,7 @@ $fade-color:				#fff;
 		}
 	}
 
-	.next {
+	.fs-next-btn {
 		@extend %prev-next;
 		right: 0;
 		&:before {
@@ -245,8 +245,8 @@ $fade-color:				#fff;
 
 	@if $autohide-next-prev == true {
 		&:hover {
-			.prev,
-			.next {
+			.fs-prev-btn,
+			.fs-next-btn {
 				@include fadeshow-transform(translateX(0));
 			}
 		}
@@ -259,39 +259,39 @@ $fade-color:				#fff;
 [data-am-fadeshow~="next-prev-navigation"] {
 	input[type="radio"] {
 		&:checked {
-			$i: $max-images;
+			$i: $max-slides;
 			@while $i > 0 {
 				&:nth-of-type(#{$i}) {
 					$prev: ($i - 1);
 					$next: ($i + 1);
 					//Show previous button
 					@if $prev > 0 {
-						~ .prev-container {
-							.prev:nth-child(#{$prev}) {
+						~ .fs-prev-nav {
+							.fs-prev-btn:nth-child(#{$prev}) {
 								display: block;
 							}
 						}
 					}
 					//Show next button
-					@if $next < ($max-images + 1) {
-						~ .next-container {
-						.next:nth-child(#{$next}) {
+					@if $next < ($max-slides + 1) {
+						~ .fs-next-nav {
+						.fs-next-btn:nth-child(#{$next}) {
 							display: block;
 						}
 						}
 					}
-					//Show last prev button if first image
+					//Show last prev button if first slide
 					&:first-of-type {
-						~ .prev-container {
-							.prev:last-child {
+						~ .fs-prev-nav {
+							.fs-prev-btn:last-child {
 								display: block;
 							}
 						}
 					}
-					//Show first next button if last image
+					//Show first next button if last slide
 					&:last-of-type {
-						~ .next-container {
-							.next:first-child {
+						~ .fs-next-nav {
+							.fs-next-btn:first-child {
 								display: block;
 							}
 						}
