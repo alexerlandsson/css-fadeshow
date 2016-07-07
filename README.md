@@ -15,14 +15,14 @@ The default markup looks like this:
 	<input type="radio" name="css-fadeshow" id="img-2" />
 	<input type="radio" name="css-fadeshow" id="img-3" />
 
-	<!-- Images -->
+	<!-- Slides -->
 	<div class="fs-slides">
 		<div class="fs-slide" style="background-image: url();"></div>
 		<div class="fs-slide" style="background-image: url();"></div>
 		<div class="fs-slide" style="background-image: url();"></div>
 	</div>
 
-	<!-- Navigation -->
+	<!-- Quick Navigation -->
 	<div class="fs-quick-nav">
 		<label class="fs-quick-btn" for="img-1"></label>
 		<label class="fs-quick-btn" for="img-2"></label>
