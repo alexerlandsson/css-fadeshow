@@ -172,6 +172,7 @@ $fade-color:				#fff;
 		cursor: pointer;
 		font-family: $prev-next-fontfamily;
 		background-color: $prev-next-bg;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
 		@include fadeshow-transition(all 200ms ease);
 		@if $responsive == true {
 			@media (max-width: $breakpoint-small) {

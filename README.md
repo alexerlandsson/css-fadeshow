@@ -89,7 +89,7 @@ $next-icon 				| Icon to use for next button.
 $autohide-next-prev 	| Set to `false` if you want the prev/next buttons to be visible all the time. If true, the buttons will be visible on hover over the fadeshow. Default `true`.
 $quick-nav-color 		| Color of the inactive quick navigation buttons
 $quick-nav-active-color | Color of the active quick navigation button
-$fade-color 			| Background color behind the iamges. Will be a part of the transitions between images. Default `#fff`.
+$fade-color 			| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
 
 ## Browser Compatibility
 ![Chrome](https://github.com/alrra/browser-logos/blob/master/chrome/chrome_64x64.png?raw=true) | ![Safari](https://github.com/alrra/browser-logos/blob/master/safari/safari_64x64.png?raw=true) | ![Firefox](https://github.com/alrra/browser-logos/blob/master/firefox/firefox_64x64.png?raw=true) | ![Opera](https://github.com/alrra/browser-logos/blob/master/opera/opera_64x64.png?raw=true) | ![IE](https://github.com/alrra/browser-logos/blob/master/internet-explorer/internet-explorer_64x64.png?raw=true)
