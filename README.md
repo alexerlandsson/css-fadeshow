@@ -8,7 +8,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 The default markup looks like this:
 
 ```html
-<div data-am-fadeshow="3 next-prev-navigation">
+<div data-am-fadeshow="next-prev-navigation">
 
 	<!-- Radio -->
 	<input type="radio" name="gallery" id="img-1" checked />
@@ -53,15 +53,8 @@ The fadeshow contains of five sections (radio, images, navigation, prev navigati
 
 #### Modifiers
 
-##### Number of images (int)
-Set the number of images the fadeshow has. The fadeshow will work without this set, but the prev/next navigation won't. Example (three images):
-
-```html
-<div data-am-fadeshow="3"></div>
-```
-
 ##### next-prev-navigation
-Decides if the prev/next buttons should be used or not. If set, the buttons will be used. This also requires the number of images set as a modifier. Example:
+Decides if the prev/next buttons should be used or not. If set, the buttons will be used. Example:
 
 ```html
 <div data-am-fadeshow="next-prev-navigation"></div>
