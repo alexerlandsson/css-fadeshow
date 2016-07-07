@@ -8,7 +8,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 The default markup looks like this:
 
 ```html
-<div data-am-fadeshow="next-prev-navigation">
+<div data-am-fadeshow="next-prev-navigation autoplay">
 
 	<!-- Radio -->
 	<input type="radio" name="css-fadeshow" id="slide-1" checked />
