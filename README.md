@@ -9,40 +9,40 @@ The default markup looks like this:
 
 ```html
 <div data-am-fadeshow="3 next-prev-navigation">
-	
+
 	<!-- Radio -->
 	<input type="radio" name="gallery" id="img-1" checked />
 	<input type="radio" name="gallery" id="img-2" />
 	<input type="radio" name="gallery" id="img-3" />
-	
+
 	<!-- Images -->
 	<div class="images">
 		<div class="image" style="background-image: url();"></div>
 		<div class="image" style="background-image: url();"></div>
 		<div class="image" style="background-image: url();"></div>
 	</div>
-	
+
 	<!-- Navigation -->
 	<div class="navigation">
 		<label class="dot" for="img-1"></label>
 		<label class="dot" for="img-2"></label>
 		<label class="dot" for="img-3"></label>
 	</div>
-	
+
 	<!-- Prev Navigation -->
 	<div class="prev-container">
 		<label class="prev" for="img-1"></label>
 		<label class="prev" for="img-2"></label>
 		<label class="prev" for="img-3"></label>
 	</div>
-	
+
 	<!-- Next Navigation -->
 	<div class="next-container">
 		<label class="next" for="img-1"></label>
 		<label class="next" for="img-2"></label>
 		<label class="next" for="img-3"></label>
 	</div>
-	
+
 </div>
 ```
 
@@ -88,6 +88,9 @@ $breakpoint-small 		| Set to the desired max-width for smaller screens. Default 
 $fade-time 				| Change to the desired transition time of the fade between images. May be set with ms or s unit. Default `1000ms`.
 $prev-next-fontfamily 	| Set the CSS font-family for prev/next button's icons. Useful if you want to include icons from a font library. Default `sans-serif`.
 $prev-next-icons-size 	| Set the font-size of prev/next button's icons. Default `3vw`.
+$prev-next-icons-color 	| Color of prev/next button's icons.
+$prev-next-bg 			| Background color of prev/next buttons.
+$prev-next-bg-hover 	| Background color of prev/next buttons on hover .
 $prev-icon 				| Icon to use for previous button.
 $next-icon 				| Icon to use for next button.
 $autohide-next-prev 	| Set to `false` if you want the prev/next buttons to be visible all the time. If true, the buttons will be visible on hover over the fadeshow. Default `true`.
