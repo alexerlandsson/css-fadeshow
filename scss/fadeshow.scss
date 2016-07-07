@@ -1,8 +1,8 @@
 /*
- * Name:					CSS Fadeshow (css-fadeshow)
+ * Name:			CSS Fadeshow (css-fadeshow)
  * Description:		Easy to use fadeshow built in CSS only
  * Github URL:		https://github.com/alexerlandsson/css-fadeshow
- * Author:				Alexander Erlandsson (@alexerlandsson)
+ * Author:			Alexander Erlandsson (@alexerlandsson)
  * Author URL:		https://alexerlandsson.com
  */
 
@@ -14,24 +14,24 @@
  * description of what each variable do, visit https://github.com/alexerlandsson/css-fadeshow
  */
 
-$max-slides:							5;
-$prefix:									true;
-$responsive:							true;
-$breakpoint-small:				500px;
-$fade-time:								1;
+$max-slides:				5;
+$prefix:					true;
+$responsive:				true;
+$breakpoint-small:			500px;
+$fade-time:					1;
 $prev-next-fontfamily:		sans-serif;
-$prev-next-icon-size:			3vw;
+$prev-next-icon-size:		3vw;
 $prev-next-icon-color:		rgba(255,255,255,0.5);
-$prev-next-bg:						rgba(255,255,255,0);
-$prev-next-bg-hover:			rgba(255,255,255,0.1);
-$prev-icon:								'❮';
-$next-icon:								'❯';
-$autohide-next-prev:			true;
-$quick-nav-color:					rgba(255,255,255,0.8);
+$prev-next-bg:				rgba(255,255,255,0);
+$prev-next-bg-hover:		rgba(255,255,255,0.1);
+$prev-icon:					'❮';
+$next-icon:					'❯';
+$autohide-next-prev:		true;
+$quick-nav-color:			rgba(255,255,255,0.8);
 $quick-nav-active-color:	coral;
-$fade-color:							#fff;
-$autoplay:								true;
-$autoplay-duration:				5;
+$fade-color:				#fff;
+$autoplay:					true;
+$autoplay-duration:			5;
 
 
 /*
@@ -68,14 +68,14 @@ $autoplay-duration:				5;
 	@if $prefix == true {
 		-webkit-animation: $value;
 	}
-				  animation: $value;
+				animation: $value;
 }
 
 @mixin fadeshow-animation-delay($value) {
 	@if $prefix == true {
 		-webkit-animation-delay: $value;
 	}
-				  animation-delay: $value;
+				animation-delay: $value;
 }
 
 @mixin fadeshow-unselectable() {
