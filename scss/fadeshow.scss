@@ -263,8 +263,8 @@ $autoplay-duration:			5;
 					/* Show slide */
 					~ .fs-slides {
 						.fs-slide {
-							//Cancel autoplay
 							opacity: 0;
+							/* Cancel autoplay */
 							@include fadeshow-animation(none !important);
 						}
 						.fs-slide:nth-child(#{$i}) {
@@ -414,7 +414,7 @@ $autoplay-duration:			5;
 		$total-duration: $autoplay-duration * $i;
 
 		@keyframes quickNavAnimation-#{$i} {
-			0% { @include quickNavBtnInactive();  }
+			0% { @include quickNavBtnInactive(); }
 			#{100% * $fade-time / $total-duration},
 			#{100% * $autoplay-duration / $total-duration} { @include quickNavBtnActive(); }
 			#{100% * ($autoplay-duration + $fade-time) / $total-duration},
@@ -422,7 +422,7 @@ $autoplay-duration:			5;
 		}
 		@if $prefix == true {
 			@-webkit-keyframes quickNavAnimation-#{$i} {
-				0% { @include quickNavBtnInactive();  }
+				0% { @include quickNavBtnInactive(); }
 				#{100% * $fade-time / $total-duration},
 				#{100% * $autoplay-duration / $total-duration} { @include quickNavBtnActive(); }
 				#{100% * ($autoplay-duration + $fade-time) / $total-duration},
