@@ -87,8 +87,8 @@ $prev-next-bg-hover 	| Background color of prev/next buttons on hover .
 $prev-icon 				| Icon to use for previous button.
 $next-icon 				| Icon to use for next button.
 $autohide-next-prev 	| Set to `false` if you want the prev/next buttons to be visible all the time. If true, the buttons will be visible on hover over the fadeshow. Default `true`.
-$quick-nav-color 		| Color of the inactive slides (quick navigation).
-$quick-nav-active-color | Color of the active slide (quick navigation).
+$quick-nav-color 		| Color of the inactive quick navigation buttons
+$quick-nav-active-color | Color of the active quick navigation button
 $fade-color 			| Background color behind the iamges. Will be a part of the transitions between images. Default `#fff`.
 
 ## Browser Compatibility
