@@ -11,7 +11,7 @@ The default markup looks like this:
 <div data-am-fadeshow="next-prev-navigation autoplay">
 
 	<!-- Radio -->
-	<input type="radio" name="css-fadeshow" id="slide-1" checked />
+	<input type="radio" name="css-fadeshow" id="slide-1" />
 	<input type="radio" name="css-fadeshow" id="slide-2" />
 	<input type="radio" name="css-fadeshow" id="slide-3" />
 
