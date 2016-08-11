@@ -41,10 +41,10 @@
  * Do not change anything here or in the imported files unless you know what you are doing.
  */
 
-@import "_mixins";
-@import "_base";
-@import "_prevnextnav";
-@import "_autoplay";
+@import "imports/_mixins";
+@import "imports/_base";
+@import "imports/_prevnextnav";
+@import "imports/_autoplay";
 
 @if $autoplay == true {
 	@include fs-autoplay();
