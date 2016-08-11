@@ -1,0 +1,195 @@
+/*
+ * ===== BASE =====
+ *
+ * Base functionality for the fadeshow.
+ */
+
+[data-am-fadeshow] {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: $fade-color;
+
+	/* Slides */
+	.fs-slide {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		@include fadeshow-transition(opacity #{$fade-time}s linear);
+		/* Display first child on load */
+		&:first-child {
+			opacity: 1;
+		}
+	}
+
+	/* Quick Navigation */
+	.fs-quick-nav {
+		position: absolute;
+		bottom: 15px;
+		left: 50%;
+		z-index: 1;
+		@include fadeshow-unselectable();
+		@include fadeshow-transform(translateX(-50%));
+	}
+	.fs-quick-btn {
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		margin: 0 2px;
+		border-radius: 50%;
+		cursor: pointer;
+		@include fadeshow-transition(opacity 200ms ease);
+		@include quickNavBtnInactive();
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		/* Set active state to first button on load */
+		&:first-child {
+			@include quickNavBtnActive();
+		}
+	}
+
+	/* Prev/Next Navigation */
+	%prev-next {
+		position: absolute;
+		display: none;
+		top: 0;
+		bottom: 0;
+		width: 100px;
+		cursor: pointer;
+		font-family: $prev-next-fontfamily;
+		background-color: $prev-next-bg;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		@include fadeshow-transition(all 200ms ease);
+		@if $responsive == true {
+			@media (max-width: $breakpoint-small) {
+				width: 50%;
+			}
+		}
+		&:before {
+			position: absolute;
+			top: 50%;
+			font-size: $prev-next-icon-size;
+			color: $prev-next-icon-color;
+		}
+		&:hover {
+			background-color: $prev-next-bg-hover;
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					background-color: rgba(255,255,255,0);
+				}
+			}
+		}
+	}
+
+	.fs-prev-btn {
+		@extend %prev-next;
+		left: 0;
+		&:before {
+			content: "#{$prev-icon}";
+			left: 50%;
+			@include fadeshow-transform(translate(-50%, -50%));
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					left: 30px;
+				}
+			}
+		}
+		@if $autohide-next-prev == true {
+			@include fadeshow-transform(translateX(-100%));
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					@include fadeshow-transform(translate(0));
+				}
+			}
+		}
+	}
+
+	.fs-next-btn {
+		@extend %prev-next;
+		right: 0;
+		&:before {
+			content: "#{$next-icon}";
+			right: 50%;
+			@include fadeshow-transform(translate(50%, -50%));
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					right: 30px;
+				}
+			}
+		}
+		@if $autohide-next-prev == true {
+			@include fadeshow-transform(translateX(100%));
+			@if $responsive == true {
+				@media (max-width: $breakpoint-small) {
+					@include fadeshow-transform(translate(0));
+				}
+			}
+		}
+	}
+
+	/* Slide functionality */
+	input[type="radio"] {
+		position: fixed;
+		top: -9999px;
+		&:checked {
+			/* This loop handles the slide switching and quick navigation active state */
+			@for $i from 1 through $max-slides {
+				&:nth-of-type(#{$i}) {
+					/* Show slide */
+					~ .fs-slides {
+						.fs-slide {
+							//Cancel autoplay
+							opacity: 0;
+							@include fadeshow-animation(none !important);
+						}
+						.fs-slide:nth-child(#{$i}) {
+							opacity: 1;
+						}
+					}
+					/* Add active state to dot */
+					~ .fs-quick-nav {
+						.fs-quick-btn {
+							@include quickNavBtnInactive();
+							/* Cancel autoplay */
+							@include fadeshow-animation(none !important);
+						}
+						.fs-quick-btn:nth-child(#{$i}) {
+							background-color: $quick-nav-active-color;
+							&:hover {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+			/* Hide navigation if only one slide */
+			&:first-of-type:last-of-type {
+				~ .fs-quick-nav,
+				~ .fs-prev-nav,
+				~ .fs-next-nav {
+					display: none !important;
+				}
+			}
+
+		}
+	}
+	/* Autohide Prev/Next Navigation */
+	@if $autohide-next-prev == true {
+		&:hover {
+			.fs-prev-btn,
+			.fs-next-btn {
+				@include fadeshow-transform(translateX(0));
+			}
+		}
+	}
+}

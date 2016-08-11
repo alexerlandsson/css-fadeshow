@@ -1,0 +1,61 @@
+/*
+ * ===== MIXINS =====
+ *
+ * This section contains mixin used
+ */
+
+/* Mixins to handle prefixes */
+
+@mixin fadeshow-transition($value...) {
+	@if length($value) < 1 {
+		$value: all 150ms linear;
+	}
+	@if $prefix == true {
+		-webkit-transition: $value;
+	}
+				transition: $value;
+}
+
+@mixin fadeshow-transform($value...) {
+	@if length($value) < 1 {
+		$value: all 150ms linear;
+	}
+	@if $prefix == true {
+		-webkit-transform: $value;
+			-ms-transform: $value;
+	}
+				transform: $value;
+}
+
+@mixin fadeshow-animation($value...) {
+	@if $prefix == true {
+		-webkit-animation: $value;
+	}
+				animation: $value;
+}
+
+@mixin fadeshow-animation-delay($value) {
+	@if $prefix == true {
+		-webkit-animation-delay: $value;
+	}
+				animation-delay: $value;
+}
+
+@mixin fadeshow-unselectable() {
+	@if $prefix == true {
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+		   	-ms-user-select: none;
+	}
+				user-select: none;
+}
+
+/* Mixins to handle Quick Navigation Button states */
+
+@mixin quickNavBtnActive() {
+	background-color: $quick-nav-active-color;
+}
+
+@mixin quickNavBtnInactive() {
+	background-color: $quick-nav-color;
+}

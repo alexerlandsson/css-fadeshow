@@ -1,0 +1,81 @@
+/*
+ * ===== AUTOPLAY =====
+ *
+ * Functions to handle autoplay.
+ * If you're not going to use autoplay, set $autoplay to false.
+ * This part tends to compile into a lot of uneccesary CSS otherwise.
+ */
+
+@mixin fs-autoplay() {
+	@for $i from 2 through $max-slides {
+
+		$total-duration: $autoplay-duration * $i;
+
+		@keyframes quickNavAnimation-#{$i} {
+			0% { @include quickNavBtnInactive();  }
+			#{100% * $fade-time / $total-duration},
+			#{100% * $autoplay-duration / $total-duration} { @include quickNavBtnActive(); }
+			#{100% * ($autoplay-duration + $fade-time) / $total-duration},
+			100% { @include quickNavBtnInactive(); }
+		}
+		@if $prefix == true {
+			@-webkit-keyframes quickNavAnimation-#{$i} {
+				0% { @include quickNavBtnInactive();  }
+				#{100% * $fade-time / $total-duration},
+				#{100% * $autoplay-duration / $total-duration} { @include quickNavBtnActive(); }
+				#{100% * ($autoplay-duration + $fade-time) / $total-duration},
+				100% { @include quickNavBtnInactive(); }
+			}
+		}
+
+		@keyframes slidesAnimation-#{$i} {
+			0% { opacity: 0; }
+			#{100% * $fade-time / $total-duration},
+			#{100% * $autoplay-duration / $total-duration} { opacity: 1; }
+			#{100% * ($autoplay-duration + $fade-time) / $total-duration},
+			100% { opacity: 0; }
+		}
+		@if $prefix == true {
+			@-webkit-keyframes slidesAnimation-#{$i} {
+				0% { opacity: 0; }
+				#{100% * $fade-time / $total-duration},
+				#{100% * $autoplay-duration / $total-duration} { opacity: 1; }
+				#{100% * ($autoplay-duration + $fade-time) / $total-duration},
+				100% { opacity: 0; }
+			}
+		}
+
+		[data-am-fadeshow~="autoplay"] {
+			input[type="radio"]:nth-of-type(#{$i}):last-of-type {
+				/* Slide animation */
+				~ .fs-slides {
+					.fs-slide {
+						@include fadeshow-animation(slidesAnimation-#{$i} #{$total-duration}s infinite);
+					}
+				}
+				/* Quick navigation animation */
+				~ .fs-quick-nav {
+					.fs-quick-btn {
+						@include fadeshow-animation(quickNavAnimation-#{$i} #{$total-duration}s infinite);
+					}
+				}
+				/* Animation Delay */
+				@for $j from 1 through $i {
+					~ .fs-slides .fs-slide:nth-child(#{$j}),
+					~ .fs-quick-nav .fs-quick-btn:nth-child(#{$j}) {
+						$animation-delay: #{($j - 1) * ($autoplay-duration) - $fade-time}s;
+						@include fadeshow-animation-delay(#{$animation-delay});
+					}
+				}
+			}
+
+			/* Hide prev/next navigaiton when auoplay is active */
+			.fs-prev-btn:last-child {
+				display: none;
+			}
+			.fs-next-btn:nth-child(2) {
+				display: none
+			}
+		}
+	}
+}
