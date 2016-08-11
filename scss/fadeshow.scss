@@ -1,9 +1,10 @@
 /*
- * Name:			CSS Fadeshow (css-fadeshow)
- * Description:		Easy to use fadeshow built in CSS only
- * Github URL:		https://github.com/alexerlandsson/css-fadeshow
- * Author:			Alexander Erlandsson (@alexerlandsson)
- * Author URL:		https://alexerlandsson.com
+ * CSS Fadeshow by @alexerlandsson
+ * This is a fadeshow built in CSS and with customization in focus.
+ * Supports quick navigation, prev/next navigation and autoplay.
+ *
+ * For better documentation and implementation guide, check out the GitHub repository:
+ * https://github.com/alexerlandsson/css-fadeshow
  */
 
 
@@ -82,7 +83,7 @@ $autoplay-duration:			5;
 	@if $prefix == true {
 		-webkit-user-select: none;
 		   -moz-user-select: none;
-			-ms-user-select: none;
+		   	-ms-user-select: none;
 	}
 				user-select: none;
 }
@@ -123,8 +124,7 @@ $autoplay-duration:			5;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-		@include fadeshow-transition(opacity #{$fade-time}s ease);
-
+		@include fadeshow-transition(opacity #{$fade-time}s linear);
 		/* Display first child on load */
 		&:first-child {
 			opacity: 1;
@@ -140,7 +140,6 @@ $autoplay-duration:			5;
 		@include fadeshow-unselectable();
 		@include fadeshow-transform(translateX(-50%));
 	}
-
 	.fs-quick-btn {
 		display: inline-block;
 		width: 15px;
@@ -173,20 +172,17 @@ $autoplay-duration:			5;
 		background-color: $prev-next-bg;
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
 		@include fadeshow-transition(all 200ms ease);
-
 		@if $responsive == true {
 			@media (max-width: $breakpoint-small) {
 				width: 50%;
 			}
 		}
-
 		&:before {
 			position: absolute;
 			top: 50%;
 			font-size: $prev-next-icon-size;
 			color: $prev-next-icon-color;
 		}
-
 		&:hover {
 			background-color: $prev-next-bg-hover;
 			@if $responsive == true {
@@ -200,7 +196,6 @@ $autoplay-duration:			5;
 	.fs-prev-btn {
 		@extend %prev-next;
 		left: 0;
-
 		&:before {
 			content: "#{$prev-icon}";
 			left: 50%;
@@ -211,7 +206,6 @@ $autoplay-duration:			5;
 				}
 			}
 		}
-
 		@if $autohide-next-prev == true {
 			@include fadeshow-transform(translateX(-100%));
 			@if $responsive == true {
@@ -225,7 +219,6 @@ $autoplay-duration:			5;
 	.fs-next-btn {
 		@extend %prev-next;
 		right: 0;
-
 		&:before {
 			content: "#{$next-icon}";
 			right: 50%;
@@ -236,7 +229,6 @@ $autoplay-duration:			5;
 				}
 			}
 		}
-
 		@if $autohide-next-prev == true {
 			@include fadeshow-transform(translateX(100%));
 			@if $responsive == true {
@@ -251,27 +243,21 @@ $autoplay-duration:			5;
 	input[type="radio"] {
 		position: fixed;
 		top: -9999px;
-
 		&:checked {
-
 			/* This loop handles the slide switching and quick navigation active state */
-			$i: $max-slides;
-
-			@while $i > 0 {
-
+			@for $i from 1 through $max-slides {
 				&:nth-of-type(#{$i}) {
 					/* Show slide */
 					~ .fs-slides {
 						.fs-slide {
+							//Cancel autoplay
 							opacity: 0;
-							/* Cancel autoplay */
 							@include fadeshow-animation(none !important);
 						}
 						.fs-slide:nth-child(#{$i}) {
 							opacity: 1;
 						}
 					}
-
 					/* Add active state to dot */
 					~ .fs-quick-nav {
 						.fs-quick-btn {
@@ -286,11 +272,8 @@ $autoplay-duration:			5;
 							}
 						}
 					}
-
 				}
-				$i: $i - 1;
 			}
-
 			/* Hide navigation if only one slide */
 			&:first-of-type:last-of-type {
 				~ .fs-quick-nav,
@@ -302,7 +285,6 @@ $autoplay-duration:			5;
 
 		}
 	}
-
 	/* Autohide Prev/Next Navigation */
 	@if $autohide-next-prev == true {
 		&:hover {
@@ -312,7 +294,6 @@ $autoplay-duration:			5;
 			}
 		}
 	}
-
 }
 
 
@@ -324,14 +305,18 @@ $autoplay-duration:			5;
 
 /* Handle Prev/Next buttons */
 [data-am-fadeshow~="next-prev-navigation"] {
+
+	/* Display first pair of Prev/Next Buttons on load */
+	.fs-prev-btn:last-child {
+		display: block;
+	}
+	.fs-next-btn:nth-child(2) {
+		display: block
+	}
+
 	input[type="radio"] {
-
 		&:checked {
-
-			$i: $max-slides;
-
-			@while $i > 0 {
-
+			@for $i from 1 through $max-slides {
 				&:nth-of-type(#{$i}) {
 
 					$prev: ($i - 1);
@@ -348,7 +333,6 @@ $autoplay-duration:			5;
 							}
 						}
 					}
-
 					/* Show next button */
 					@if $next < ($max-slides + 1) {
 						~ .fs-next-nav {
@@ -360,40 +344,32 @@ $autoplay-duration:			5;
 							}
 						}
 					}
-
 					/* Show last prev button if first slide */
 					&:first-of-type {
 						~ .fs-prev-nav {
+							.fs-prev-btn {
+								display: none;
+							}
 							.fs-prev-btn:last-child {
 								display: block;
 							}
 						}
 					}
-
 					/* Show first next button if last slide */
 					&:last-of-type {
 						~ .fs-next-nav {
+							.fs-next-btn {
+								display: none;
+							}
 							.fs-next-btn:first-child {
 								display: block;
 							}
 						}
 					}
-
 				}
-				$i: $i - 1;
 			}
 		}
 	}
-
-	/* Display first pair of Prev/Next Buttons on load */
-	.fs-prev-btn:last-child {
-		display: block;
-	}
-
-	.fs-next-btn:nth-child(2) {
-		display: block
-	}
-
 }
 
 
@@ -406,15 +382,12 @@ $autoplay-duration:			5;
  */
 
 @if $autoplay == true {
-
-	$i: $max-slides;
-
-	@while $i > 1 {
+	@for $i from 2 through $max-slides {
 
 		$total-duration: $autoplay-duration * $i;
 
 		@keyframes quickNavAnimation-#{$i} {
-			0% { @include quickNavBtnInactive(); }
+			0% { @include quickNavBtnInactive();  }
 			#{100% * $fade-time / $total-duration},
 			#{100% * $autoplay-duration / $total-duration} { @include quickNavBtnActive(); }
 			#{100% * ($autoplay-duration + $fade-time) / $total-duration},
@@ -422,7 +395,7 @@ $autoplay-duration:			5;
 		}
 		@if $prefix == true {
 			@-webkit-keyframes quickNavAnimation-#{$i} {
-				0% { @include quickNavBtnInactive(); }
+				0% { @include quickNavBtnInactive();  }
 				#{100% * $fade-time / $total-duration},
 				#{100% * $autoplay-duration / $total-duration} { @include quickNavBtnActive(); }
 				#{100% * ($autoplay-duration + $fade-time) / $total-duration},
@@ -449,21 +422,18 @@ $autoplay-duration:			5;
 
 		[data-am-fadeshow~="autoplay"] {
 			input[type="radio"]:nth-of-type(#{$i}):last-of-type {
-
 				/* Slide animation */
 				~ .fs-slides {
 					.fs-slide {
 						@include fadeshow-animation(slidesAnimation-#{$i} #{$total-duration}s infinite);
 					}
 				}
-
 				/* Quick navigation animation */
 				~ .fs-quick-nav {
 					.fs-quick-btn {
 						@include fadeshow-animation(quickNavAnimation-#{$i} #{$total-duration}s infinite);
 					}
 				}
-
 				/* Animation Delay */
 				@for $j from 1 through $i {
 					~ .fs-slides .fs-slide:nth-child(#{$j}),
@@ -472,9 +442,15 @@ $autoplay-duration:			5;
 						@include fadeshow-animation-delay(#{$animation-delay});
 					}
 				}
-
 			}
-			$i: $i - 1;
+
+			/* Hide prev/next navigaiton when auoplay is active */
+			.fs-prev-btn:last-child {
+				display: none;
+			}
+			.fs-next-btn:nth-child(2) {
+				display: none
+			}
 		}
 	}
 }
