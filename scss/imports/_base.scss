@@ -12,6 +12,10 @@
 	background-color: $fade-color;
 
 	/* Slides */
+	.fs-slides {
+		height: 100%;
+	}
+
 	.fs-slide {
 		position: absolute;
 		top: 0;
