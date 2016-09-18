@@ -72,14 +72,14 @@ Add autoplay to the gallery. Interaction with navigation will result in cancelat
 ### 3. Include the CSS to the HTML
 Add the following line to your HTML file in the head tag:
 ```html
-<link rel="stylesheet" href="YOUR_PATH/fadeshow.min.css">
+<link rel="stylesheet" href="YOUR_PATH/css-fadeshow.min.css">
 ```
 
 ## Customized Installation
 To customize the installation, download the SCSS file (fadeshow.scss) and include in in your project. If you're already using SCSS as preprocessor, include the file in your structure and concatenate into your main CSS file.
 
 ### Options
-The first section of fadeshow.scss contains varaibles which are made to be modified to go with your preferences. DO NOT change anything else in the file than the varibles if you don't know what you are doing.
+The first section of css-fadeshow.scss contains varaibles which are made to be modified to go with your preferences. DO NOT change anything else in the file than the varibles if you don't know what you are doing.
 
 Variable 				| Description
 ----------------------- | -----------------------
@@ -102,10 +102,15 @@ $fade-color 			| Background color behind the images. Will be a part of the trans
 $autoplay 				| Set to `false` if you are not going to use the autoplay function. Default `true`
 $autoplay-duration 		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
 
+## Working in this Repository
+If you want to fork this repository to work on your own modifications, it's easy to get started. The project uses Gulp to compile the SCSS files, so all you have to do is to run `npm install` from Terminal before you start. After all dependencies are installed, use `gulp`, `gulp sass` or `gulp watch` to compile the SCSS.
+
 ## Browser Compatibility
 ![Chrome](https://github.com/alrra/browser-logos/blob/master/chrome/chrome_64x64.png?raw=true) | ![Safari](https://github.com/alrra/browser-logos/blob/master/safari/safari_64x64.png?raw=true) | ![Firefox](https://github.com/alrra/browser-logos/blob/master/firefox/firefox_64x64.png?raw=true) | ![Opera](https://github.com/alrra/browser-logos/blob/master/opera/opera_64x64.png?raw=true) | ![IE](https://github.com/alrra/browser-logos/blob/master/internet-explorer/internet-explorer_64x64.png?raw=true)
 ----|-----|-----|-----|-----|
-<div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">9+</div>
+<div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">9*+</div>
+
+_* Internet Explorer 9 does not support css transitions and css animations. This means there will be no smooth transitions between slides and autoplay function will not work since these functions relies on the two methods._
 
 ## License
 The MIT License (MIT)

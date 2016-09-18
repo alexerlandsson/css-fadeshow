@@ -1,0 +1,31 @@
+{
+  "name": "css-fadeshow",
+  "version": "1.0.0",
+  "description": "Fadeshow made in CSS (SCSS) only.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexerlandsson/css-fadeshow.git"
+  },
+  "keywords": [
+    "Fadeshow",
+    "Slideshow",
+    "CSS",
+    "SCSS"
+  ],
+  "author": "Alexander Erlandsson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexerlandsson/css-fadeshow/issues"
+  },
+  "homepage": "https://github.com/alexerlandsson/css-fadeshow#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2"
+  }
+}
