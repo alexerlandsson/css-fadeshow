@@ -1,6 +1,8 @@
 # CSS Fadeshow
 This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow is built in SCSS which provides customisation and easy adaption to your site. All you have to do is to change the variables in css-slideshow.scss.
 
+**For a stable version, always download from the Release page.**
+
 **Demo: [https://alexerlandsson.com/github/css-fadeshow/](https://alexerlandsson.com/github/css-fadeshow/)**  
 
 ## Quick start
