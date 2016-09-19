@@ -5,6 +5,16 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 
 **Demo: [https://alexerlandsson.com/github/css-fadeshow/](https://alexerlandsson.com/github/css-fadeshow/)**  
 
+## Why use CSS Fadeshow?
+The list of benefits is long. Here are some of them:
+
+- No JavaScript is needed
+- Great browser support
+- Easy to customize
+- Easy to add custom themes
+- Lightweight (2.2KB gzipped, 5 slides and all modifiers included)
+- Modular Addons (Modifiers)
+
 ## Quick start
 ### 1. Create the HTML markup
 The default markup looks like this:
