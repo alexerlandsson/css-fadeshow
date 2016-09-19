@@ -1,7 +1,7 @@
 /*
  * CSS Fadeshow by @alexerlandsson
- * This is a fadeshow built in CSS and with customization in focus.
- * Supports quick navigation, prev/next navigation and autoplay.
+ * This is a fadeshow built in SCSS and with customization in focus.
+ * Supports Quick Navigation, Prev/Next Navigation, Slide Counter and Autoplay.
  *
  * For better documentation and implementation guide, check out the GitHub repository:
  * https://github.com/alexerlandsson/css-fadeshow
@@ -15,37 +15,44 @@
   * description of what each variable do, visit https://github.com/alexerlandsson/css-fadeshow
   */
 
- $max-slides:				5;
- $prefix:					true;
- $responsive:				true;
- $breakpoint-small:			500px;
- $fade-time:				1;
- $prev-next-fontfamily:		sans-serif;
- $prev-next-icon-size:		3vw;
- $prev-next-icon-color:		rgba(255,255,255,0.5);
- $prev-next-bg:				rgba(255,255,255,0);
- $prev-next-bg-hover:		rgba(255,255,255,0.1);
- $prev-icon:				'❮';
- $next-icon:				'❯';
- $autohide-next-prev:		true;
- $quick-nav-color:			rgba(255,255,255,0.8);
- $quick-nav-active-color:	coral;
- $fade-color:				#fff;
- $autoplay:					true;
- $autoplay-duration:		5;
+/* Modifiers to include */
+$fs-include-autoplay:		true;
+$fs-include-prevnextnav:	true;
+$fs-include-quicknav:		true;
+$fs-include-slidecounter:	true;
+
+/* Base Settings */
+$fs-max-slides:				5;
+$fs-fade-time:				1;
+$fs-fade-color:				#fff;
+$fs-prefix:					true;
+$fs-responsive:				true;
+$fs-breakpoint-small:		500px;
+
+/* Autoplay */
+$fs-autoplay-duration:		5;
+
+/* Prev/Next Navigation */
+$fs-autohide-prevnextnav:	false;
 
 
 /*
  * ===== IMPORTS =====
  *
- * Do not change anything here or in the imported files unless you know what you are doing.
+ * Do not change anything here.
+ * All files needs to be included in the right order.
  */
 
 @import "imports/_mixins";
+@import "themes/theme";
 @import "imports/_base";
 @import "imports/_prevnextnav";
+@import "imports/_quicknav";
+@import "imports/_slidecounter";
 @import "imports/_autoplay";
 
-@if $autoplay == true {
-	@include fs-autoplay();
-}
+/* Only include the modifiers being used */
+@if $fs-include-prevnextnav == true { @include fs-prevnextnav(); }
+@if $fs-include-quicknav == true { @include fs-quicknav(); }
+@if $fs-include-slidecounter == true { @include fs-slidecounter(); }
+@if $fs-include-autoplay == true { @include fs-autoplay(); }

@@ -84,10 +84,10 @@ The first section of css-fadeshow.scss contains varaibles which are made to be m
 Variable 				| Description
 ----------------------- | -----------------------
 $max-images 			| Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
-$prefix 				| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
-$responsive 			| Set to `false` if you don't want the slideshow to be responsive. Default `true`.
-$breakpoint-small 		| Set to the desired max-width for smaller screens. Default `500px`.
-$fade-time 				| Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
+$fs-prefix 				| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
+$fs-responsive 			| Set to `false` if you don't want the slideshow to be responsive. Default `true`.
+$fs-breakpoint-small 		| Set to the desired max-width for smaller screens. Default `500px`.
+$fs-fade-time 				| Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
 $prev-next-fontfamily 	| Set the CSS font-family for prev/next button's icons. Useful if you want to include icons from a font library. Default `sans-serif`.
 $prev-next-icons-size 	| Set the font-size of prev/next button's icons. Default `3vw`.
 $prev-next-icons-color 	| Color of prev/next button's icons.
@@ -97,10 +97,10 @@ $prev-icon 				| Icon to use for previous button.
 $next-icon 				| Icon to use for next button.
 $autohide-next-prev 	| Set to `false` if you want the prev/next buttons to be visible all the time. If true, the buttons will be visible on hover over the fadeshow. Default `true`.
 $quick-nav-color 		| Color of the inactive quick navigation buttons
-$quick-nav-active-color | Color of the active quick navigation button
-$fade-color 			| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
+$fs-quicknav-active-color | Color of the active quick navigation button
+$fs-fade-color 			| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
 $autoplay 				| Set to `false` if you are not going to use the autoplay function. Default `true`
-$autoplay-duration 		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
+$fs-autoplay-duration 		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
 
 ## Working in this Repository
 If you want to fork this repository to work on your own modifications, it's easy to get started. The project uses Gulp to compile the SCSS files, so all you have to do is to run `npm install` from Terminal before you start. After all dependencies are installed, use `gulp`, `gulp sass` or `gulp watch` to compile the SCSS.

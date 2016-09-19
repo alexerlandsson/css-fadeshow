@@ -1,0 +1,63 @@
+@mixin fs-theme-prevnextnav() {
+
+	[data-am-fadeshow~="prev-next-nav"] {
+		%prev-next {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 100px;
+			cursor: pointer;
+			background-color: rgba(255,255,255,0);
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			@if $fs-responsive == true {
+				@media (max-width: $fs-breakpoint-small) {
+					width: 50%;
+				}
+			}
+			&:before {
+				position: absolute;
+				top: 50%;
+				font-size: 3vw;
+				color: rgba(255,255,255,0.5);
+			}
+			&:hover {
+				background-color: rgba(255,255,255,0.1);
+				@if $fs-responsive == true {
+					@media (max-width: $fs-breakpoint-small) {
+						background-color: rgba(255,255,255,0);
+					}
+				}
+			}
+		}
+		.fs-prev-btn {
+			@extend %prev-next;
+			left: 0;
+			&:before {
+				content: "❮";
+				left: 50%;
+				@include fs-mixin-transform(translate(-50%, -50%));
+				@if $fs-responsive == true {
+					@media (max-width: $fs-breakpoint-small) {
+						left: 30px;
+					}
+				}
+			}
+
+		}
+		.fs-next-btn {
+			@extend %prev-next;
+			right: 0;
+			&:before {
+				content: "❯";
+				right: 50%;
+				@include fs-mixin-transform(translate(50%, -50%));
+				@if $fs-responsive == true {
+					@media (max-width: $fs-breakpoint-small) {
+						right: 30px;
+					}
+				}
+			}
+		}
+	}
+
+}

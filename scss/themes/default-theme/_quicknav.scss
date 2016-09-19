@@ -1,0 +1,37 @@
+/* Mixin to handle Quick Navigation active state */
+@mixin quickNavBtnActive() {
+	background-color: coral;
+}
+
+/* Mixin to handle Quick Navigation inactive state */
+@mixin quickNavBtnInactive() {
+	background-color: rgba(255,255,255,0.8);
+}
+
+@mixin fs-theme-quicknav() {
+
+	[data-am-fadeshow~="quick-nav"] {
+		.fs-quick-nav {
+			position: absolute;
+			bottom: 15px;
+			left: 50%;
+			z-index: 1;
+			@include fs-mixin-unselectable();
+			@include fs-mixin-transform(translateX(-50%));
+		}
+		.fs-quick-btn {
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			margin: 0 2px;
+			border-radius: 50%;
+			cursor: pointer;
+			@include fs-mixin-transition(opacity 200ms ease);
+			@include quickNavBtnInactive();
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+
+}
