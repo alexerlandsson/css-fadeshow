@@ -18,7 +18,7 @@
 		.fs-slide-counter-total {
 			margin-left: $separator-spacing;
 		}
-		.fs-quick-nav + .fs-slide-counter {
+		.fs-quick-nav ~ .fs-slide-counter {
 			bottom: 40px;
 		}
 	}
