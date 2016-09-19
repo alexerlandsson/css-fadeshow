@@ -55,34 +55,34 @@ The default markup looks like this:
 
 ### 2. Modify the markup
 
-#### Adding Slides, Quick Navigation, Prev/Next Navigation and Slide Counter
+#### 2.1 Add Slides, Quick Navigation, Prev/Next Navigation and Slide Counter
 The fadeshow contains of six sections (radio, slides, quick navigation, prev navigation, next navigation and slide counter). To add a slide, you need to add one if each but slide container (as markup shows above). It is important to keep the same structure and order. The CSS will check for the nth-child inside it's containers, so be sure to not change the class names.
 
-#### Modifiers
+#### 2.2 Select Modifiers
 Modifiers are used to add functions in a modular way. You can choose which modifiers to use or not. All different combinations are possible!
 
-##### quick-nav
+##### 2.2.1 quick-nav
 Quick Navigation is the navigation showed at the bottom. This navigation lets you navigate between any slides instantly. Example:
 
 ```html
 <div data-am-fadeshow="quick-nav"></div>
 ```
 
-##### prev-next-nav
+##### 2.2.2 prev-next-nav
 Decides if the prev/next buttons should be used or not. If set, the buttons will be used. Example:
 
 ```html
 <div data-am-fadeshow="prev-next-nav"></div>
 ```
 
-##### slide-counter
+##### 2.2.3 slide-counter
 This modifier adds a slide counter to the fadeshow. This will be displayed as "1/5" when on the first slide etc. Example:
 
 ```html
 <div data-am-fadeshow="slide-counter"></div>
 ```
 
-##### autoplay
+##### 2.2.4 autoplay
 Add autoplay to the gallery. Interaction with navigation will result in cancelation of autoplay. Autoplay will work on load. When autoplay is active, Prev/Next Navigation and Slide Counter won't be visible. The only way to cancel the autoplay is to use Quick Navigation to navigate to another slide. When the autoplay is canceled, Prev/Next Navigation and Slide Counter will be displayed if added to the fadeshow. Example:
 
 ```html
