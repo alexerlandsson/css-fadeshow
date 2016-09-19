@@ -1,5 +1,5 @@
 # CSS Fadeshow
-This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow is built in SCSS which provides customisation and easy adaption to your site. All you have to do is to change the variables in css-slideshow.scss.
+This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow is built in SCSS which provides customization and easy adaption to your site. All you have to do is to change the variables in css-slideshow.scss.
 
 **For a stable version, always download from the Release page.**
 
@@ -10,7 +10,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 The default markup looks like this:
 
 ```html
-<div data-am-fadeshow="next-prev-navigation autoplay">
+<div data-am-fadeshow="quick-nav prev-next-nav slide-counter autoplay">
 
 	<!-- Radio -->
 	<input type="radio" name="css-fadeshow" id="slide-1" />
@@ -45,25 +45,45 @@ The default markup looks like this:
 		<label class="fs-next-btn" for="slide-3"></label>
 	</div>
 
+	<!-- Slide Counter (only one required) -->
+	<div class="fs-slide-counter">
+		<span class="fs-slide-counter-current"></span>/<span class="fs-slide-counter-total"></span>
+	</div>
+
 </div>
 ```
 
 ### 2. Modify the markup
 
-#### Adding images, navigation dots and prev/next navigation
-The fadeshow contains of five sections (radio, slides, quick navigation, prev navigation and next navigation). To add a slide, you need to add one if each (as markup shows above). It is important to keep the same structure and order. The CSS will check for the nth-child inside it's containers, so be sure to not change the class names.
+#### Adding Slides, Quick Navigation, Prev/Next Navigation and Slide Counter
+The fadeshow contains of six sections (radio, slides, quick navigation, prev navigation, next navigation and slide counter). To add a slide, you need to add one if each but slide container (as markup shows above). It is important to keep the same structure and order. The CSS will check for the nth-child inside it's containers, so be sure to not change the class names.
 
 #### Modifiers
+Modifiers are used to add functions in a modular way. You can choose which modifiers to use or not. All different combinations are possible!
 
-##### next-prev-navigation
+##### quick-nav
+Quick Navigation is the navigation showed at the bottom. This navigation lets you navigate between any slides instantly. Example:
+
+```html
+<div data-am-fadeshow="quick-nav"></div>
+```
+
+##### prev-next-nav
 Decides if the prev/next buttons should be used or not. If set, the buttons will be used. Example:
 
 ```html
-<div data-am-fadeshow="next-prev-navigation"></div>
+<div data-am-fadeshow="prev-next-nav"></div>
+```
+
+##### slide-counter
+This modifier adds a slide counter to the fadeshow. This will be displayed as "1/5" when on the first slide etc. Example:
+
+```html
+<div data-am-fadeshow="slide-counter"></div>
 ```
 
 ##### autoplay
-Add autoplay to the gallery. Interaction with navigation will result in cancelation of autoplay. Example:
+Add autoplay to the gallery. Interaction with navigation will result in cancelation of autoplay. Autoplay will work on load. When autoplay is active, Prev/Next Navigation and Slide Counter won't be visible. The only way to cancel the autoplay is to use Quick Navigation to navigate to another slide. When the autoplay is canceled, Prev/Next Navigation and Slide Counter will be displayed if added to the fadeshow. Example:
 
 ```html
 <div data-am-fadeshow="autoplay"></div>
@@ -76,31 +96,32 @@ Add the following line to your HTML file in the head tag:
 ```
 
 ## Customized Installation
-To customize the installation, download the SCSS file (fadeshow.scss) and include in in your project. If you're already using SCSS as preprocessor, include the file in your structure and concatenate into your main CSS file.
+To customize the installation, download the folder named `scss` and include the file css-fadeshow.scss in your project. This way of implementation is highly recommended due to the possibility to customize the output. SCSS is required when using the fadeshow in this way.
 
 ### Options
-The first section of css-fadeshow.scss contains varaibles which are made to be modified to go with your preferences. DO NOT change anything else in the file than the varibles if you don't know what you are doing.
+The first section of css-fadeshow.scss contains variables which are made to be modified to go with your preferences. DO NOT change anything else in the file than the variables if you don't know what you are doing.
 
-Variable 				| Description
------------------------ | -----------------------
-$max-images 			| Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
-$fs-prefix 				| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
-$fs-responsive 			| Set to `false` if you don't want the slideshow to be responsive. Default `true`.
-$fs-breakpoint-small 		| Set to the desired max-width for smaller screens. Default `500px`.
-$fs-fade-time 				| Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
-$prev-next-fontfamily 	| Set the CSS font-family for prev/next button's icons. Useful if you want to include icons from a font library. Default `sans-serif`.
-$prev-next-icons-size 	| Set the font-size of prev/next button's icons. Default `3vw`.
-$prev-next-icons-color 	| Color of prev/next button's icons.
-$prev-next-bg 			| Background color of prev/next buttons.
-$prev-next-bg-hover 	| Background color of prev/next buttons on hover .
-$prev-icon 				| Icon to use for previous button.
-$next-icon 				| Icon to use for next button.
-$autohide-next-prev 	| Set to `false` if you want the prev/next buttons to be visible all the time. If true, the buttons will be visible on hover over the fadeshow. Default `true`.
-$quick-nav-color 		| Color of the inactive quick navigation buttons
-$fs-quicknav-active-color | Color of the active quick navigation button
-$fs-fade-color 			| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
-$autoplay 				| Set to `false` if you are not going to use the autoplay function. Default `true`
-$fs-autoplay-duration 		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
+The first variables are labeled "Modifiers to include". These defines which modifiers you want to use in your implementation. If you're planning to not use some of the modifiers – set these to false. This will result in a smaller CSS. The same goes for number of slides – the more slides you want to have, the larger the CSS file will be.
+
+Variable 					| Description
+----------------------------| ----------------------------
+$fs-include-autoplay		| Whether to include Autoplay or not. Default `true`.
+$fs-include-prevnextnav		| Whether to include Prev/Next Navigation or not. Default `true`.
+$fs-include-quicknav		| Whether to include Quick Navigation or not. Default `true`.
+$fs-include-slidecounter	| Whether to include Slide Counter or not. Default `true`.
+$fs-max-slides				| Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
+$fs-fade-time				| Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
+$fs-fade-color				| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
+$fs-prefix					| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
+$fs-responsive				| Set to `false` if you don't want the slideshow to be responsive. Default `true`.
+$fs-breakpoint-small		| Set to the desired max-width for smaller screens. Default `500px`.
+$fs-autoplay-duration		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
+$fs-autohide-prevnextnav	| Set to `true` if you want the prev/next buttons to automatically be hidden. Default `false`.
+
+### Custom Theme
+The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in /scss/themes. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in theme.scss.
+
+**Important: Do not change name or remove any of the mixins used in the theme template. These are required.**
 
 ## Working in this Repository
 If you want to fork this repository to work on your own modifications, it's easy to get started. The project uses Gulp to compile the SCSS files, so all you have to do is to run `npm install` from Terminal before you start. After all dependencies are installed, use `gulp`, `gulp sass` or `gulp watch` to compile the SCSS.
