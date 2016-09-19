@@ -6,9 +6,8 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 **Demo: [https://alexerlandsson.com/github/css-fadeshow/](https://alexerlandsson.com/github/css-fadeshow/)**  
 
 ## Why use CSS Fadeshow?
-The list of benefits is long. Here are some of them:
 
-- No JavaScript is needed
+- No JavaScript is needed (HTML and CSS only)
 - Great browser support
 - Easy to customize
 - Easy to add custom themes
