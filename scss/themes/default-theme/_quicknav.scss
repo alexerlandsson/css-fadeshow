@@ -1,11 +1,13 @@
 /* Mixin to handle Quick Navigation active state */
 @mixin quickNavBtnActive() {
 	background-color: coral;
+	width: 40px;
 }
 
 /* Mixin to handle Quick Navigation inactive state */
 @mixin quickNavBtnInactive() {
 	background-color: rgba(255,255,255,0.8);
+	width: 20px;
 }
 
 @mixin fs-theme-quicknav() {
@@ -21,12 +23,11 @@
 		}
 		.fs-quick-btn {
 			display: inline-block;
-			width: 15px;
-			height: 15px;
+			height: 10px;
 			margin: 0 2px;
-			border-radius: 50%;
+			border-radius: 5px;
 			cursor: pointer;
-			@include fs-mixin-transition(opacity 200ms ease);
+			@include fs-mixin-transition(all 200ms ease);
 			@include quickNavBtnInactive();
 			&:hover {
 				opacity: 0.8;
