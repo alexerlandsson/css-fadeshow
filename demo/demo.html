@@ -14,10 +14,14 @@
 	<link rel="stylesheet" href="../css/css-fadeshow.min.css">
 
 	<style>
+		html {
+			font-size: 100%;
+		}
 		body {
 			margin: 0;
 			font-family: 'Helvetica Neue', sans-serif;
 			color: #666;
+			font-size: 1rem;
 		}
 		.container {
 			width: 100vw;
@@ -26,6 +30,32 @@
 			top: 0;
 			left: 0;
 		}
+		.slide-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			color: white;
+			text-align: center;
+			text-shadow: 0 0 20px rgba(0,0,0,0.5);
+			z-index: 1;
+			-webkit-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+					transform: translate(-50%, -50%);
+		}
+		.slide-content p {
+			font-size: calc(1rem + 10 * (100vw - 375px)/ (1199 - 375));
+			font-weight: 100;
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+		h1,
+		h2 {
+			margin-top: 0;
+
+			font-size: calc(2rem + 28 * (100vw - 375px)/ (1199 - 375));
+			margin-bottom: 0.2em;
+			font-weight: bold;
+		}
 		a {
 			color: inherit;
 			text-decoration: none;
@@ -33,6 +63,15 @@
 		}
 		a:hover {
 			color: black;
+		}
+		@media (min-width: 1200px) {
+			h1,
+			h2 {
+				font-size: 60px;
+			}
+			.slide-content p {
+				font-size: 26px;
+			}
 		}
 	</style>
 
@@ -53,10 +92,10 @@
 			<!-- Slides -->
 			<div class="fs-slides">
 				<div class="fs-slide" style="background-image: url(https://images.unsplash.com/photo-1460500063983-994d4c27756c?crop=entropy&fit=crop&fm=jpg&h=1325&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2550);">
-					<!-- You can add content to slides (sample) -->
-					<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); color: white; font-family: sans-serif; text-align: center; text-shadow: 0 0 20px rgba(0,0,0,0.5);">
-						<h1 style="margin-top: 0; margin-bottom: 0.8vw; font-size: 5vw; font-weight: bold;">CSS Fadeshow</h1>
-						<p style="font-size: 2vw; font-weight: 100; margin-top: 0;">Easy to implement and use on <strong>your</strong> site!</p>
+					<!-- You can add content to slides (class names are not bound to CSS Fadeshow) -->
+					<div class="slide-content">
+						<h1>CSS Fadeshow</h1>
+						<p>Easy to implement and use on <strong>your</strong> site!</p>
 					</div>
 				</div>
 				<div class="fs-slide" style="background-image: url(https://images.unsplash.com/photo-1440557653082-e8e186733eeb?crop=entropy&fit=crop&fm=jpg&h=1325&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2500);"></div>
