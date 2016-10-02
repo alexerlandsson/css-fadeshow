@@ -9,7 +9,6 @@
 		.fs-prev-btn,
 		.fs-next-btn {
 			display: none;
-			@include fs-mixin-transition(all 200ms ease);
 		}
 
 		/* Display first pair of Prev/Next Buttons on load */
