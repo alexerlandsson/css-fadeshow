@@ -19,28 +19,6 @@
 		.fs-next-btn:nth-child(2) {
 			display: block
 		}
-
-		/* Autohide Prev/Next Navigation */
-		@if $fs-autohide-prevnextnav == true {
-			&:hover {
-				.fs-prev-btn,
-				.fs-next-btn {
-					@include fs-mixin-transform(translateX(0));
-				}
-			}
-			.fs-prev-btn {
-				@include fs-mixin-transform(translateX(-100%));
-				@media (max-width: $fs-breakpoint-small) {
-					@include fs-mixin-transform(translate(0));
-				}
-			}
-			.fs-next-btn {
-				@include fs-mixin-transform(translateX(100%));
-				@media (max-width: $fs-breakpoint-small) {
-					@include fs-mixin-transform(translate(0));
-				}
-			}
-		}
 	}
 
 }

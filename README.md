@@ -124,7 +124,6 @@ $fs-fade-color				| Background color behind the images. Will be a part of the tr
 $fs-prefix					| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
 $fs-breakpoint-small		| Set to the desired max-width for smaller screens. Default `500px`.
 $fs-autoplay-duration		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
-$fs-autohide-prevnextnav	| Set to `true` if you want the prev/next buttons to automatically be hidden. Default `false`.
 
 ### Custom Theme
 The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in /scss/themes. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in theme.scss.
