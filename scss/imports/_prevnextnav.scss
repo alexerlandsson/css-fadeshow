@@ -30,18 +30,14 @@
 			}
 			.fs-prev-btn {
 				@include fs-mixin-transform(translateX(-100%));
-				@if $fs-responsive == true {
-					@media (max-width: $fs-breakpoint-small) {
-						@include fs-mixin-transform(translate(0));
-					}
+				@media (max-width: $fs-breakpoint-small) {
+					@include fs-mixin-transform(translate(0));
 				}
 			}
 			.fs-next-btn {
 				@include fs-mixin-transform(translateX(100%));
-				@if $fs-responsive == true {
-					@media (max-width: $fs-breakpoint-small) {
-						@include fs-mixin-transform(translate(0));
-					}
+				@media (max-width: $fs-breakpoint-small) {
+					@include fs-mixin-transform(translate(0));
 				}
 			}
 		}

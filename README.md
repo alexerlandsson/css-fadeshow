@@ -122,7 +122,6 @@ $fs-max-slides				| Defines the maximum of images allowed. There is no technical
 $fs-fade-time				| Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
 $fs-fade-color				| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
 $fs-prefix					| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
-$fs-responsive				| Set to `false` if you don't want the slideshow to be responsive. Default `true`.
 $fs-breakpoint-small		| Set to the desired max-width for smaller screens. Default `500px`.
 $fs-autoplay-duration		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
 $fs-autohide-prevnextnav	| Set to `true` if you want the prev/next buttons to automatically be hidden. Default `false`.

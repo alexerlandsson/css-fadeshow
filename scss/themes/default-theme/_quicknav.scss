@@ -17,6 +17,7 @@
 			position: absolute;
 			bottom: 15px;
 			left: 50%;
+			white-space: nowrap;
 			z-index: 1;
 			@include fs-mixin-unselectable();
 			@include fs-mixin-transform(translateX(-50%));
