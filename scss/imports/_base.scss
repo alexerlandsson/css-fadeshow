@@ -29,6 +29,7 @@
 	input[type="radio"] {
 		position: fixed;
 		top: -9999px;
+		visibility: hidden;
 		&:checked {
 			/* Main loop */
 			@for $i from 1 through $fs-max-slides {
