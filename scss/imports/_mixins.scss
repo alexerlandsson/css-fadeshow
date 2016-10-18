@@ -45,3 +45,14 @@
 	}
 				user-select: none;
 }
+
+@mixin fs-mixin-keyframes($animation-name) {
+	@if $fs-prefix == true {
+		@-webkit-keyframes #{$animation-name} {
+			@content;
+		}
+	}
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
