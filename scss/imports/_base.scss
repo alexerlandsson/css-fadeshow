@@ -11,17 +11,21 @@
 	background-color: $fs-fade-color;
 
 	/* Slides */
-	.fs-slide {
+	.fs-slide,
+	.fs-slide-bg {
 		position: absolute;
 		top: 0;
-		bottom: 0;
 		left: 0;
-		right: 0;
-		opacity: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.fs-slide {
+		@include fs-mixin-slideInactive();
 		@include fs-mixin-transition(opacity #{$fs-fade-time}s linear);
 		/* Display first child on load */
 		&:first-child {
-			opacity: 1;
+			@include fs-mixin-slideActive();
 		}
 	}
 
@@ -37,14 +41,19 @@
 					/* Show slide */
 					~ .fs-slides {
 						.fs-slide {
-							opacity: 0;
+							@include fs-mixin-slideInactive();
 							@if $fs-include-autoplay == true {
 								/* Cancel autoplay */
-								@include fadeshow-animation(none !important);
+								@include fs-mixin-animation(none !important);
+								.fs-slide-bg {
+									@if $fs-include-kenburns {
+										@include fs-mixin-animation(none !important);
+									}
+								}
 							}
 						}
 						.fs-slide:nth-child(#{$i}) {
-							opacity: 1;
+							@include fs-mixin-slideActive();
 						}
 					}
 					/* Prev/Next Navigation */
@@ -104,7 +113,7 @@
 								@include quickNavBtnInactive();
 								@if $fs-include-autoplay == true {
 									/* Cancel autoplay */
-									@include fadeshow-animation(none !important);
+									@include fs-mixin-animation(none !important);
 								}
 							}
 							.fs-quick-btn:nth-child(#{$i}) {
@@ -122,6 +131,21 @@
 							.fs-slide-counter-current {
 								&:before {
 									content: "#{$i}";
+								}
+							}
+						}
+					}
+					/* Ken Burns */
+					@if $fs-include-kenburns == true {
+						~ .fs-slides {
+							.fs-slide {
+								.fs-slide-bg {
+									@include fs-mixin-transform(none);
+								}
+							}
+							.fs-slide:nth-child(#{$i}) {
+								.fs-slide-bg {
+									@include fs-mixin-transform(scale($fs-kenburns-scale));
 								}
 							}
 						}

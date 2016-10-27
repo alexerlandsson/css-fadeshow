@@ -2,6 +2,18 @@
  * ===== MIXINS =====
  */
 
+/* Fadeshow Core */
+
+@mixin fs-mixin-slideActive() {
+	opacity: 1;
+}
+
+@mixin fs-mixin-slideInactive() {
+	opacity: 0;
+}
+
+/* Prefixes */
+
 @mixin fs-mixin-transition($value...) {
 	@if length($value) < 1 {
 		$value: all 150ms linear;
@@ -23,7 +35,7 @@
 				transform: $value;
 }
 
-@mixin fadeshow-animation($value...) {
+@mixin fs-mixin-animation($value...) {
 	@if $fs-prefix == true {
 		-webkit-animation: $value;
 	}
@@ -45,6 +57,8 @@
 	}
 				user-select: none;
 }
+
+/* Keyframes */
 
 @mixin fs-mixin-keyframes($animation-name) {
 	@if $fs-prefix == true {

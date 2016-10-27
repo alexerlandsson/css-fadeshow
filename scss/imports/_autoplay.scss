@@ -10,11 +10,11 @@
 
 		/* Slide Autoplay */
 		@include fs-mixin-keyframes(slidesAnimation-#{$i}) {
-			0% { opacity: 0; }
+			0% { @include fs-mixin-slideInactive(); }
 			#{100% * $fs-fade-time / $total-duration},
-			#{100% * $fs-autoplay-duration / $total-duration} { opacity: 1; }
+			#{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-slideActive(); }
 			#{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-			100% { opacity: 0; }
+			100% { @include fs-mixin-slideInactive(); }
 		}
 
 		/* Quick Navigation Autoplay */
@@ -28,19 +28,42 @@
 			}
 		}
 
+		/* Ken Burns Autoplay */
+		@if $fs-include-kenburns == true {
+			@include fs-mixin-keyframes(kenBurnsAutoplay-#{$i}) {
+				0% {
+					@include fs-mixin-transform(none);
+				}
+				#{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
+				100% {
+					@include fs-mixin-transform(scale(#{$fs-kenburns-scale}));
+				}
+			}
+		}
+
 		[data-am-fadeshow~="autoplay"] {
 			input[type="radio"]:nth-of-type(#{$i}):last-of-type {
 				/* Slide animation */
 				~ .fs-slides {
 					.fs-slide {
-						@include fadeshow-animation(slidesAnimation-#{$i} #{$total-duration}s infinite);
+						@include fs-mixin-animation(slidesAnimation-#{$i} #{$total-duration}s infinite);
 					}
 				}
 				/* Quick navigation animation */
 				@if $fs-include-quicknav == true {
 					~ .fs-quick-nav {
 						.fs-quick-btn {
-							@include fadeshow-animation(quickNavAnimation-#{$i} #{$total-duration}s infinite);
+							@include fs-mixin-animation(quickNavAnimation-#{$i} #{$total-duration}s infinite);
+						}
+					}
+				}
+				/* Ken Burns Autoplay */
+				@if $fs-include-kenburns == true {
+					~ .fs-slides {
+						.fs-slide {
+							.fs-slide-bg {
+								@include fs-mixin-animation(kenBurnsAutoplay-#{$i} #{$total-duration}s infinite);
+							}
 						}
 					}
 				}
@@ -52,6 +75,11 @@
 					}
 					@if $fs-include-quicknav == true {
 						~ .fs-quick-nav .fs-quick-btn:nth-child(#{$j}) {
+							@include fs-mixin-animation-delay(#{$animation-delay});
+						}
+					}
+					@if $fs-include-kenburns == true {
+						~ .fs-slides .fs-slide:nth-child(#{$j}) .fs-slide-bg {
 							@include fs-mixin-animation-delay(#{$animation-delay});
 						}
 					}

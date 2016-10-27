@@ -20,6 +20,7 @@ $fs-include-autoplay:		true;
 $fs-include-prevnextnav:	true;
 $fs-include-quicknav:		true;
 $fs-include-slidecounter:	true;
+$fs-include-kenburns:		true;
 
 /* Base Settings */
 $fs-max-slides:				5;
@@ -30,6 +31,10 @@ $fs-breakpoint-small:		500px;
 
 /* Autoplay */
 $fs-autoplay-duration:		5;
+
+/* Ken Burns */
+$fs-kenburns-duration:		5;
+$fs-kenburns-scale:			1.05;
 
 
 /*
@@ -42,12 +47,14 @@ $fs-autoplay-duration:		5;
 @import "imports/_mixins";
 @import "themes/theme";
 @import "imports/_base";
+@import "imports/_kenburns";
 @import "imports/_prevnextnav";
 @import "imports/_quicknav";
 @import "imports/_slidecounter";
 @import "imports/_autoplay";
 
 /* Only include the modifiers being used */
+@if $fs-include-kenburns == true { @include fs-kenburns(); }
 @if $fs-include-prevnextnav == true { @include fs-prevnextnav(); }
 @if $fs-include-quicknav == true { @include fs-quicknav(); }
 @if $fs-include-slidecounter == true { @include fs-slidecounter(); }
