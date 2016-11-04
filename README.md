@@ -119,7 +119,7 @@ Add the following line to your HTML file in the head tag:
 To customize the installation, download the folder named `scss` and include the file css-fadeshow.scss in your project. This way of implementation is highly recommended due to the possibility to customize the output. SCSS is required when using the fadeshow in this way.
 
 ### Options
-The first section of css-fadeshow.scss contains variables which are made to be modified to go with your preferences. DO NOT change anything else in the file than the variables if you don't know what you are doing.
+The first section of css-fadeshow.scss contains variables which are made to be modified to go with your preferences. __DO NOT__ change anything else in the file than the variables if you don't know what you are doing.
 
 The first variables are labeled "Modifiers to include". These defines which modifiers you want to use in your implementation. If you're planning to not use some of the modifiers – set these to false. This will result in a smaller CSS. The same goes for number of slides – the more slides you want to have, the larger the CSS file will be.
 
@@ -140,7 +140,7 @@ $fs-kenburns-duration		| Set the duration of Ken Burns effect. Value counts in s
 $fs-kenburns-scale			| Set the zoom of Ken Burns effect. Value set in decimal. Default `1.05` (5%).
 
 ### Custom Theme
-The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in /scss/themes. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in theme.scss.
+The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in `/scss/themes`. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in `theme.scss`.
 
 **Important: Do not change name or remove any of the mixins used in the theme template. These are required.**
 
