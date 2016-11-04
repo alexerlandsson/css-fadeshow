@@ -30,12 +30,15 @@ The default markup looks like this:
 	<div class="fs-slides">
 		<div class="fs-slide">
 			<div class="fs-slide-bg" style="background-image: url();"></div>
+			<!-- Other content goes here... -->
 		</div>
 		<div class="fs-slide">
 			<div class="fs-slide-bg" style="background-image: url();"></div>
+			<!-- Other content goes here... -->
 		</div>
 		<div class="fs-slide">
 			<div class="fs-slide-bg" style="background-image: url();"></div>
+			<!-- Other content goes here... -->
 		</div>
 	</div>
 
@@ -134,7 +137,7 @@ $fs-prefix					| Set to `false` if you don't want the compiled CSS to include pr
 $fs-breakpoint-small		| Set to the desired max-width for smaller screens. Default `500px`.
 $fs-autoplay-duration		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
 $fs-kenburns-duration		| Set the duration of Ken Burns effect. Value counts in seconds. Default `5`.
-$fs-kenburns-scale			| Set the zoom of Ken Burns effect. Default `1.05` (5% zoom).
+$fs-kenburns-scale			| Set the zoom of Ken Burns effect. Value set in decimal. Default `1.05` (5%).
 
 ### Custom Theme
 The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in /scss/themes. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in theme.scss.
