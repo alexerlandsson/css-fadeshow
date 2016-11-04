@@ -116,10 +116,10 @@ Add the following line to your HTML file in the head tag:
 ```
 
 ## Customized Installation
-To customize the installation, download the folder named `scss` and include the file css-fadeshow.scss in your project. This way of implementation is highly recommended due to the possibility to customize the output. SCSS is required when using the fadeshow in this way.
+To customize the installation, download the folder named `scss` and include the file `css-fadeshow.scss` in your project. This way of implementation is highly recommended due to the possibility to customize the output. SCSS is required when using the fadeshow in this way.
 
 ### Options
-The first section of css-fadeshow.scss contains variables which are made to be modified to go with your preferences. __DO NOT__ change anything else in the file than the variables if you don't know what you are doing.
+The first section of `css-fadeshow.scss` contains variables which are made to be modified to go with your preferences. __DO NOT__ change anything else in the file than the variables if you don't know what you are doing.
 
 The first variables are labeled "Modifiers to include". These defines which modifiers you want to use in your implementation. If you're planning to not use some of the modifiers – set these to false. This will result in a smaller CSS. The same goes for number of slides – the more slides you want to have, the larger the CSS file will be.
 
