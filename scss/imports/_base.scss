@@ -45,8 +45,8 @@
 							@if $fs-include-autoplay == true {
 								/* Cancel autoplay */
 								@include fs-mixin-animation(none !important);
-								.fs-slide-bg {
-									@if $fs-include-kenburns {
+								@if $fs-include-kenburns == true {
+									.fs-slide-bg {
 										@include fs-mixin-animation(none !important);
 									}
 								}

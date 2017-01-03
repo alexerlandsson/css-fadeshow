@@ -71,19 +71,21 @@
 				}
 			}
 			/* Ken Burns Autoplay */
-			&[data-am-fadeshow~="ken-burns"] {
-				input[type="radio"]:nth-of-type(#{$i}):last-of-type {
-					~ .fs-slides {
-						.fs-slide {
-							.fs-slide-bg {
-								@include fs-mixin-animation(kenBurnsAutoplay-#{$i} #{$total-duration}s infinite);
+			@if $fs-include-kenburns == true {
+				&[data-am-fadeshow~="ken-burns"] {
+					input[type="radio"]:nth-of-type(#{$i}):last-of-type {
+						~ .fs-slides {
+							.fs-slide {
+								.fs-slide-bg {
+									@include fs-mixin-animation(kenBurnsAutoplay-#{$i} #{$total-duration}s infinite);
+								}
 							}
 						}
-					}
-					@for $j from 1 through $i {
-						$animation-delay: #{($j - 1) * ($fs-autoplay-duration) - $fs-fade-time}s;
-						~ .fs-slides .fs-slide:nth-child(#{$j}) .fs-slide-bg {
-							@include fs-mixin-animation-delay(#{$animation-delay});
+						@for $j from 1 through $i {
+							$animation-delay: #{($j - 1) * ($fs-autoplay-duration) - $fs-fade-time}s;
+							~ .fs-slides .fs-slide:nth-child(#{$j}) .fs-slide-bg {
+								@include fs-mixin-animation-delay(#{$animation-delay});
+							}
 						}
 					}
 				}
