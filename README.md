@@ -19,7 +19,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 The default markup looks like this:
 
 ```html
-<div data-am-fadeshow="quick-nav prev-next-nav slide-counter autoplay">
+<div data-am-fadeshow="quick-nav prev-next-nav slide-counter autoplay ken-burns">
 
 	<!-- Radio -->
 	<input type="radio" name="css-fadeshow" id="slide-1" />
