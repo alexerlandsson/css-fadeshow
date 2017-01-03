@@ -6,10 +6,12 @@
 
 @mixin fs-mixin-slideActive() {
 	opacity: 1;
+	z-index: 1;
 }
 
 @mixin fs-mixin-slideInactive() {
 	opacity: 0;
+	z-index: auto;
 }
 
 /* Prefixes */

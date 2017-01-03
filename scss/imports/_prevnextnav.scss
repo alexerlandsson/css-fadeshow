@@ -9,6 +9,7 @@
 		.fs-prev-btn,
 		.fs-next-btn {
 			display: none;
+			z-index: 2;
 		}
 
 		/* Display first pair of Prev/Next Buttons on load */
@@ -18,7 +19,7 @@
 		.fs-next-btn:nth-child(2) {
 			display: block
 		}
-		
+
 	}
 
 }

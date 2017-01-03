@@ -135,21 +135,6 @@
 							}
 						}
 					}
-					/* Ken Burns */
-					@if $fs-include-kenburns == true {
-						~ .fs-slides {
-							.fs-slide {
-								.fs-slide-bg {
-									@include fs-mixin-transform(none);
-								}
-							}
-							.fs-slide:nth-child(#{$i}) {
-								.fs-slide-bg {
-									@include fs-mixin-transform(scale($fs-kenburns-scale));
-								}
-							}
-						}
-					}
 				}
 			}
 			/* Hide navigation if only one slide */
