@@ -1,0 +1,52 @@
+@mixin fs-theme-prevnextnav {
+
+  [data-am-fadeshow~='prev-next-nav'] {
+    %prev-next {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0);
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      @media (max-width: $fs-breakpoint-small) {
+        width: 50%;
+      }
+
+      &:before {
+        @include fs-mixin-unselectable;
+        position: absolute;
+        top: 50%;
+        width: 30px;
+      }
+    }
+
+    .fs-prev-btn {
+      @extend %prev-next;
+      left: 0;
+
+      &:before {
+        @include fs-mixin-transform(translate(-50%, -50%));
+        content: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9ImktY2hldnJvbi1sZWZ0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO308L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMCwzMEw4LDE2TDIwLDIiLz48L3N2Zz4=');
+        left: 50%;
+        @media (max-width: $fs-breakpoint-small) {
+          left: 30px;
+        }
+      }
+    }
+
+    .fs-next-btn {
+      @extend %prev-next;
+      right: 0;
+
+      &:before {
+        @include fs-mixin-transform(translate(50%, -50%));
+        content: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9ImktY2hldnJvbi1yaWdodCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzMiAzMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzIgMzI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIsMzBsMTItMTRMMTIsMiIvPjwvc3ZnPg==');
+        right: 50%;
+        @media (max-width: $fs-breakpoint-small) {
+          right: 30px;
+        }
+      }
+    }
+  }
+}

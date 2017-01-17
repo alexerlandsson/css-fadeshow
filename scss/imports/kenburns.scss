@@ -1,0 +1,34 @@
+// ===== KEN BURNS =====
+
+@mixin fs-kenburns {
+
+  [data-am-fadeshow~='ken-burns'] {
+    .fs-slide-bg {
+      @include fs-mixin-transition(transform #{$fs-kenburns-duration}s ease);
+      transition-delay: #{$fs-fade-time}s;
+    }
+
+    input[type='radio'] {
+      &:checked {
+        // Hook on to main loop
+        @for $i from 1 through $fs-max-slides {
+          &:nth-of-type(#{$i}) {
+            ~ .fs-slides {
+              .fs-slide {
+                .fs-slide-bg {
+                  @include fs-mixin-transform(none);
+                }
+              }
+
+              .fs-slide:nth-child(#{$i}) {
+                .fs-slide-bg {
+                  @include fs-mixin-transform(scale($fs-kenburns-scale));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

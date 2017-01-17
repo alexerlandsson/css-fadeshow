@@ -1,0 +1,14 @@
+[data-am-fadeshow] {
+  width: 100%;
+  height: 100%;
+
+  .fs-slides {
+    height: 100%;
+  }
+
+  .fs-slide-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

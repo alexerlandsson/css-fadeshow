@@ -1,20 +1,19 @@
-/*
- * ===== THEME =====
- *
- * This file only handles the theme of CSS Fadeshow.
- *
- * To create you own theme, use /theme-template as boilerplate for your theme's CSS.
- * When you're done, optionally name the folder to your theme's name, and then change
- * the @import path below to your theme's name.
- */
+// ===== THEME =====
 
-/* Import theme files */
-@import "default-theme/_base.scss";
-@import "default-theme/_prevnextnav.scss";
-@import "default-theme/_quicknav.scss";
-@import "default-theme/_slidecounter.scss";
+// This file only handles the theme of CSS Fadeshow.
+// To create you own theme, use /theme-template as boilerplate for your theme's CSS.
+// When you're done, optionally name the folder to your theme's name, and then change
+// the $theme-name variable below to your theme's name.
 
-/* Only include the modifiers being used */
-@if $fs-include-prevnextnav == true { @include fs-theme-prevnextnav(); }
-@if $fs-include-quicknav == true { @include fs-theme-quicknav(); }
-@if $fs-include-slidecounter == true { @include fs-theme-slidecounter(); }
+$theme-name: 'default-theme';
+
+// Import theme files
+@import '#{$theme-name}/base';
+@import '#{$theme-name}/prevnextnav';
+@import '#{$theme-name}/quicknav';
+@import '#{$theme-name}/slidecounter';
+
+// Only include the modifiers being used
+@if $fs-include-prevnextnav == true { @include fs-theme-prevnextnav; }
+@if $fs-include-quicknav == true { @include fs-theme-quicknav; }
+@if $fs-include-slidecounter == true { @include fs-theme-slidecounter; }

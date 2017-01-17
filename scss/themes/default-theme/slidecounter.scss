@@ -1,0 +1,29 @@
+@mixin fs-theme-slidecounter {
+
+  [data-am-fadeshow~='slide-counter'] {
+    $separator-spacing: 3px;
+
+    .fs-slide-counter {
+      @include fs-mixin-transform(translateX(-50%));
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 300;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .fs-slide-counter-current {
+      margin-right: $separator-spacing;
+    }
+
+    .fs-slide-counter-total {
+      margin-left: $separator-spacing;
+    }
+
+    .fs-quick-nav ~ .fs-slide-counter {
+      bottom: 40px;
+    }
+  }
+}

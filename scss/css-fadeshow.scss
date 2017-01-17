@@ -1,61 +1,55 @@
-/*
- * CSS Fadeshow by @alexerlandsson
- * This is a fadeshow built in SCSS and with customization in focus.
- * Supports Quick Navigation, Prev/Next Navigation, Slide Counter and Autoplay.
- *
- * For better documentation and implementation guide, check out the GitHub repository:
- * https://github.com/alexerlandsson/css-fadeshow
- */
+// CSS Fadeshow by @alexerlandsson
+// This is a fadeshow built in SCSS and with customization in focus.
+// Supports Quick Navigation, Prev/Next Navigation, Slide Counter and Autoplay.
+
+// For better documentation and implementation guide, check out the GitHub repository:
+// https://github.com/alexerlandsson/css-fadeshow
 
 
- /*
-  * ===== SETTINGS =====
-  *
-  * Change these variables to match your preferences. For a more detailed
-  * description of what each variable do, visit https://github.com/alexerlandsson/css-fadeshow
-  */
+// ===== SETTINGS =====
 
-/* Modifiers to include */
-$fs-include-autoplay:		true;
-$fs-include-prevnextnav:	true;
-$fs-include-quicknav:		true;
-$fs-include-slidecounter:	true;
-$fs-include-kenburns:		true;
+// Change these variables to match your preferences. For a more detailed
+// description of what each variable do, visit https://github.com/alexerlandsson/css-fadeshow
 
-/* Base Settings */
-$fs-max-slides:				5;
-$fs-fade-time:				1;
-$fs-fade-color:				#fff;
-$fs-prefix:					true;
-$fs-breakpoint-small:		500px;
+// Modifiers to include
+$fs-include-autoplay:     true;
+$fs-include-prevnextnav:  true;
+$fs-include-quicknav:     true;
+$fs-include-slidecounter: true;
+$fs-include-kenburns:     true;
 
-/* Autoplay */
-$fs-autoplay-duration:		5;
+// Base Settings
+$fs-max-slides:           5;
+$fs-fade-time:            1;
+$fs-fade-color:           #fff;
+$fs-prefix:               true;
+$fs-breakpoint-small:     500px;
 
-/* Ken Burns */
-$fs-kenburns-duration:		5;
-$fs-kenburns-scale:			1.05;
+// Autoplay
+$fs-autoplay-duration:    5;
+
+// Ken Burns
+$fs-kenburns-duration:    5;
+$fs-kenburns-scale:       1.05;
 
 
-/*
- * ===== IMPORTS =====
- *
- * Do not change anything here.
- * All files needs to be included in the corresponding order.
- */
+// ===== IMPORTS =====
 
-@import "imports/_mixins";
-@import "themes/theme";
-@import "imports/_base";
-@import "imports/_kenburns";
-@import "imports/_prevnextnav";
-@import "imports/_quicknav";
-@import "imports/_slidecounter";
-@import "imports/_autoplay";
+// Do not change anything here.
+// All files needs to be included in the corresponding order.
 
-/* Only include the modifiers being used */
-@if $fs-include-kenburns == true { @include fs-kenburns(); }
-@if $fs-include-prevnextnav == true { @include fs-prevnextnav(); }
-@if $fs-include-quicknav == true { @include fs-quicknav(); }
-@if $fs-include-slidecounter == true { @include fs-slidecounter(); }
-@if $fs-include-autoplay == true { @include fs-autoplay(); }
+@import 'imports/mixins';
+@import 'themes/theme';
+@import 'imports/base';
+@import 'imports/kenburns';
+@import 'imports/prevnextnav';
+@import 'imports/quicknav';
+@import 'imports/slidecounter';
+@import 'imports/autoplay';
+
+// Only include the modifiers being used
+@if $fs-include-kenburns == true { @include fs-kenburns; }
+@if $fs-include-prevnextnav == true { @include fs-prevnextnav; }
+@if $fs-include-quicknav == true { @include fs-quicknav; }
+@if $fs-include-slidecounter == true { @include fs-slidecounter; }
+@if $fs-include-autoplay == true { @include fs-autoplay; }

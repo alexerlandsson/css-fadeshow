@@ -1,0 +1,35 @@
+// ===== SLIDE COUNTER =====
+
+@mixin fs-slidecounter {
+
+  [data-am-fadeshow~='slide-counter'] {
+    counter-reset: slideCounter;
+
+    input[type='radio'] {
+      counter-increment: slideCounter;
+
+      &:checked {
+        ~ .fs-slide-counter {
+          opacity: 1;
+        }
+      }
+    }
+
+    .fs-slide-counter {
+      @include fs-mixin-transition(opacity 200ms ease);
+      z-index: 2;
+    }
+
+    .fs-slide-counter-current {
+      &:before {
+        content: '1';
+      }
+    }
+
+    .fs-slide-counter-total {
+      &:before {
+        content: counter(slideCounter);
+      }
+    }
+  }
+}
