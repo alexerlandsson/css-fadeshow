@@ -3,15 +3,13 @@
 // This file only handles the theme of CSS Fadeshow.
 // To create you own theme, use /theme-template as boilerplate for your theme's CSS.
 // When you're done, optionally name the folder to your theme's name, and then change
-// the $theme-name variable below to your theme's name.
-
-$theme-name: 'default-theme';
+// the @import path below to your theme's name.
 
 // Import theme files
-@import '#{$theme-name}/base';
-@import '#{$theme-name}/prevnextnav';
-@import '#{$theme-name}/quicknav';
-@import '#{$theme-name}/slidecounter';
+@import 'default-theme/base';
+@import 'default-theme/prevnextnav';
+@import 'default-theme/quicknav';
+@import 'default-theme/slidecounter';
 
 // Only include the modifiers being used
 @if $fs-include-prevnextnav == true { @include fs-theme-prevnextnav; }
