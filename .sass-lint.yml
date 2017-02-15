@@ -1,5 +1,5 @@
 options:
-  output-file: 'lint/scss/scss-lint.html'
+  #output-file: 'lint/scss/scss-lint.html'
 files:
   include: 'scss/**/*.scss'
 rules:

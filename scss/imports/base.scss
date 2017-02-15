@@ -176,7 +176,7 @@
   }
 
   // Hide modifiers if set to false
-  @if not $fs-include-prevnextnav{
+  @if not $fs-include-prevnextnav {
     .fs-prev-nav,
     .fs-next-nav {
       display: none !important;
