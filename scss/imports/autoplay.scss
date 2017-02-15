@@ -98,8 +98,9 @@
           }
         }
       }
+
       @if $fs-include-prevnextnav {
-        // Hide Prev/Next Navigaiton when auoplay is active
+        // Hide Prev/Next Navigaiton while auoplay is active
         .fs-prev-btn:last-child {
           display: none;
         }
@@ -108,8 +109,9 @@
           display: none;
         }
       }
+
       @if $fs-include-slidecounter {
-        // Hide Slide Counter when autoplay is active
+        // Hide Slide Counter while autoplay is active
         .fs-slide-counter {
           opacity: 0;
         }
