@@ -149,7 +149,7 @@ If you want to fork this repository to work on your own modifications, it's easy
 
 ### Sass Lint
 
-This project uses Sass Lint to ensure a good coding standard. To run the lint, run `npm run sass-lint` from Terminal after you have installed the dependencies with `npm install`. Sass Lint will output the result in `lint/scss/scss-lint.html`.
+This project uses Sass Lint to ensure a good coding standard. To run the lint, run `npm run sass-lint` from Terminal after you have installed the dependencies with `npm install`. Sass Lint will output the result in the terminal.
 
 ## Browser Compatibility
 ![Chrome](https://github.com/alrra/browser-logos/blob/master/src/chrome/chrome_64x64.png?raw=true) | ![Safari](https://github.com/alrra/browser-logos/blob/master/src/safari/safari_64x64.png?raw=true) | ![Firefox](https://github.com/alrra/browser-logos/blob/master/src/firefox/firefox_64x64.png?raw=true) | ![Opera](https://github.com/alrra/browser-logos/blob/master/src/opera/opera_64x64.png?raw=true) | ![IE](https://github.com/alrra/browser-logos/blob/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_64x64.png?raw=true)
