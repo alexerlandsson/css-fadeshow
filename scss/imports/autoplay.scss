@@ -17,7 +17,7 @@
     }
 
     // Quick Navigation Autoplay
-    @if $fs-include-quicknav == true {
+    @if $fs-include-quicknav {
       @include fs-mixin-keyframes(quickNavAnimation-#{$i}) {
         // sass-lint:disable-block empty-line-between-blocks, brace-style
         0% { @include quick-nav-btn-inactive;  }
@@ -29,7 +29,7 @@
     }
 
     // Ken Burns Autoplay
-    @if $fs-include-kenburns == true {
+    @if $fs-include-kenburns {
       @include fs-mixin-keyframes(kenBurnsAutoplay-#{$i}) {
         // sass-lint:disable-block empty-line-between-blocks
         0% {
@@ -52,7 +52,7 @@
         }
 
         // Quick navigation animation
-        @if $fs-include-quicknav == true {
+        @if $fs-include-quicknav {
           ~ .fs-quick-nav {
             .fs-quick-btn {
               @include fs-mixin-animation(quickNavAnimation-#{$i} #{$total-duration}s infinite);
@@ -68,7 +68,7 @@
             @include fs-mixin-animation-delay(#{$animation-delay});
           }
 
-          @if $fs-include-quicknav == true {
+          @if $fs-include-quicknav {
             ~ .fs-quick-nav .fs-quick-btn:nth-child(#{$j}) {
               @include fs-mixin-animation-delay(#{$animation-delay});
             }
@@ -77,7 +77,7 @@
       }
 
       // Ken Burns Autoplay
-      @if $fs-include-kenburns == true {
+      @if $fs-include-kenburns {
         &[data-am-fadeshow~='ken-burns'] {
           input[type='radio']:nth-of-type(#{$i}):last-of-type {
             ~ .fs-slides {
@@ -98,7 +98,7 @@
           }
         }
       }
-      @if $fs-include-prevnextnav == true {
+      @if $fs-include-prevnextnav {
         // Hide Prev/Next Navigaiton when auoplay is active
         .fs-prev-btn:last-child {
           display: none;
@@ -108,7 +108,7 @@
           display: none;
         }
       }
-      @if $fs-include-slidecounter == true {
+      @if $fs-include-slidecounter {
         // Hide Slide Counter when autoplay is active
         .fs-slide-counter {
           opacity: 0;

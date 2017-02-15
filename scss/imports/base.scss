@@ -42,11 +42,11 @@
           ~ .fs-slides {
             .fs-slide {
               @include fs-mixin-slide-inactive;
-              @if $fs-include-autoplay == true {
+              @if $fs-include-autoplay {
                 // Cancel autoplay
                 @include fs-mixin-animation(none !important);
 
-                @if $fs-include-kenburns == true {
+                @if $fs-include-kenburns {
                   .fs-slide-bg {
                     @include fs-mixin-animation(none !important);
                   }
@@ -60,7 +60,7 @@
           }
 
           // Prev/Next Navigation
-          @if $fs-include-prevnextnav == true {
+          @if $fs-include-prevnextnav {
             $prev: ($i - 1);
             $next: ($i + 1);
 
@@ -118,11 +118,11 @@
           }
 
           // Quick Navigation
-          @if $fs-include-quicknav == true {
+          @if $fs-include-quicknav {
             ~ .fs-quick-nav {
               .fs-quick-btn {
                 @include quick-nav-btn-inactive;
-                @if $fs-include-autoplay == true {
+                @if $fs-include-autoplay {
                   // Cancel autoplay
                   @include fs-mixin-animation(none !important);
                 }
@@ -139,7 +139,7 @@
           }
 
           // Slide Counter
-          @if $fs-include-slidecounter == true {
+          @if $fs-include-slidecounter {
             ~ .fs-slide-counter {
               .fs-slide-counter-current {
                 &:before {
@@ -153,20 +153,20 @@
 
       // Hide navigation if only one slide
       &:first-of-type:last-of-type {
-        @if $fs-include-prevnextnav != true {
+        @if not $fs-include-prevnextnav {
           ~ .fs-prev-nav,
           ~ .fs-next-nav {
             display: none !important;
           }
         }
 
-        @if $fs-include-quicknav != true {
+        @if not $fs-include-quicknav {
           ~ .fs-quick-nav {
             display: none !important;
           }
         }
 
-        @if $fs-include-slidecounter != true {
+        @if not $fs-include-slidecounter {
           ~ .fs-slide-counter {
             display: none !important;
           }
@@ -176,20 +176,20 @@
   }
 
   // Hide modifiers if set to false
-  @if $fs-include-prevnextnav != true {
+  @if not $fs-include-prevnextnav{
     .fs-prev-nav,
     .fs-next-nav {
       display: none !important;
     }
   }
 
-  @if $fs-include-quicknav != true {
+  @if not $fs-include-quicknav {
     .fs-quick-nav {
       display: none !important;
     }
   }
 
-  @if $fs-include-slidecounter != true {
+  @if not $fs-include-slidecounter {
     .fs-slide-counter {
       display: none !important;
     }

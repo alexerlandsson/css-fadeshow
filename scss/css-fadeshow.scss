@@ -48,8 +48,8 @@ $fs-kenburns-scale:       1.05;
 @import 'imports/autoplay';
 
 // Only include the modifiers being used
-@if $fs-include-kenburns == true { @include fs-kenburns; }
-@if $fs-include-prevnextnav == true { @include fs-prevnextnav; }
-@if $fs-include-quicknav == true { @include fs-quicknav; }
-@if $fs-include-slidecounter == true { @include fs-slidecounter; }
-@if $fs-include-autoplay == true { @include fs-autoplay; }
+@if $fs-include-kenburns { @include fs-kenburns; }
+@if $fs-include-prevnextnav { @include fs-prevnextnav; }
+@if $fs-include-quicknav { @include fs-quicknav; }
+@if $fs-include-slidecounter { @include fs-slidecounter; }
+@if $fs-include-autoplay { @include fs-autoplay; }

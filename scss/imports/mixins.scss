@@ -20,7 +20,7 @@
   @if length($value) < 1 {
     $value: all 150ms linear;
   }
-  @if $fs-prefix == true {
+  @if $fs-prefix {
     -webkit-transition: $value;
   }
             transition: $value;
@@ -30,7 +30,7 @@
   @if length($value) < 1 {
     $value: all 150ms linear;
   }
-  @if $fs-prefix == true {
+  @if $fs-prefix {
     -webkit-transform: $value;
         -ms-transform: $value;
   }
@@ -38,21 +38,21 @@
 }
 
 @mixin fs-mixin-animation($value...) {
-  @if $fs-prefix == true {
+  @if $fs-prefix {
     -webkit-animation: $value;
   }
             animation: $value;
 }
 
 @mixin fs-mixin-animation-delay($value) {
-  @if $fs-prefix == true {
+  @if $fs-prefix {
     -webkit-animation-delay: $value;
   }
             animation-delay: $value;
 }
 
 @mixin fs-mixin-unselectable {
-  @if $fs-prefix == true {
+  @if $fs-prefix {
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
@@ -63,7 +63,7 @@
 // Keyframes
 
 @mixin fs-mixin-keyframes($animation-name) {
-  @if $fs-prefix == true {
+  @if $fs-prefix {
     @-webkit-keyframes #{$animation-name} {
       @content;
     }
