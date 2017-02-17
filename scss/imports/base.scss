@@ -71,7 +71,7 @@
                   display: none;
                 }
 
-                .fs-prev-btn:nth-child(#{$prev}) {
+                .fs-prev-btn[for="slide-#{$prev}"] {
                   display: block;
                 }
               }
@@ -84,7 +84,7 @@
                   display: none;
                 }
 
-                .fs-next-btn:nth-child(#{$next}) {
+                .fs-next-btn[for="slide-#{$next}"] {
                   display: block;
                 }
               }
@@ -97,8 +97,10 @@
                   display: none;
                 }
 
-                .fs-prev-btn:last-child {
-                  display: block;
+                @if $fs-prevnextnav-loop {
+                  .fs-prev-btn:last-child {
+                    display: block;
+                  }
                 }
               }
             }
@@ -110,8 +112,10 @@
                   display: none;
                 }
 
-                .fs-next-btn:first-child {
-                  display: block;
+                @if $fs-prevnextnav-loop {
+                  .fs-next-btn:first-child {
+                    display: block;
+                  }
                 }
               }
             }

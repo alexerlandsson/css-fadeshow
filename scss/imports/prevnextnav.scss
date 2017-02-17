@@ -20,8 +20,8 @@
 
     @if not $fs-prevnextnav-loop {
       // Hide previous button on first slide and next button on last slide
-      .fs-prev-btn:last-child,
-      .fs-next-btn:first-child {
+      .fs-prev-btn[for="slide-#{$fs-max-slides}"],
+      .fs-next-btn[for="slide-1"] {
         display: none !important;
       }
     }

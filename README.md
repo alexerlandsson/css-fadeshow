@@ -135,7 +135,7 @@ $fs-fade-time				| Change to the desired transition time of the fade between ima
 $fs-fade-color				| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
 $fs-prefix					| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
 $fs-breakpoint-small		| Set to the desired max-width for smaller screens. Default `500px`.
-$fs-prevnextnav-loop		| Set to false to hide the prev button on first slide and the next button on last slide. Default true. Note that the prev/next buttons still needs to be added in the html markup, even if they are hidden.
+$fs-prevnextnav-loop		| Set to false to hide the prev button on first slide and the next button on last slide. Default true.
 $fs-autoplay-duration		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
 $fs-kenburns-duration		| Set the duration of Ken Burns effect. Value counts in seconds. Default `5`.
 $fs-kenburns-scale			| Set the zoom of Ken Burns effect. Value set in decimal. Default `1.05` (5%).
