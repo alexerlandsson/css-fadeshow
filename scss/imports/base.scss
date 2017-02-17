@@ -71,7 +71,7 @@
                   display: none;
                 }
 
-                .fs-prev-btn[for="slide-#{$prev}"] {
+                .fs-prev-btn[for='slide-#{$prev}'] {
                   display: block;
                 }
               }
@@ -84,7 +84,7 @@
                   display: none;
                 }
 
-                .fs-next-btn[for="slide-#{$next}"] {
+                .fs-next-btn[for='slide-#{$next}'] {
                   display: block;
                 }
               }
