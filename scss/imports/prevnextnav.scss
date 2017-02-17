@@ -17,5 +17,13 @@
     .fs-next-btn:nth-child(2) {
       display: block;
     }
+
+    @if not $fs-prevnextnav-loop {
+      // Hide previous button on first slide and next button on last slide
+      .fs-prev-btn:last-child,
+      .fs-next-btn:first-child {
+        display: none !important;
+      }
+    }
   }
 }
