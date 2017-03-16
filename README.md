@@ -21,52 +21,52 @@ The default markup looks like this:
 ```html
 <div data-am-fadeshow="quick-nav prev-next-nav slide-counter autoplay ken-burns">
 
-	<!-- Radio -->
-	<input type="radio" name="css-fadeshow" id="slide-1" />
-	<input type="radio" name="css-fadeshow" id="slide-2" />
-	<input type="radio" name="css-fadeshow" id="slide-3" />
+  <!-- Radio -->
+  <input type="radio" name="css-fadeshow" id="slide-1" />
+  <input type="radio" name="css-fadeshow" id="slide-2" />
+  <input type="radio" name="css-fadeshow" id="slide-3" />
 
-	<!-- Slides -->
-	<div class="fs-slides">
-		<div class="fs-slide">
-			<div class="fs-slide-bg" style="background-image: url();"></div>
-			<!-- Other content goes here... -->
-		</div>
-		<div class="fs-slide">
-			<div class="fs-slide-bg" style="background-image: url();"></div>
-			<!-- Other content goes here... -->
-		</div>
-		<div class="fs-slide">
-			<div class="fs-slide-bg" style="background-image: url();"></div>
-			<!-- Other content goes here... -->
-		</div>
-	</div>
+  <!-- Slides -->
+  <div class="fs-slides">
+    <div class="fs-slide">
+      <div class="fs-slide-bg" style="background-image: url();"></div>
+      <!-- Other content goes here... -->
+    </div>
+    <div class="fs-slide">
+      <div class="fs-slide-bg" style="background-image: url();"></div>
+      <!-- Other content goes here... -->
+    </div>
+    <div class="fs-slide">
+      <div class="fs-slide-bg" style="background-image: url();"></div>
+      <!-- Other content goes here... -->
+    </div>
+  </div>
 
-	<!-- Quick Navigation -->
-	<div class="fs-quick-nav">
-		<label class="fs-quick-btn" for="slide-1"></label>
-		<label class="fs-quick-btn" for="slide-2"></label>
-		<label class="fs-quick-btn" for="slide-3"></label>
-	</div>
+  <!-- Quick Navigation -->
+  <div class="fs-quick-nav">
+    <label class="fs-quick-btn" for="slide-1"></label>
+    <label class="fs-quick-btn" for="slide-2"></label>
+    <label class="fs-quick-btn" for="slide-3"></label>
+  </div>
 
-	<!-- Prev Navigation -->
-	<div class="fs-prev-nav">
-		<label class="fs-prev-btn" for="slide-1"></label>
-		<label class="fs-prev-btn" for="slide-2"></label>
-		<label class="fs-prev-btn" for="slide-3"></label>
-	</div>
+  <!-- Prev Navigation -->
+  <div class="fs-prev-nav">
+    <label class="fs-prev-btn" for="slide-1"></label>
+    <label class="fs-prev-btn" for="slide-2"></label>
+    <label class="fs-prev-btn" for="slide-3"></label>
+  </div>
 
-	<!-- Next Navigation -->
-	<div class="fs-next-nav">
-		<label class="fs-next-btn" for="slide-1"></label>
-		<label class="fs-next-btn" for="slide-2"></label>
-		<label class="fs-next-btn" for="slide-3"></label>
-	</div>
+  <!-- Next Navigation -->
+  <div class="fs-next-nav">
+    <label class="fs-next-btn" for="slide-1"></label>
+    <label class="fs-next-btn" for="slide-2"></label>
+    <label class="fs-next-btn" for="slide-3"></label>
+  </div>
 
-	<!-- Slide Counter (only one required) -->
-	<div class="fs-slide-counter">
-		<span class="fs-slide-counter-current"></span>/<span class="fs-slide-counter-total"></span>
-	</div>
+  <!-- Slide Counter (only one required) -->
+  <div class="fs-slide-counter">
+    <span class="fs-slide-counter-current"></span>/<span class="fs-slide-counter-total"></span>
+  </div>
 
 </div>
 ```
@@ -123,22 +123,22 @@ The first section of `css-fadeshow.scss` contains variables which are made to be
 
 The first variables are labeled "Modifiers to include". These defines which modifiers you want to use in your implementation. If you're planning to not use some of the modifiers – set these to false. This will result in a smaller CSS. The same goes for number of slides – the more slides you want to have, the larger the CSS file will be.
 
-Variable 					| Description
+Variable           | Description
 ----------------------------| ----------------------------
-$fs-include-autoplay		| Whether to include Autoplay or not. Default `true`.
-$fs-include-prevnextnav		| Whether to include Prev/Next Navigation or not. Default `true`.
-$fs-include-quicknav		| Whether to include Quick Navigation or not. Default `true`.
-$fs-include-slidecounter	| Whether to include Slide Counter or not. Default `true`.
-$fs-include-kenburns	| Whether to include Ken Burns effet to background image or not. Default `true`.
-$fs-max-slides				| Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
-$fs-fade-time				| Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
-$fs-fade-color				| Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
-$fs-prefix					| Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
-$fs-breakpoint-small		| Set to the desired max-width for smaller screens. Default `500px`.
-$fs-prevnextnav-loop		| Set to false to hide the prev button on first slide and the next button on last slide. Default true.
-$fs-autoplay-duration		| Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
-$fs-kenburns-duration		| Set the duration of Ken Burns effect. Value counts in seconds. Default `5`.
-$fs-kenburns-scale			| Set the zoom of Ken Burns effect. Value set in decimal. Default `1.05` (5%).
+$fs-include-autoplay    | Whether to include Autoplay or not. Default `true`.
+$fs-include-prevnextnav    | Whether to include Prev/Next Navigation or not. Default `true`.
+$fs-include-quicknav    | Whether to include Quick Navigation or not. Default `true`.
+$fs-include-slidecounter  | Whether to include Slide Counter or not. Default `true`.
+$fs-include-kenburns  | Whether to include Ken Burns effet to background image or not. Default `true`.
+$fs-max-slides        | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
+$fs-fade-time        | Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
+$fs-fade-color        | Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
+$fs-prefix          | Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
+$fs-breakpoint-small    | Set to the desired max-width for smaller screens. Default `500px`.
+$fs-prevnextnav-loop    | Set to false to hide the prev button on first slide and the next button on last slide. Default true.
+$fs-autoplay-duration    | Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
+$fs-kenburns-duration    | Set the duration of Ken Burns effect. Value counts in seconds. Default `5`.
+$fs-kenburns-scale      | Set the zoom of Ken Burns effect. Value set in decimal. Default `1.05` (5%).
 
 ### Custom Theme
 The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in `/scss/themes`. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in `theme.scss`.
