@@ -123,22 +123,22 @@ The first section of `css-fadeshow.scss` contains variables which are made to be
 
 The first variables are labeled "Modifiers to include". These defines which modifiers you want to use in your implementation. If you're planning to not use some of the modifiers – set these to false. This will result in a smaller CSS. The same goes for number of slides – the more slides you want to have, the larger the CSS file will be.
 
-Variable           | Description
+Variable                    | Description
 ----------------------------| ----------------------------
-$fs-include-autoplay    | Whether to include Autoplay or not. Default `true`.
-$fs-include-prevnextnav    | Whether to include Prev/Next Navigation or not. Default `true`.
-$fs-include-quicknav    | Whether to include Quick Navigation or not. Default `true`.
-$fs-include-slidecounter  | Whether to include Slide Counter or not. Default `true`.
-$fs-include-kenburns  | Whether to include Ken Burns effet to background image or not. Default `true`.
-$fs-max-slides        | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
-$fs-fade-time        | Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
-$fs-fade-color        | Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
-$fs-prefix          | Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
-$fs-breakpoint-small    | Set to the desired max-width for smaller screens. Default `500px`.
-$fs-prevnextnav-loop    | Set to false to hide the prev button on first slide and the next button on last slide. Default true.
-$fs-autoplay-duration    | Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
-$fs-kenburns-duration    | Set the duration of Ken Burns effect. Value counts in seconds. Default `5`.
-$fs-kenburns-scale      | Set the zoom of Ken Burns effect. Value set in decimal. Default `1.05` (5%).
+$fs-include-autoplay        | Whether to include Autoplay or not. Default `true`.
+$fs-include-prevnextnav     | Whether to include Prev/Next Navigation or not. Default `true`.
+$fs-include-quicknav        | Whether to include Quick Navigation or not. Default `true`.
+$fs-include-slidecounter    | Whether to include Slide Counter or not. Default `true`.
+$fs-include-kenburns        | Whether to include Ken Burns effet to background image or not. Default `true`.
+$fs-max-slides              | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be.
+$fs-fade-time               | Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`.
+$fs-fade-color              | Background color behind the images. Will be a part of the transitions between images. Default `#fff`.
+$fs-prefix                  | Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`.
+$fs-breakpoint-small        | Set to the desired max-width for smaller screens. Default `500px`.
+$fs-prevnextnav-loop        | Set to false to hide the prev button on first slide and the next button on last slide. Default true.
+$fs-autoplay-duration       | Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`.
+$fs-kenburns-duration       | Set the duration of Ken Burns effect. Value counts in seconds. Default `5`.
+$fs-kenburns-scale          | Set the zoom of Ken Burns effect. Value set in decimal. Default `1.05` (5%).
 
 ### Custom Theme
 The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in `/scss/themes`. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in `theme.scss`.
@@ -154,7 +154,7 @@ This project uses Sass Lint to ensure a good coding standard. To run the lint, r
 
 ## Browser Compatibility
 ![Chrome](https://github.com/alrra/browser-logos/blob/master/src/chrome/chrome_64x64.png?raw=true) | ![Safari](https://github.com/alrra/browser-logos/blob/master/src/safari/safari_64x64.png?raw=true) | ![Firefox](https://github.com/alrra/browser-logos/blob/master/src/firefox/firefox_64x64.png?raw=true) | ![Opera](https://github.com/alrra/browser-logos/blob/master/src/opera/opera_64x64.png?raw=true) | ![IE](https://github.com/alrra/browser-logos/blob/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_64x64.png?raw=true)
-----|-----|-----|-----|-----|
+----|-----|-----|-----|-----
 <div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">Yes</div> | <div align="center">9*+</div>
 
 _* Internet Explorer 9 does not support css transitions and css animations. This means there will be no smooth transitions between slides and autoplay and Ken Burns functions will not work since these functions relies on the two methods._
