@@ -44,14 +44,14 @@
 
     [data-am-fadeshow~='autoplay'] {
       input[type='radio']:nth-of-type(#{$i}):last-of-type {
-        // Slide animation
+        // Slide Animation
         ~ .fs-slides {
           .fs-slide {
             @include fs-mixin-animation(slidesAnimation-#{$i} #{$total-duration}s infinite);
           }
         }
 
-        // Quick navigation animation
+        // Quick Navigation Animation
         @if $fs-include-quicknav {
           ~ .fs-quick-nav {
             .fs-quick-btn {
@@ -101,10 +101,7 @@
 
       @if $fs-include-prevnextnav {
         // Hide Prev/Next Navigaiton while auoplay is active
-        .fs-prev-btn:last-child {
-          display: none;
-        }
-
+        .fs-prev-btn:last-child,
         .fs-next-btn:nth-child(2) {
           display: none;
         }

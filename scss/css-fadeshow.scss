@@ -41,14 +41,16 @@ $fs-kenburns-scale:       1.05;
 // Do not change anything here.
 // All files needs to be included in the corresponding order.
 
-@import 'imports/mixins';
-@import 'themes/theme';
-@import 'imports/base';
-@import 'imports/kenburns';
-@import 'imports/prevnextnav';
-@import 'imports/quicknav';
-@import 'imports/slidecounter';
-@import 'imports/autoplay';
+@import
+'imports/mixins',
+'themes/theme',
+'imports/base',
+'imports/kenburns',
+'imports/prevnextnav',
+'imports/quicknav',
+'imports/slidecounter',
+'imports/autoplay'
+;
 
 // Only include the modifiers being used
 @if $fs-include-kenburns { @include fs-kenburns; }

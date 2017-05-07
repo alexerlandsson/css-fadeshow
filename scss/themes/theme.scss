@@ -6,10 +6,12 @@
 // the @import path below to your theme's name.
 
 // Import theme files
-@import 'default-theme/base';
-@import 'default-theme/prevnextnav';
-@import 'default-theme/quicknav';
-@import 'default-theme/slidecounter';
+@import
+'default-theme/base',
+'default-theme/prevnextnav',
+'default-theme/quicknav',
+'default-theme/slidecounter'
+;
 
 // Only include the modifiers being used
 @if $fs-include-prevnextnav { @include fs-theme-prevnextnav; }
