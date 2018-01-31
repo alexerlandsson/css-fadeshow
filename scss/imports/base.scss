@@ -188,24 +188,4 @@
       }
     }
   }
-
-  // Hide modifiers if set to false
-  @if not $fs-include-prevnextnav {
-    .fs-prev-nav,
-    .fs-next-nav {
-      display: none !important;
-    }
-  }
-
-  @if not $fs-include-quicknav {
-    .fs-quick-nav {
-      display: none !important;
-    }
-  }
-
-  @if not $fs-include-slidecounter {
-    .fs-slide-counter {
-      display: none !important;
-    }
-  }
 }

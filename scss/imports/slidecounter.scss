@@ -35,4 +35,11 @@
 
 @if $fs-include-slidecounter {
   @include fs-slidecounter;
+} @else {
+  [data-am-fadeshow] {
+    // Hide if set to false but added to html
+    .fs-slide-counter {
+      display: none !important;
+    }
+  }
 }
