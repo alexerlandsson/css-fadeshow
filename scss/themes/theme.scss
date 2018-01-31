@@ -12,8 +12,3 @@
 'default-theme/quicknav',
 'default-theme/slidecounter'
 ;
-
-// Only include the modifiers being used
-@if $fs-include-prevnextnav { @include fs-theme-prevnextnav; }
-@if $fs-include-quicknav { @include fs-theme-quicknav; }
-@if $fs-include-slidecounter { @include fs-theme-slidecounter; }

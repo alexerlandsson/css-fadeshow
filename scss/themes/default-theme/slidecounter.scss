@@ -26,3 +26,7 @@
     }
   }
 }
+
+@if $fs-include-slidecounter {
+  @include fs-theme-slidecounter;
+}

@@ -1,9 +1,12 @@
 @mixin fs-theme-prevnextnav {
-
   [data-am-fadeshow~='prev-next-nav'] {
     .fs-prev-nav {}
     .fs-prev-btn {}
     .fs-next-nav {}
     .fs-next-btn {}
   }
+}
+
+@if $fs-include-prevnextnav {
+  @include fs-theme-prevnextnav;
 }

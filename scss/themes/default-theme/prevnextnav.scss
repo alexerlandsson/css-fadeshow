@@ -52,3 +52,7 @@
     }
   }
 }
+
+@if $fs-include-prevnextnav {
+  @include fs-theme-prevnextnav;
+}

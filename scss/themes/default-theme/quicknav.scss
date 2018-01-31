@@ -37,3 +37,7 @@
     }
   }
 }
+
+@if $fs-include-quicknav {
+  @include fs-theme-quicknav;
+}
