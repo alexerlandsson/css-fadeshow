@@ -1,7 +1,6 @@
 // ===== PREV/NEXT NAVIGATION =====
 
 @mixin fs-prevnextnav {
-
   [data-am-fadeshow~='prev-next-nav'] {
     .fs-prev-btn,
     .fs-next-btn {
@@ -26,4 +25,8 @@
       }
     }
   }
+}
+
+@if $fs-include-prevnextnav {
+  @include fs-prevnextnav;
 }

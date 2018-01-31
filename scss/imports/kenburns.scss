@@ -1,7 +1,6 @@
 // ===== KEN BURNS =====
 
 @mixin fs-kenburns {
-
   [data-am-fadeshow~='ken-burns'] {
     .fs-slide-bg {
       @include fs-mixin-transition(transform #{$fs-kenburns-duration}s ease);
@@ -31,4 +30,8 @@
       }
     }
   }
+}
+
+@if $fs-include-kenburns {
+  @include fs-kenburns;
 }

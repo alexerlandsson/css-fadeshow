@@ -1,7 +1,6 @@
 // ===== QUICK NAVIGATION =====
 
 @mixin fs-quicknav {
-
   [data-am-fadeshow~='quick-nav'] {
     .fs-quick-btn {
       // Set active state to first button on load
@@ -10,4 +9,8 @@
       }
     }
   }
+}
+
+@if $fs-include-quicknav {
+  @include fs-quicknav;
 }

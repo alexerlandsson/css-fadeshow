@@ -1,7 +1,6 @@
 // ===== AUTOPLAY =====
 
 @mixin fs-autoplay {
-
   @for $i from 2 through $fs-max-slides {
 
     $total-duration: $fs-autoplay-duration * $i;
@@ -115,4 +114,8 @@
       }
     }
   }
+}
+
+@if $fs-include-autoplay {
+  @include fs-autoplay;
 }

@@ -31,8 +31,8 @@
   // Slide functionality
   input[type='radio'] {
     position: fixed;
-    top: -9999px;
-    visibility: hidden;
+    left: -9999px;
+    opacity: 0;
 
     &:checked {
       // Main loop

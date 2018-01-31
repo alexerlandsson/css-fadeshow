@@ -51,10 +51,3 @@ $fs-kenburns-scale:       1.05;
 'imports/slidecounter',
 'imports/autoplay'
 ;
-
-// Only include the modifiers being used
-@if $fs-include-kenburns { @include fs-kenburns; }
-@if $fs-include-prevnextnav { @include fs-prevnextnav; }
-@if $fs-include-quicknav { @include fs-quicknav; }
-@if $fs-include-slidecounter { @include fs-slidecounter; }
-@if $fs-include-autoplay { @include fs-autoplay; }

@@ -1,7 +1,6 @@
 // ===== SLIDE COUNTER =====
 
 @mixin fs-slidecounter {
-
   [data-am-fadeshow~='slide-counter'] {
     counter-reset: slideCounter;
 
@@ -32,4 +31,8 @@
       }
     }
   }
+}
+
+@if $fs-include-slidecounter {
+  @include fs-slidecounter;
 }
