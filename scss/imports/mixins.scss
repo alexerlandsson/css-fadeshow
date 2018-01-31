@@ -2,18 +2,6 @@
 
 // sass-lint:disable indentation
 
-// Fadeshow Core
-
-@mixin fs-mixin-slide-active {
-  opacity: 1;
-  z-index: 1;
-}
-
-@mixin fs-mixin-slide-inactive {
-  opacity: 0;
-  z-index: auto;
-}
-
 // Prefixes
 
 @mixin fs-mixin-transform($value...) {
