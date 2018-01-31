@@ -135,7 +135,7 @@
           @if $fs-include-quicknav {
             ~ .fs-quick-nav {
               .fs-quick-btn {
-                @include quick-nav-btn-inactive;
+                @include fs-mixin-quick-nav-btn-inactive;
                 @if $fs-include-autoplay {
                   // Cancel autoplay
                   @include fs-mixin-animation(none !important);
@@ -143,7 +143,7 @@
               }
 
               .fs-quick-btn:nth-child(#{$i}) {
-                @include quick-nav-btn-active;
+                @include fs-mixin-quick-nav-btn-active;
 
                 &:hover {
                   opacity: 1;

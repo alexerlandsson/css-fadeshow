@@ -1,11 +1,11 @@
 // Mixin to handle Quick Navigation active state
-@mixin quick-nav-btn-active {
+@mixin fs-mixin-quick-nav-btn-active {
   background-color: #fff;
   width: 40px;
 }
 
 // Mixin to handle Quick Navigation inactive state
-@mixin quick-nav-btn-inactive {
+@mixin fs-mixin-quick-nav-btn-inactive {
   background-color: rgba(255, 255, 255, 0.4);
   width: 20px;
 }
@@ -23,7 +23,7 @@
     }
 
     .fs-quick-btn {
-      @include quick-nav-btn-inactive;
+      @include fs-mixin-quick-nav-btn-inactive;
       display: inline-block;
       height: 10px;
       margin: 0 2px;

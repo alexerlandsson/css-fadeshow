@@ -5,7 +5,7 @@
     .fs-quick-btn {
       // Set active state to first button on load
       &:first-child {
-        @include quick-nav-btn-active;
+        @include fs-mixin-quick-nav-btn-active;
       }
     }
   }

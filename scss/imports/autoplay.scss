@@ -19,11 +19,11 @@
     @if $fs-include-quicknav {
       @include fs-mixin-keyframes(quickNavAnimation-#{$i}) {
         // sass-lint:disable-block empty-line-between-blocks, brace-style
-        0% { @include quick-nav-btn-inactive;  }
+        0% { @include fs-mixin-quick-nav-btn-inactive;  }
         #{100% * $fs-fade-time / $total-duration},
-        #{100% * $fs-autoplay-duration / $total-duration} { @include quick-nav-btn-active; }
+        #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-quick-nav-btn-active; }
         #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-        100% { @include quick-nav-btn-inactive; }
+        100% { @include fs-mixin-quick-nav-btn-inactive; }
       }
     }
 
