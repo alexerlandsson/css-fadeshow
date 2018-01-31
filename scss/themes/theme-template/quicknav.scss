@@ -10,7 +10,9 @@
 
 @mixin fs-theme-quicknav {
   [data-am-fadeshow~='quick-nav'] {
-    .fs-quick-nav {}
+    .fs-quick-nav {
+      
+    }
 
     .fs-quick-btn {
       @include quick-nav-btn-inactive;
