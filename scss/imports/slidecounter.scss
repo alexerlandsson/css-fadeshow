@@ -15,8 +15,8 @@
     }
 
     .fs-slide-counter {
-      @include fs-mixin-transition(opacity 200ms ease);
       z-index: 2;
+      transition: opacity 200ms ease;
     }
 
     .fs-slide-counter-current {

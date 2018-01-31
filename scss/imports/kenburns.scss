@@ -3,8 +3,7 @@
 @mixin fs-kenburns {
   [data-am-fadeshow~='ken-burns'] {
     .fs-slide-bg {
-      @include fs-mixin-transition(transform #{$fs-kenburns-duration}s ease);
-      transition-delay: #{$fs-fade-time}s;
+      transition: transform #{$fs-kenburns-duration}s ease #{$fs-fade-time}s;
     }
 
     input[type='radio'] {

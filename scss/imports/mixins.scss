@@ -16,16 +16,6 @@
 
 // Prefixes
 
-@mixin fs-mixin-transition($value...) {
-  @if length($value) < 1 {
-    $value: all 150ms linear;
-  }
-  @if $fs-prefix {
-    -webkit-transition: $value;
-  }
-            transition: $value;
-}
-
 @mixin fs-mixin-transform($value...) {
   @if length($value) < 1 {
     $value: all 150ms linear;

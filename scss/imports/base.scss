@@ -20,7 +20,7 @@
 
   .fs-slide {
     @include fs-mixin-slide-inactive;
-    @include fs-mixin-transition(opacity #{$fs-fade-time}s linear);
+    transition: opacity #{$fs-fade-time}s linear;
 
     // Display first child on load
     &:first-child {
