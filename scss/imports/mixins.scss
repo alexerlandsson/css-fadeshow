@@ -20,6 +20,7 @@
   @if length($value) < 1 {
     $value: all 150ms linear;
   }
+
   @if $fs-prefix {
     -webkit-transform: $value;
         -ms-transform: $value;
@@ -58,6 +59,7 @@
       @content;
     }
   }
+
   @keyframes #{$animation-name} {
     @content;
   }
