@@ -5,7 +5,7 @@
 @mixin fs-autoplay {
   [data-am-fadeshow~='autoplay'] {
     @for $i from 2 through $fs-max-slides {
-      $total-duration: $fs-autoplay-duration * $i;
+      $total-duration: ($fs-autoplay-duration * $i);
 
       // Slide Autoplay
       @include fs-mixin-keyframes(slidesAutoplay-#{$i}) {
@@ -62,7 +62,7 @@
 
         // Animation Delay
         @for $j from 1 through $i {
-          $animation-delay: #{($j - 1) * ($fs-autoplay-duration) - $fs-fade-time}s;
+          $animation-delay: #{($j - 1) * $fs-autoplay-duration - $fs-fade-time}s;
 
           ~ .fs-slides .fs-slide:nth-child(#{$j}) {
             @include fs-mixin-animation-delay(#{$animation-delay});
@@ -87,7 +87,7 @@
               }
 
               @for $j from 1 through $i {
-                $animation-delay: #{($j - 1) * ($fs-autoplay-duration) - $fs-fade-time}s;
+                $animation-delay: #{($j - 1) * $fs-autoplay-duration - $fs-fade-time}s;
 
                 ~ .fs-slides .fs-slide:nth-child(#{$j}) .fs-slide-bg {
                   @include fs-mixin-animation-delay(#{$animation-delay});

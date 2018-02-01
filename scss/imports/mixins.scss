@@ -5,10 +5,6 @@
 // Prefixes
 
 @mixin fs-mixin-transform($value...) {
-  @if length($value) < 1 {
-    $value: all 150ms linear;
-  }
-
   @if $fs-prefix {
     -webkit-transform: $value;
         -ms-transform: $value;
