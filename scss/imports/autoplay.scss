@@ -1,5 +1,7 @@
 // ===== AUTOPLAY =====
 
+// TODO: Figure out how to add autoplay to Prev/Next Navigation and Slide Counter
+
 @mixin fs-autoplay {
   [data-am-fadeshow~='autoplay'] {
     @for $i from 2 through $fs-max-slides {
@@ -72,25 +74,24 @@
             }
           }
         }
-      }
 
-      // Ken Burns Autoplay
-      @if $fs-include-kenburns {
-        &[data-am-fadeshow~='ken-burns'] {
-          input[type='radio']:nth-of-type(#{$i}):last-of-type {
-            ~ .fs-slides {
-              .fs-slide {
-                .fs-slide-bg {
-                  @include fs-mixin-animation(kenBurnsAutoplay-#{$i} #{$total-duration}s infinite);
+        @if $fs-include-kenburns {
+          @at-root {
+            #{selector-append("[data-am-fadeshow~='ken-burns']", &)} {
+              ~ .fs-slides {
+                .fs-slide {
+                  .fs-slide-bg {
+                    @include fs-mixin-animation(kenBurnsAutoplay-#{$i} #{$total-duration}s infinite);
+                  }
                 }
               }
-            }
 
-            @for $j from 1 through $i {
-              $animation-delay: #{($j - 1) * ($fs-autoplay-duration) - $fs-fade-time}s;
+              @for $j from 1 through $i {
+                $animation-delay: #{($j - 1) * ($fs-autoplay-duration) - $fs-fade-time}s;
 
-              ~ .fs-slides .fs-slide:nth-child(#{$j}) .fs-slide-bg {
-                @include fs-mixin-animation-delay(#{$animation-delay});
+                ~ .fs-slides .fs-slide:nth-child(#{$j}) .fs-slide-bg {
+                  @include fs-mixin-animation-delay(#{$animation-delay});
+                }
               }
             }
           }
