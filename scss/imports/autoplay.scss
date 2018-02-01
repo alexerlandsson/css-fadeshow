@@ -6,7 +6,7 @@
     $total-duration: $fs-autoplay-duration * $i;
 
     // Slide Autoplay
-    @include fs-mixin-keyframes(slidesAnimation-#{$i}) {
+    @include fs-mixin-keyframes(slidesAutoplay-#{$i}) {
       // sass-lint:disable-block empty-line-between-blocks, brace-style
       0% { @include fs-mixin-slide-inactive; }
       #{100% * $fs-fade-time / $total-duration},
@@ -17,7 +17,7 @@
 
     // Quick Navigation Autoplay
     @if $fs-include-quicknav {
-      @include fs-mixin-keyframes(quickNavAnimation-#{$i}) {
+      @include fs-mixin-keyframes(quickNavAutoplay-#{$i}) {
         // sass-lint:disable-block empty-line-between-blocks, brace-style
         0% { @include fs-mixin-quick-nav-btn-inactive;  }
         #{100% * $fs-fade-time / $total-duration},
@@ -46,7 +46,7 @@
         // Slide Animation
         ~ .fs-slides {
           .fs-slide {
-            @include fs-mixin-animation(slidesAnimation-#{$i} #{$total-duration}s infinite);
+            @include fs-mixin-animation(slidesAutoplay-#{$i} #{$total-duration}s infinite);
           }
         }
 
@@ -54,7 +54,7 @@
         @if $fs-include-quicknav {
           ~ .fs-quick-nav {
             .fs-quick-btn {
-              @include fs-mixin-animation(quickNavAnimation-#{$i} #{$total-duration}s infinite);
+              @include fs-mixin-animation(quickNavAutoplay-#{$i} #{$total-duration}s infinite);
             }
           }
         }
