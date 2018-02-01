@@ -1,47 +1,46 @@
 // ===== AUTOPLAY =====
 
 @mixin fs-autoplay {
-  @for $i from 2 through $fs-max-slides {
+  [data-am-fadeshow~='autoplay'] {
+    @for $i from 2 through $fs-max-slides {
+      $total-duration: $fs-autoplay-duration * $i;
 
-    $total-duration: $fs-autoplay-duration * $i;
-
-    // Slide Autoplay
-    @include fs-mixin-keyframes(slidesAutoplay-#{$i}) {
-      // sass-lint:disable-block empty-line-between-blocks, brace-style
-      0% { @include fs-mixin-slide-inactive; }
-      #{100% * $fs-fade-time / $total-duration},
-      #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-slide-active; }
-      #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-      100% { @include fs-mixin-slide-inactive; }
-    }
-
-    // Quick Navigation Autoplay
-    @if $fs-include-quicknav {
-      @include fs-mixin-keyframes(quickNavAutoplay-#{$i}) {
+      // Slide Autoplay
+      @include fs-mixin-keyframes(slidesAutoplay-#{$i}) {
         // sass-lint:disable-block empty-line-between-blocks, brace-style
-        0% { @include fs-mixin-quick-nav-btn-inactive;  }
+        0% { @include fs-mixin-slide-inactive; }
         #{100% * $fs-fade-time / $total-duration},
-        #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-quick-nav-btn-active; }
+        #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-slide-active; }
         #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-        100% { @include fs-mixin-quick-nav-btn-inactive; }
+        100% { @include fs-mixin-slide-inactive; }
       }
-    }
 
-    // Ken Burns Autoplay
-    @if $fs-include-kenburns {
-      @include fs-mixin-keyframes(kenBurnsAutoplay-#{$i}) {
-        // sass-lint:disable-block empty-line-between-blocks
-        0% {
-          @include fs-mixin-transform(none);
-        }
-        #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-        100% {
-          @include fs-mixin-transform(scale(#{$fs-kenburns-scale}));
+      // Quick Navigation Autoplay
+      @if $fs-include-quicknav {
+        @include fs-mixin-keyframes(quickNavAutoplay-#{$i}) {
+          // sass-lint:disable-block empty-line-between-blocks, brace-style
+          0% { @include fs-mixin-quick-nav-btn-inactive;  }
+          #{100% * $fs-fade-time / $total-duration},
+          #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-quick-nav-btn-active; }
+          #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
+          100% { @include fs-mixin-quick-nav-btn-inactive; }
         }
       }
-    }
 
-    [data-am-fadeshow~='autoplay'] {
+      // Ken Burns Autoplay
+      @if $fs-include-kenburns {
+        @include fs-mixin-keyframes(kenBurnsAutoplay-#{$i}) {
+          // sass-lint:disable-block empty-line-between-blocks
+          0% {
+            @include fs-mixin-transform(none);
+          }
+          #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
+          100% {
+            @include fs-mixin-transform(scale(#{$fs-kenburns-scale}));
+          }
+        }
+      }
+
       input[type='radio']:nth-of-type(#{$i}):last-of-type {
         // Slide Animation
         ~ .fs-slides {
@@ -97,20 +96,20 @@
           }
         }
       }
+    }
 
-      @if $fs-include-prevnextnav {
-        // Hide Prev/Next Navigaiton while auoplay is active
-        .fs-prev-btn:last-child,
-        .fs-next-btn:nth-child(2) {
-          display: none;
-        }
+    // Hide Prev/Next Navigaiton while auoplay is running
+    @if $fs-include-prevnextnav {
+      .fs-prev-btn:last-child,
+      .fs-next-btn:nth-child(2) {
+        display: none;
       }
+    }
 
-      @if $fs-include-slidecounter {
-        // Hide Slide Counter while autoplay is active
-        .fs-slide-counter {
-          opacity: 0;
-        }
+    // Hide Slide Counter while autoplay is running
+    @if $fs-include-slidecounter {
+      .fs-slide-counter {
+        opacity: 0;
       }
     }
   }
