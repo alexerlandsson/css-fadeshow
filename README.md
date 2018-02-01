@@ -11,7 +11,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 - Great browser support
 - Easy to customize
 - Easy to add custom themes
-- Lightweight (2.2KB gzipped, 5 slides and all modifiers included)
+- Lightweight (2.2KB gzipped with 5 slides and all modifiers included)
 - Modular Addons (Modifiers)
 
 ## Quick start
@@ -118,27 +118,29 @@ Add the following line to your HTML file in the head tag:
 ## Customized Installation
 To customize the installation, download the folder named `scss` and include the file `css-fadeshow.scss` in your project. This way of implementation is highly recommended due to the possibility to customize the output. SCSS is required when using the fadeshow in this way.
 
-### Options
-The first section of `css-fadeshow.scss` contains variables which are made to be modified to go with your preferences. __DO NOT__ change anything else in the file than the variables if you don't know what you are doing.
+### Settings
+All settings are managed from `/imports/settings.scss`. In this file you will find variables used through the project.
 
 The first variables are labeled "Modifiers to include". These defines which modifiers you want to use in your implementation. If you're planning to not use some of the modifiers – set these to false. This will result in a smaller CSS. The same goes for number of slides – the more slides you want to have, the larger the CSS file will be.
 
-| Variable                    | Description                 |
-|-----------------------------| ----------------------------|
-| $fs-include-autoplay        | Whether to include Autoplay or not. Default `true`. |
-| $fs-include-prevnextnav     | Whether to include Prev/Next Navigation or not. Default `true`. |
-| $fs-include-quicknav        | Whether to include Quick Navigation or not. Default `true`. |
-| $fs-include-slidecounter    | Whether to include Slide Counter or not. Default `true`. |
-| $fs-include-kenburns        | Whether to include Ken Burns effet to background image or not. Default `true`. |
-| $fs-max-slides              | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be. |
-| $fs-fade-time               | Change to the desired transition time of the fade between images. Value counts in seconds. Default `1`. |
-| $fs-fade-color              | Background color behind the images. Will be a part of the transitions between images. Default `#fff`. |
-| $fs-prefix                  | Set to `false` if you don't want the compiled CSS to include prefixes. Default `true`. |
-| $fs-breakpoint-small        | Set to the desired max-width for smaller screens. Default `500px`. |
-| $fs-prevnextnav-loop        | Set to false to hide the prev button on first slide and the next button on last slide. Default true. |
-| $fs-autoplay-duration       | Set the duration of each slide in autoplay mode. Value counts in seconds. Default `5`. |
-| $fs-kenburns-duration       | Set the duration of Ken Burns effect. Value counts in seconds. Default `5`. |
-| $fs-kenburns-scale          | Set the zoom of Ken Burns effect. Value set in decimal. Default `1.05` (5%). |
+_Tip: If you want the css as small as possible, I suggest you to disable autoplay since it generates a lot of code in order to work._
+
+| Variable                    | Type                        | Default                      | Description                 |
+|-----------------------------| ----------------------------| -----------------------------| ----------------------------|
+| $fs-include-autoplay        | boolean                     | true                         | Whether to include Autoplay or not. |
+| $fs-include-prevnextnav     | boolean                     | true                         | Whether to include Prev/Next Navigation or not. |
+| $fs-include-quicknav        | boolean                     | true                         | Whether to include Quick Navigation or not. |
+| $fs-include-slidecounter    | boolean                     | true                         | Whether to include Slide Counter or not. |
+| $fs-include-kenburns        | boolean                     | true                         | Whether to include Ken Burns effet to background image or not. |
+| $fs-max-slides              | integer                     | 5                            | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be. |
+| $fs-fade-time               | integer                     | 1                            | Change to the desired transition time of the fade between images. Value counts in seconds. |
+| $fs-fade-color              | hex                         | #fff                         | Background color behind the images. Will be a part of the transitions between images. Default |
+| $fs-prefix                  | boolean                     | true                         | Set to `false` if you don't want the compiled CSS to include prefixes. |
+| $fs-breakpoint-small        | width                       | 500px                        | Set to the desired max-width for smaller screens. |
+| $fs-prevnextnav-loop        | boolean                     | true                         | Set to false to hide the prev button on first slide and the next button on last slide. |
+| $fs-autoplay-duration       | integer                     | 5                            | Set the duration of each slide in autoplay mode. Value counts in seconds. |
+| $fs-kenburns-duration       | integer                     | 5                            | Set the duration of Ken Burns effect. Value counts in seconds. |
+| $fs-kenburns-scale          | decimal                     | 1.05 (5%)                    | Set the zoom of Ken Burns effect. |
 
 ### Custom Theme
 The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in `/scss/themes`. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in `theme.scss`.
