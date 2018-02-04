@@ -49,20 +49,6 @@
         &:nth-of-type(#{$i}) {
           // Show slide
           ~ .fs-slides {
-            .fs-slide {
-              @include fs-mixin-slide-inactive;
-              @if $fs-include-autoplay {
-                // Cancel autoplay
-                @include fs-mixin-animation(none !important);
-
-                @if $fs-include-kenburns {
-                  .fs-slide-bg {
-                    @include fs-mixin-animation(none !important);
-                  }
-                }
-              }
-            }
-
             .fs-slide:nth-child(#{$i}) {
               @include fs-mixin-slide-active;
             }
@@ -166,7 +152,30 @@
 
       ~ .fs-slides {
         .fs-slide {
+          @include fs-mixin-slide-inactive;
           transition: opacity #{$fs-fade-time}s linear;
+
+          @if $fs-include-autoplay {
+            // Cancel autoplay
+            @include fs-mixin-animation(none !important);
+
+            @if $fs-include-kenburns {
+              .fs-slide-bg {
+                @include fs-mixin-animation(none !important);
+              }
+            }
+          }
+        }
+      }
+
+      // Cancel slide couter autoplay
+      @if $fs-include-autoplay and $fs-include-kenburns {
+        ~ .fs-slide-counter {
+          .fs-slide-counter-current {
+            &:before {
+              @include fs-mixin-animation(none !important);
+            }
+          }
         }
       }
 
