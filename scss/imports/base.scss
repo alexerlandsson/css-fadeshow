@@ -122,7 +122,7 @@
               .fs-quick-btn {
                 @include fs-mixin-quick-nav-btn-inactive;
                 @if $fs-include-autoplay {
-                  // Cancel autoplay
+                  // Cancel Quick Navigation autoplay
                   @include fs-mixin-animation(none !important);
                 }
               }
@@ -159,6 +159,7 @@
             // Cancel autoplay
             @include fs-mixin-animation(none !important);
 
+            // Cancel Ken Burns autoplay (Running as transition while radio is checked)
             @if $fs-include-kenburns {
               .fs-slide-bg {
                 @include fs-mixin-animation(none !important);
