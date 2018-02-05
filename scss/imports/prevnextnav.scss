@@ -1,39 +1,41 @@
 // ===== PREV/NEXT NAVIGATION =====
 
-// TODO: Add opacity instead of display none/block for manual slide change as well?
-
 @mixin fs-prevnextnav {
   [data-am-fadeshow~='prev-next-nav'] {
+    .fs-prev-nav,
+    .fs-next-nav {
+      z-index: 1;
+    }
+
     .fs-prev-btn,
     .fs-next-btn {
-      display: none;
-      z-index: 2;
+      @include fs-mixin-inactive;
     }
 
     // Display first pair of Prev/Next Buttons on load
     @if $fs-prevnextnav-loop {
       .fs-prev-btn:last-child {
-        display: block;
+        @include fs-mixin-active;
       }
     }
 
     .fs-next-btn:nth-child(2) {
-      display: block;
+      @include fs-mixin-active;
     }
 
     input[type='radio'] {
       &:checked {
         ~ .fs-prev-nav {
           .fs-prev-btn {
+            @include fs-mixin-inactive;
             @include fs-mixin-animation(none !important);
-            display: none;
           }
         }
 
         ~ .fs-next-nav {
           .fs-next-btn {
+            @include fs-mixin-inactive;
             @include fs-mixin-animation(none !important);
-            display: none;
           }
         }
 
@@ -42,7 +44,7 @@
           &:first-of-type {
             ~ .fs-prev-nav {
               .fs-prev-btn:last-child {
-                display: block;
+                @include fs-mixin-active;
               }
             }
           }
@@ -51,7 +53,7 @@
           &:last-of-type {
             ~ .fs-next-nav {
               .fs-next-btn:first-child {
-                display: block;
+                @include fs-mixin-active;
               }
             }
           }

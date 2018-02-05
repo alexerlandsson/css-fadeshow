@@ -2,6 +2,18 @@
 
 // sass-lint:disable indentation
 
+// Prev/Next Navigation States
+
+@mixin fs-mixin-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+@mixin fs-mixin-inactive {
+  opacity: 0;
+  z-index: auto;
+}
+
 // Prefixes
 
 @mixin fs-mixin-transform($value...) {

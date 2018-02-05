@@ -3,16 +3,6 @@
 // This file handles the base functionality.
 // It also include the main loop which is used by some of the modifiers as well.
 
-@mixin fs-mixin-slide-active {
-  opacity: 1;
-  z-index: 1;
-}
-
-@mixin fs-mixin-slide-inactive {
-  opacity: 0;
-  z-index: auto;
-}
-
 [data-am-fadeshow] {
   position: relative;
   overflow: hidden;
@@ -29,11 +19,11 @@
   }
 
   .fs-slide {
-    @include fs-mixin-slide-inactive;
+    @include fs-mixin-inactive;
 
     // Display first child on load
     &:first-child {
-      @include fs-mixin-slide-active;
+      @include fs-mixin-active;
     }
   }
 
@@ -50,7 +40,7 @@
           // Show slide
           ~ .fs-slides {
             .fs-slide:nth-child(#{$i}) {
-              @include fs-mixin-slide-active;
+              @include fs-mixin-active;
             }
           }
 
@@ -63,7 +53,7 @@
             @if $prev > 0 {
               ~ .fs-prev-nav {
                 .fs-prev-btn[for='slide-#{$prev}'] {
-                  display: block;
+                  @include fs-mixin-active;
                 }
               }
             }
@@ -72,7 +62,7 @@
             @if $next < ($fs-max-slides + 1) {
               ~ .fs-next-nav {
                 .fs-next-btn[for='slide-#{$next}'] {
-                  display: block;
+                  @include fs-mixin-active;
                 }
               }
             }
@@ -102,7 +92,7 @@
 
       ~ .fs-slides {
         .fs-slide {
-          @include fs-mixin-slide-inactive;
+          @include fs-mixin-inactive;
           transition: opacity #{$fs-fade-time}s linear;
 
           @if $fs-include-autoplay {

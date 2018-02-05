@@ -5,27 +5,14 @@
     @for $i from 2 through $fs-max-slides {
       $total-duration: ($fs-autoplay-duration * $i);
 
-      // Slide Autoplay
+      // Slide Autoplay (Also used for Prev/Next Navigation Autoplay)
       @include fs-mixin-keyframes(slidesAutoplay-#{$i}) {
         // sass-lint:disable-block empty-line-between-blocks, brace-style
-        0% { @include fs-mixin-slide-inactive; }
+        0% { @include fs-mixin-inactive; }
         #{100% * $fs-fade-time / $total-duration},
-        #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-slide-active; }
+        #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-active; }
         #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-        100% { @include fs-mixin-slide-inactive; }
-      }
-
-      // Prev/Next Navigation Autoplay
-      // TODO: Use mixins for active/inactive states
-      @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
-        @include fs-mixin-keyframes(prevNextNavAutoplay-#{$i}) {
-          // sass-lint:disable-block empty-line-between-blocks, brace-style
-          0% { opacity: 0; z-index: 2; }
-          #{100% * $fs-fade-time / $total-duration},
-          #{100% * $fs-autoplay-duration / $total-duration} { opacity: 1; z-index: 3; }
-          #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-          100% { opacity: 0; z-index: 2; }
-        }
+        100% { @include fs-mixin-inactive; }
       }
 
       // Quick Navigation Autoplay
@@ -110,13 +97,13 @@
         @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
           ~ .fs-prev-nav {
             .fs-prev-btn {
-              @include fs-mixin-animation(prevNextNavAutoplay-#{$i} #{$total-duration}s linear infinite);
+              @include fs-mixin-animation(slidesAutoplay-#{$i} #{$total-duration}s linear infinite);
             }
           }
 
           ~ .fs-next-nav {
             .fs-next-btn {
-              @include fs-mixin-animation(prevNextNavAutoplay-#{$i} #{$total-duration}s linear infinite);
+              @include fs-mixin-animation(slidesAutoplay-#{$i} #{$total-duration}s linear infinite);
             }
           }
         }
@@ -166,14 +153,6 @@
             }
           }
         }
-      }
-    }
-
-    // Overwrite Prev/Next Navigation display
-    @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
-      .fs-prev-btn,
-      .fs-next-btn {
-        display: block;
       }
     }
 
