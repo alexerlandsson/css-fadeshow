@@ -147,7 +147,7 @@
         // Ken Burns Animation
         @if $fs-include-kenburns and $fs-autoplay-kenburns {
           @at-root {
-            #{selector-append("[data-am-fadeshow~='ken-burns']", &)} {
+            #{selector-append('[data-am-fadeshow~="ken-burns"]', &)} {
               ~ .fs-slides {
                 .fs-slide {
                   .fs-slide-bg {
