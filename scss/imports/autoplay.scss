@@ -17,8 +17,21 @@
         100% { @include fs-mixin-slide-inactive; }
       }
 
+      // Prev/Next Navigation Autoplay
+      // TODO: Fix
+      @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
+        @include fs-mixin-keyframes(prevNextNavAutoplay-#{$i}) {
+          // sass-lint:disable-block empty-line-between-blocks, brace-style
+          0% { display: none;  }
+          #{100% * $fs-fade-time / $total-duration},
+          #{100% * $fs-autoplay-duration / $total-duration} { display: block; }
+          #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
+          100% { display: none; }
+        }
+      }
+
       // Quick Navigation Autoplay
-      @if $fs-include-quicknav {
+      @if $fs-include-quicknav and $fs-autoplay-quicknav {
         @include fs-mixin-keyframes(quickNavAutoplay-#{$i}) {
           // sass-lint:disable-block empty-line-between-blocks, brace-style
           0% { @include fs-mixin-quick-nav-btn-inactive;  }
@@ -29,8 +42,20 @@
         }
       }
 
+      // Slide Counter Autoplay
+      @if $fs-include-slidecounter and $fs-autoplay-slidecounter {
+        @include fs-mixin-keyframes(slideCounterAutoplay-#{$i}) {
+          @for $j from 1 through $i {
+            #{(100% * ($j - 1)) / $i},
+            #{((100% * $j) / $i) - 1} {
+              content: '#{$j}';
+            }
+          }
+        }
+      }
+
       // Ken Burns Autoplay
-      @if $fs-include-kenburns {
+      @if $fs-include-kenburns and $fs-autoplay-kenburns {
         @include fs-mixin-keyframes(kenBurnsAutoplay-#{$i}) {
           // sass-lint:disable-block empty-line-between-blocks
           0% {
@@ -43,18 +68,6 @@
         }
       }
 
-      // Slide Counter Autoplay
-      @if $fs-include-slidecounter {
-        @include fs-mixin-keyframes(slideCounterAutoplay-#{$i}) {
-          @for $j from 1 through $i {
-            #{(100% * ($j - 1)) / $i},
-            #{((100% * $j) / $i) - 1} {
-              content: '#{$j}';
-            }
-          }
-        }
-      }
-
       input[type='radio']:nth-of-type(#{$i}):last-of-type {
         // Slide Animation
         ~ .fs-slides {
@@ -63,16 +76,7 @@
           }
         }
 
-        // Quick Navigation Animation
-        @if $fs-include-quicknav {
-          ~ .fs-quick-nav {
-            .fs-quick-btn {
-              @include fs-mixin-animation(quickNavAutoplay-#{$i} #{$total-duration}s infinite);
-            }
-          }
-        }
-
-        // Animation Delay
+        // Animation Delay Loop
         @for $j from 1 through $i {
           $animation-delay: #{($j - 1) * $fs-autoplay-duration - $fs-fade-time}s;
 
@@ -80,15 +84,52 @@
             @include fs-mixin-animation-delay(#{$animation-delay});
           }
 
-          @if $fs-include-quicknav {
+          @if $fs-include-quicknav and $fs-autoplay-quicknav {
             ~ .fs-quick-nav .fs-quick-btn:nth-child(#{$j}) {
               @include fs-mixin-animation-delay(#{$animation-delay});
+            }
+          }
+
+          // TODO: Add animation delay to Prev/Next Navigation here
+        }
+
+        // Prev/Next Navigation Autoplay
+        // TODO: Fix
+        // TODO: Have $fs-prevnextnav-loop in mind
+        @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
+          ~ .fs-prev-nav {
+            .fs-prev-btn,
+            .fs-next-btn {
+              //@include fs-mixin-animation(prevNextNavAutoplay-#{$i} #{$total-duration}s infinite);
+            }
+          }
+        }
+
+        // Quick Navigation Animation
+        @if $fs-include-quicknav and $fs-autoplay-quicknav {
+          ~ .fs-quick-nav {
+            .fs-quick-btn {
+              @include fs-mixin-animation(quickNavAutoplay-#{$i} #{$total-duration}s infinite);
+            }
+          }
+        }
+
+        // Slide Counter Animation
+        @if $fs-include-slidecounter and $fs-autoplay-slidecounter {
+          ~ .fs-slide-counter {
+            .fs-slide-counter-current {
+              &:before {
+                // Add negative delay to switch number in the middle of the fade
+                $animation-delay: #{($fs-fade-time / 2) * -1}s;
+
+                @include fs-mixin-animation(slideCounterAutoplay-#{$i} #{$total-duration}s linear infinite #{$animation-delay});
+              }
             }
           }
         }
 
         // Ken Burns Animation
-        @if $fs-include-kenburns {
+        @if $fs-include-kenburns and $fs-autoplay-kenburns {
           @at-root {
             #{selector-append("[data-am-fadeshow~='ken-burns']", &)} {
               ~ .fs-slides {
@@ -109,25 +150,37 @@
             }
           }
         }
-
-        // Slide Counter Animation
-        ~ .fs-slide-counter {
-          .fs-slide-counter-current {
-            &:before {
-              // Add negative delay to switch number in the middle of the fade
-              $animation-delay: #{($fs-fade-time / 2) * -1}s;
-
-              @include fs-mixin-animation(slideCounterAutoplay-#{$i} #{$total-duration}s linear infinite #{$animation-delay});
-            }
-          }
-        }
       }
     }
 
     // Hide Prev/Next Navigaiton while auoplay is running
+    // TODO: Remove after Prev/Next Navigation autoplay is implemented
     @if $fs-include-prevnextnav {
       .fs-prev-btn:last-child,
       .fs-next-btn:nth-child(2) {
+        display: none;
+      }
+    }
+
+    // Hide Quick Navigation if it should be hidden during autoplay
+    // TODO: Test
+    @if $fs-include-prevnextnav and not $fs-autoplay-prevnextnav {
+      .fs-prev-nav,
+      .fs-next-nav {
+        display: none;
+      }
+    }
+
+    // Hide Quick Navigation if it should be hidden during autoplay
+    @if $fs-include-quicknav and not $fs-autoplay-quicknav {
+      .fs-quick-nav {
+        display: none;
+      }
+    }
+
+    // Hide Quick Navigation if it should be hidden during autoplay
+    @if $fs-include-slidecounter and not $fs-autoplay-slidecounter {
+      .fs-slide-counter {
         display: none;
       }
     }

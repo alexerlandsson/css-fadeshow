@@ -11,7 +11,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 - Great browser support
 - Easy to customize
 - Easy to add custom themes
-- Lightweight (2.2KB gzipped with 5 slides and all modifiers included)
+- Lightweight (3.5KB gzipped with 5 slides and all modifiers included, 2.5KB with autoplay disabled)
 - Modular Addons (Modifiers)
 
 ## Quick start
@@ -131,14 +131,17 @@ _Tip: If you want the css as small as possible, I suggest you to disable autopla
 | $fs-include-prevnextnav     | boolean                     | true                         | Whether to include Prev/Next Navigation or not. |
 | $fs-include-quicknav        | boolean                     | true                         | Whether to include Quick Navigation or not. |
 | $fs-include-slidecounter    | boolean                     | true                         | Whether to include Slide Counter or not. |
-| $fs-include-kenburns        | boolean                     | true                         | Whether to include Ken Burns effet to background image or not. |
+| $fs-include-kenburns        | boolean                     | true                         | Whether to include Ken Burns effect to background image or not. |
 | $fs-max-slides              | integer                     | 5                            | Defines the maximum of images allowed. There is no technical limit, but the higher number, the larger the CSS file will be. |
 | $fs-fade-time               | integer                     | 1                            | Change to the desired transition time of the fade between images. Value counts in seconds. |
-| $fs-fade-color              | hex                         | #fff                         | Background color behind the images. Will be a part of the transitions between images. Default |
+| $fs-fade-color              | hex                         | #fff                         | Background color behind the images. Will be a part of the transitions between images. |
 | $fs-prefix                  | boolean                     | true                         | Set to `false` if you don't want the compiled CSS to include prefixes. |
-| $fs-breakpoint-small        | width                       | 500px                        | Set to the desired max-width for smaller screens. |
 | $fs-prevnextnav-loop        | boolean                     | true                         | Set to false to hide the prev button on first slide and the next button on last slide. |
 | $fs-autoplay-duration       | integer                     | 5                            | Set the duration of each slide in autoplay mode. Value counts in seconds. |
+| $fs-autoplay-prevnextnav    | boolean                     | true                         | Adds autoplay to Prev/Next Navigation while autoplay is running. |
+| $fs-autoplay-quicknav       | boolean                     | true                         | Adds autoplay to Quick Navigation while autoplay is running. |
+| $fs-autoplay-slidecounter   | boolean                     | true                         | Adds autoplay to Slide Counter while autoplay is running. |
+| $fs-autoplay-kenburns       | boolean                     | true                         | Adds autoplay to Ken Burns effect while autoplay is running. |
 | $fs-kenburns-duration       | integer                     | 5                            | Set the duration of Ken Burns effect. Value counts in seconds. |
 | $fs-kenburns-scale          | decimal                     | 1.05 (5%)                    | Set the zoom of Ken Burns effect. |
 

@@ -21,6 +21,7 @@
               .fs-slide:nth-child(#{$i}) {
                 .fs-slide-bg {
                   @include fs-mixin-transform(scale($fs-kenburns-scale));
+                  transition-delay: #{($fs-fade-time) * -1}s;
                 }
               }
             }
