@@ -1,7 +1,5 @@
 // ===== AUTOPLAY =====
 
-// TODO: Figure out how to add autoplay to Prev/Next Navigation
-
 @mixin fs-autoplay {
   [data-am-fadeshow~='autoplay'] {
     @for $i from 2 through $fs-max-slides {
@@ -18,15 +16,15 @@
       }
 
       // Prev/Next Navigation Autoplay
-      // TODO: Fix
+      // TODO: Use mixins for active/inactive states
       @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
         @include fs-mixin-keyframes(prevNextNavAutoplay-#{$i}) {
           // sass-lint:disable-block empty-line-between-blocks, brace-style
-          0% { display: none;  }
+          0% { opacity: 0; z-index: 2; }
           #{100% * $fs-fade-time / $total-duration},
-          #{100% * $fs-autoplay-duration / $total-duration} { display: block; }
+          #{100% * $fs-autoplay-duration / $total-duration} { opacity: 1; z-index: 3; }
           #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-          100% { display: none; }
+          100% { opacity: 0; z-index: 2; }
         }
       }
 
@@ -72,7 +70,7 @@
         // Slide Animation
         ~ .fs-slides {
           .fs-slide {
-            @include fs-mixin-animation(slidesAutoplay-#{$i} #{$total-duration}s infinite);
+            @include fs-mixin-animation(slidesAutoplay-#{$i} #{$total-duration}s linear infinite);
           }
         }
 
@@ -90,17 +88,35 @@
             }
           }
 
-          // TODO: Add animation delay to Prev/Next Navigation here
+          @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
+            $prev: if($j == 1, $i, $j - 1);
+            $next: if($j == $i, 1, $j + 1);
+
+            ~ .fs-prev-nav {
+              .fs-prev-btn:nth-child(#{$prev}) {
+                @include fs-mixin-animation-delay(#{$animation-delay});
+              }
+            }
+
+            ~ .fs-next-nav {
+              .fs-next-btn:nth-child(#{$next}) {
+                @include fs-mixin-animation-delay(#{$animation-delay});
+              }
+            }
+          }
         }
 
         // Prev/Next Navigation Autoplay
-        // TODO: Fix
-        // TODO: Have $fs-prevnextnav-loop in mind
         @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
           ~ .fs-prev-nav {
-            .fs-prev-btn,
+            .fs-prev-btn {
+              @include fs-mixin-animation(prevNextNavAutoplay-#{$i} #{$total-duration}s linear infinite);
+            }
+          }
+
+          ~ .fs-next-nav {
             .fs-next-btn {
-              //@include fs-mixin-animation(prevNextNavAutoplay-#{$i} #{$total-duration}s infinite);
+              @include fs-mixin-animation(prevNextNavAutoplay-#{$i} #{$total-duration}s linear infinite);
             }
           }
         }
@@ -109,7 +125,7 @@
         @if $fs-include-quicknav and $fs-autoplay-quicknav {
           ~ .fs-quick-nav {
             .fs-quick-btn {
-              @include fs-mixin-animation(quickNavAutoplay-#{$i} #{$total-duration}s infinite);
+              @include fs-mixin-animation(quickNavAutoplay-#{$i} #{$total-duration}s linear infinite);
             }
           }
         }
@@ -135,7 +151,7 @@
               ~ .fs-slides {
                 .fs-slide {
                   .fs-slide-bg {
-                    @include fs-mixin-animation(kenBurnsAutoplay-#{$i} #{$total-duration}s infinite);
+                    @include fs-mixin-animation(kenBurnsAutoplay-#{$i} #{$total-duration}s linear infinite);
                   }
                 }
               }
@@ -153,20 +169,18 @@
       }
     }
 
-    // Hide Prev/Next Navigaiton while auoplay is running
-    // TODO: Remove after Prev/Next Navigation autoplay is implemented
-    @if $fs-include-prevnextnav {
-      .fs-prev-btn:last-child,
-      .fs-next-btn:nth-child(2) {
-        display: none;
+    // Overwrite Prev/Next Navigation display
+    @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
+      .fs-prev-btn,
+      .fs-next-btn {
+        display: block;
       }
     }
 
-    // Hide Quick Navigation if it should be hidden during autoplay
-    // TODO: Test
+    // Hide Prev/Next Navigation if it should be hidden during autoplay
     @if $fs-include-prevnextnav and not $fs-autoplay-prevnextnav {
-      .fs-prev-nav,
-      .fs-next-nav {
+      .fs-prev-btn:last-child,
+      .fs-next-btn:nth-child(2) {
         display: none;
       }
     }
@@ -178,7 +192,7 @@
       }
     }
 
-    // Hide Quick Navigation if it should be hidden during autoplay
+    // Hide Slide Counter if it should be hidden during autoplay
     @if $fs-include-slidecounter and not $fs-autoplay-slidecounter {
       .fs-slide-counter {
         display: none;
