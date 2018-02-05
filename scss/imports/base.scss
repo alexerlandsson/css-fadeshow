@@ -44,7 +44,7 @@
     opacity: 0;
 
     &:checked {
-      // Main loop
+      // Main loop (Only selectors including $i are allowed)
       @for $i from 1 through $fs-max-slides {
         &:nth-of-type(#{$i}) {
           // Show slide
@@ -76,21 +76,6 @@
                 }
               }
             }
-
-            // Show first next button if last slide
-            &:last-of-type {
-              ~ .fs-next-nav {
-                .fs-next-btn {
-                  display: none;
-                }
-
-                @if $fs-prevnextnav-loop {
-                  .fs-next-btn:first-child {
-                    display: block;
-                  }
-                }
-              }
-            }
           }
 
           // Quick Navigation
@@ -98,10 +83,6 @@
             ~ .fs-quick-nav {
               .fs-quick-btn:nth-child(#{$i}) {
                 @include fs-mixin-quick-nav-btn-active;
-
-                &:hover {
-                  opacity: 1;
-                }
               }
             }
           }
@@ -128,7 +109,7 @@
             // Cancel autoplay
             @include fs-mixin-animation(none !important);
 
-            // Cancel Ken Burns autoplay (Running as transition while radio is checked)
+            // Cancel Ken Burns autoplay (Running as transition when a radio button is checked)
             @if $fs-include-kenburns and $fs-autoplay-kenburns {
               .fs-slide-bg {
                 @include fs-mixin-animation(none !important);
@@ -152,11 +133,20 @@
           }
         }
 
-        // Show last prev button if first slide
         @if $fs-prevnextnav-loop {
+          // Show last prev button if first slide
           &:first-of-type {
             ~ .fs-prev-nav {
               .fs-prev-btn:last-child {
+                display: block;
+              }
+            }
+          }
+
+          // Show first next button if last slide
+          &:last-of-type {
+            ~ .fs-next-nav {
+              .fs-next-btn:first-child {
                 display: block;
               }
             }

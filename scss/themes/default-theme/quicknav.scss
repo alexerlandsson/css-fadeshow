@@ -4,6 +4,10 @@
 @mixin fs-mixin-quick-nav-btn-active {
   background-color: #fff;
   width: 40px;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 // Mixin to handle Quick Navigation inactive state
