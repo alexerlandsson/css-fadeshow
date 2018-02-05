@@ -14,6 +14,14 @@
   z-index: auto;
 }
 
+@mixin fs-mixin-quick-nav-btn-active {
+  @include fs-mixin-quick-nav-btn-active-theme;
+}
+
+@mixin fs-mixin-quick-nav-btn-inactive {
+  @include fs-mixin-quick-nav-btn-inactive-theme;
+}
+
 // Prefixes
 
 @mixin fs-mixin-transform($value...) {
