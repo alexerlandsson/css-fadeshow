@@ -140,7 +140,7 @@ _Tip: If you want the css as small as possible, I suggest you to disable autopla
 | $fs-autoplay-duration       | integer                     | 5                            | Set the duration of each slide in autoplay mode. Value counts in seconds. |
 | $fs-autoplay-prevnextnav    | boolean                     | true                         | Adds autoplay to Prev/Next Navigation while autoplay is running. |
 | $fs-autoplay-quicknav       | boolean                     | true                         | Adds autoplay to Quick Navigation while autoplay is running. |
-| $fs-autoplay-slidecounter   | boolean                     | true                         | Adds autoplay to Slide Counter while autoplay is running. |
+| $fs-autoplay-slidecounter   | boolean                     | false                        | Adds autoplay to Slide Counter while autoplay is running. Animating content in pseudo elements is poorly supported so be careful before activating this. |
 | $fs-autoplay-kenburns       | boolean                     | true                         | Adds autoplay to Ken Burns effect while autoplay is running. |
 | $fs-kenburns-duration       | integer                     | 5                            | Set the duration of Ken Burns effect. Value counts in seconds. |
 | $fs-kenburns-scale          | decimal                     | 1.05 (5%)                    | Set the zoom of Ken Burns effect. |
