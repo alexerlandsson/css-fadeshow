@@ -77,17 +77,6 @@
               }
             }
 
-            // Show last prev button if first slide
-            @if $fs-prevnextnav-loop {
-              &:first-of-type {
-                ~ .fs-prev-nav {
-                  .fs-prev-btn:last-child {
-                    display: block;
-                  }
-                }
-              }
-            }
-
             // Show first next button if last slide
             &:last-of-type {
               ~ .fs-next-nav {
@@ -160,6 +149,17 @@
         ~ .fs-next-nav {
           .fs-next-btn {
             display: none;
+          }
+        }
+
+        // Show last prev button if first slide
+        @if $fs-prevnextnav-loop {
+          &:first-of-type {
+            ~ .fs-prev-nav {
+              .fs-prev-btn:last-child {
+                display: block;
+              }
+            }
           }
         }
       }

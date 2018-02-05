@@ -11,7 +11,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 - Great browser support
 - Easy to customize
 - Easy to add custom themes
-- Lightweight (3.5KB gzipped with 5 slides and all modifiers included, 2.5KB with autoplay disabled)
+- Lightweight (3.4KB gzipped with 5 slides and all modifiers included, 2.4KB with autoplay disabled)
 - Modular Addons (Modifiers)
 
 ## Quick start
