@@ -5,14 +5,24 @@
     @for $i from 2 through $fs-max-slides {
       $total-duration: ($fs-autoplay-duration * $i);
 
-      // Slide Autoplay (Also used for Prev/Next Navigation Autoplay)
+      // Slide Autoplay
       @include fs-mixin-keyframes(slidesAutoplay-#{$i}) {
         // sass-lint:disable-block empty-line-between-blocks, brace-style
-        0% { @include fs-mixin-inactive; }
+        0% { @include fs-mixin-slide-inactive; }
         #{100% * $fs-fade-time / $total-duration},
-        #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-active; }
+        #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-slide-active; }
         #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
-        100% { @include fs-mixin-inactive; }
+        100% { @include fs-mixin-slide-inactive; }
+      }
+
+      // Prev/Next Navigation Autoplay
+      @include fs-mixin-keyframes(prevNextNavAutoplay-#{$i}) {
+        // sass-lint:disable-block empty-line-between-blocks, brace-style
+        0% { @include fs-mixin-prev-next-nav-btn-inactive; }
+        #{100% * $fs-fade-time / $total-duration},
+        #{100% * $fs-autoplay-duration / $total-duration} { @include fs-mixin-prev-next-nav-btn-active; }
+        #{100% * ($fs-autoplay-duration + $fs-fade-time) / $total-duration},
+        100% { @include fs-mixin-prev-next-nav-btn-inactive; }
       }
 
       // Quick Navigation Autoplay
@@ -97,13 +107,13 @@
         @if $fs-include-prevnextnav and $fs-autoplay-prevnextnav {
           ~ .fs-prev-nav {
             .fs-prev-btn {
-              @include fs-mixin-animation(slidesAutoplay-#{$i} #{$total-duration}s linear infinite);
+              @include fs-mixin-animation(prevNextNavAutoplay-#{$i} #{$total-duration}s linear infinite);
             }
           }
 
           ~ .fs-next-nav {
             .fs-next-btn {
-              @include fs-mixin-animation(slidesAutoplay-#{$i} #{$total-duration}s linear infinite);
+              @include fs-mixin-animation(prevNextNavAutoplay-#{$i} #{$total-duration}s linear infinite);
             }
           }
         }

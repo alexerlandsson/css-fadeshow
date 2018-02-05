@@ -4,14 +4,22 @@
 
 // States
 
-@mixin fs-mixin-active {
+@mixin fs-mixin-slide-active {
+  opacity: 1;
+}
+
+@mixin fs-mixin-slide-inactive {
+  opacity: 0;
+}
+
+@mixin fs-mixin-prev-next-nav-btn-active {
   opacity: 1;
   z-index: 1;
 }
 
-@mixin fs-mixin-inactive {
+@mixin fs-mixin-prev-next-nav-btn-inactive {
   opacity: 0;
-  z-index: auto;
+  z-index: 0;
 }
 
 @mixin fs-mixin-quick-nav-btn-active {

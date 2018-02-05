@@ -9,32 +9,32 @@
 
     .fs-prev-btn,
     .fs-next-btn {
-      @include fs-mixin-inactive;
+      @include fs-mixin-prev-next-nav-btn-inactive;
     }
 
     // Display first pair of Prev/Next Buttons on load
     @if $fs-prevnextnav-loop {
       .fs-prev-btn:last-child {
-        @include fs-mixin-active;
+        @include fs-mixin-prev-next-nav-btn-active;
       }
     }
 
     .fs-next-btn:nth-child(2) {
-      @include fs-mixin-active;
+      @include fs-mixin-prev-next-nav-btn-active;
     }
 
     input[type='radio'] {
       &:checked {
         ~ .fs-prev-nav {
           .fs-prev-btn {
-            @include fs-mixin-inactive;
+            @include fs-mixin-prev-next-nav-btn-inactive;
             @include fs-mixin-animation(none !important);
           }
         }
 
         ~ .fs-next-nav {
           .fs-next-btn {
-            @include fs-mixin-inactive;
+            @include fs-mixin-prev-next-nav-btn-inactive;
             @include fs-mixin-animation(none !important);
           }
         }
@@ -44,7 +44,7 @@
           &:first-of-type {
             ~ .fs-prev-nav {
               .fs-prev-btn:last-child {
-                @include fs-mixin-active;
+                @include fs-mixin-prev-next-nav-btn-active;
               }
             }
           }
@@ -53,7 +53,7 @@
           &:last-of-type {
             ~ .fs-next-nav {
               .fs-next-btn:first-child {
-                @include fs-mixin-active;
+                @include fs-mixin-prev-next-nav-btn-active;
               }
             }
           }

@@ -19,11 +19,11 @@
   }
 
   .fs-slide {
-    @include fs-mixin-inactive;
+    @include fs-mixin-slide-inactive;
 
     // Display first child on load
     &:first-child {
-      @include fs-mixin-active;
+      @include fs-mixin-slide-active;
     }
   }
 
@@ -40,7 +40,7 @@
           // Show slide
           ~ .fs-slides {
             .fs-slide:nth-child(#{$i}) {
-              @include fs-mixin-active;
+              @include fs-mixin-slide-active;
             }
           }
 
@@ -53,7 +53,7 @@
             @if $prev > 0 {
               ~ .fs-prev-nav {
                 .fs-prev-btn[for='slide-#{$prev}'] {
-                  @include fs-mixin-active;
+                  @include fs-mixin-prev-next-nav-btn-active;
                 }
               }
             }
@@ -62,7 +62,7 @@
             @if $next < ($fs-max-slides + 1) {
               ~ .fs-next-nav {
                 .fs-next-btn[for='slide-#{$next}'] {
-                  @include fs-mixin-active;
+                  @include fs-mixin-prev-next-nav-btn-active;
                 }
               }
             }
@@ -92,7 +92,7 @@
 
       ~ .fs-slides {
         .fs-slide {
-          @include fs-mixin-inactive;
+          @include fs-mixin-slide-inactive;
           transition: opacity #{$fs-fade-time}s linear;
 
           @if $fs-include-autoplay {
