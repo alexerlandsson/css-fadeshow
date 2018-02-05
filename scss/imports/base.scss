@@ -119,14 +119,6 @@
           // Quick Navigation
           @if $fs-include-quicknav {
             ~ .fs-quick-nav {
-              .fs-quick-btn {
-                @include fs-mixin-quick-nav-btn-inactive;
-                @if $fs-include-autoplay {
-                  // Cancel Quick Navigation autoplay
-                  @include fs-mixin-animation(none !important);
-                }
-              }
-
               .fs-quick-btn:nth-child(#{$i}) {
                 @include fs-mixin-quick-nav-btn-active;
 
@@ -169,10 +161,21 @@
         }
       }
 
-      // Display Quick Navigation if it has been hidden during autoplay
-      @if $fs-include-autoplay and $fs-include-quicknav and not $fs-autoplay-quicknav {
+      @if $fs-include-quicknav {
         ~ .fs-quick-nav {
-          display: block;
+          // Display Quick Navigation if it has been hidden during autoplay
+          @if $fs-include-autoplay and not $fs-autoplay-quicknav {
+            display: block;
+          }
+
+          .fs-quick-btn {
+            @include fs-mixin-quick-nav-btn-inactive;
+
+            @if $fs-include-autoplay and $fs-autoplay-quicknav {
+              // Cancel Quick Navigation autoplay
+              @include fs-mixin-animation(none !important);
+            }
+          }
         }
       }
 
