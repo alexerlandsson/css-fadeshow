@@ -6,17 +6,10 @@
 
     input[type='radio'] {
       counter-increment: slideCounter;
-
-      &:checked {
-        ~ .fs-slide-counter {
-          opacity: 1;
-        }
-      }
     }
 
     .fs-slide-counter {
       z-index: 2;
-      transition: opacity 200ms ease;
     }
 
     .fs-slide-counter-current {
