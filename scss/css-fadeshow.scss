@@ -12,13 +12,13 @@
 // All files needs to be included in the corresponding order.
 
 @import
-'imports/settings',
-'imports/mixins',
+'core/settings',
+'core/mixins',
 'theme/theme',
-'imports/base',
-'imports/kenburns',
-'imports/prevnextnav',
-'imports/quicknav',
-'imports/slidecounter',
-'imports/autoplay'
+'core/base',
+'core/kenburns',
+'core/prevnextnav',
+'core/quicknav',
+'core/slidecounter',
+'core/autoplay'
 ;
