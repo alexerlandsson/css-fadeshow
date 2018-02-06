@@ -23,11 +23,15 @@
 }
 
 @mixin fs-mixin-quick-nav-btn-active {
-  @include fs-mixin-quick-nav-btn-active-theme;
+  @if mixin-exists(fs-mixin-quick-nav-btn-active-theme) {
+    @include fs-mixin-quick-nav-btn-active-theme;
+  }
 }
 
 @mixin fs-mixin-quick-nav-btn-inactive {
-  @include fs-mixin-quick-nav-btn-inactive-theme;
+  @if mixin-exists(fs-mixin-quick-nav-btn-inactive-theme) {
+    @include fs-mixin-quick-nav-btn-inactive-theme;
+  }
 }
 
 // Prefixes

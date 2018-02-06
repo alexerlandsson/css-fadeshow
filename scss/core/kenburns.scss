@@ -3,6 +3,7 @@
 @mixin fs-kenburns {
   [data-am-fadeshow~='ken-burns'] {
     .fs-slide-bg {
+      @include fs-mixin-transform(none);
       transition: transform #{$fs-kenburns-duration}s ease #{$fs-fade-time}s;
     }
 
@@ -12,12 +13,6 @@
         @for $i from 1 through $fs-max-slides {
           &:nth-of-type(#{$i}) {
             ~ .fs-slides {
-              .fs-slide {
-                .fs-slide-bg {
-                  @include fs-mixin-transform(none);
-                }
-              }
-
               .fs-slide:nth-child(#{$i}) {
                 .fs-slide-bg {
                   @include fs-mixin-transform(scale($fs-kenburns-scale));
