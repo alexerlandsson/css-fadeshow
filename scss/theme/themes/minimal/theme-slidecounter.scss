@@ -1,0 +1,21 @@
+// ===== THEME SLIDE COUNTER =====
+
+@mixin fs-theme-slidecounter {
+  [data-am-fadeshow~='slide-counter'] {
+    .fs-slide-counter {
+
+    }
+
+    .fs-slide-counter-current {
+
+    }
+
+    .fs-slide-counter-total {
+
+    }
+  }
+}
+
+@if $fs-include-slidecounter {
+  @include fs-theme-slidecounter;
+}
