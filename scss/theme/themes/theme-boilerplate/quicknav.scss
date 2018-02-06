@@ -1,0 +1,27 @@
+// ===== THEME QUICK NAVIGATION =====
+
+// Mixin to handle Quick Navigation active state
+@mixin fs-mixin-quick-nav-btn-active-theme {
+
+}
+
+// Mixin to handle Quick Navigation inactive state
+@mixin fs-mixin-quick-nav-btn-inactive-theme {
+
+}
+
+@mixin fs-theme-quicknav {
+  [data-am-fadeshow~='quick-nav'] {
+    .fs-quick-nav {
+
+    }
+
+    .fs-quick-btn {
+      @include fs-mixin-quick-nav-btn-inactive;
+    }
+  }
+}
+
+@if $fs-include-quicknav {
+  @include fs-theme-quicknav;
+}

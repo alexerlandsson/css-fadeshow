@@ -1,13 +1,8 @@
 // ===== THEME =====
 
 // This file only handles the theme of CSS Fadeshow.
-// To create you own theme, use ./theme-template as boilerplate for your theme's styling.
+// To create you own theme, use ./themes/theme-boilerplate as boilerplate for your theme's styling.
 // When you're done, optionally name the folder to your theme's name, and then change
 // the @import path below to your theme's name.
 
-@import
-'default-theme/base',
-'default-theme/prevnextnav',
-'default-theme/quicknav',
-'default-theme/slidecounter'
-;
+@import './themes/classic/imports';

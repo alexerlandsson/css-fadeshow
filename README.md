@@ -146,7 +146,7 @@ _Tip: If you want the css as small as possible, I suggest you to disable autopla
 | $fs-kenburns-scale          | decimal                     | 1.05 (5%)                    | Set the zoom of Ken Burns effect. |
 
 ### Custom Theme
-The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme template located in `/scss/themes`. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in `theme.scss`.
+The theme of CSS Fadeshow comes separated from the core functionality. This makes is easy to apply your own theme. You'll find a theme boilerplate located in `/scss/theme/themes/theme-boilerplate`. Use these files to create your own theme. When you're done, name the theme folder and change the path to your theme in `theme.scss`.
 
 **Important: Do not change name or remove any of the mixins used in the theme template. These are required.**
 
