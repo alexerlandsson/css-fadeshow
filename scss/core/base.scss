@@ -52,7 +52,7 @@
             // Show previous button
             @if $prev > 0 {
               ~ .fs-prev-nav {
-                .fs-prev-btn[for='slide-#{$prev}'] {
+                .fs-prev-btn[for='fs-slide-#{$prev}'] {
                   @include fs-mixin-prev-next-nav-btn-active;
                 }
               }
@@ -61,7 +61,7 @@
             // Show next button
             @if $next < ($fs-max-slides + 1) {
               ~ .fs-next-nav {
-                .fs-next-btn[for='slide-#{$next}'] {
+                .fs-next-btn[for='fs-slide-#{$next}'] {
                   @include fs-mixin-prev-next-nav-btn-active;
                 }
               }

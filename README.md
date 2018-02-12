@@ -22,9 +22,9 @@ The default markup looks like this:
 <div data-am-fadeshow="quick-nav prev-next-nav slide-counter autoplay ken-burns">
 
   <!-- Radio -->
-  <input type="radio" name="css-fadeshow" id="slide-1" />
-  <input type="radio" name="css-fadeshow" id="slide-2" />
-  <input type="radio" name="css-fadeshow" id="slide-3" />
+  <input type="radio" name="css-fadeshow" id="fs-slide-1" />
+  <input type="radio" name="css-fadeshow" id="fs-slide-2" />
+  <input type="radio" name="css-fadeshow" id="fs-slide-3" />
 
   <!-- Slides -->
   <div class="fs-slides">
@@ -44,23 +44,23 @@ The default markup looks like this:
 
   <!-- Quick Navigation -->
   <div class="fs-quick-nav">
-    <label class="fs-quick-btn" for="slide-1"></label>
-    <label class="fs-quick-btn" for="slide-2"></label>
-    <label class="fs-quick-btn" for="slide-3"></label>
+    <label class="fs-quick-btn" for="fs-slide-1"></label>
+    <label class="fs-quick-btn" for="fs-slide-2"></label>
+    <label class="fs-quick-btn" for="fs-slide-3"></label>
   </div>
 
   <!-- Prev Navigation -->
   <div class="fs-prev-nav">
-    <label class="fs-prev-btn" for="slide-1"></label>
-    <label class="fs-prev-btn" for="slide-2"></label>
-    <label class="fs-prev-btn" for="slide-3"></label>
+    <label class="fs-prev-btn" for="fs-slide-1"></label>
+    <label class="fs-prev-btn" for="fs-slide-2"></label>
+    <label class="fs-prev-btn" for="fs-slide-3"></label>
   </div>
 
   <!-- Next Navigation -->
   <div class="fs-next-nav">
-    <label class="fs-next-btn" for="slide-1"></label>
-    <label class="fs-next-btn" for="slide-2"></label>
-    <label class="fs-next-btn" for="slide-3"></label>
+    <label class="fs-next-btn" for="fs-slide-1"></label>
+    <label class="fs-next-btn" for="fs-slide-2"></label>
+    <label class="fs-next-btn" for="fs-slide-3"></label>
   </div>
 
   <!-- Slide Counter (only one required) -->
