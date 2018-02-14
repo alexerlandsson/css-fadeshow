@@ -46,22 +46,20 @@
 
           // Prev/Next Navigation
           @if $fs-include-prevnextnav {
-            $prev: ($i - 1);
-            $next: ($i + 1);
+            $prev: $i - 1;
+            $next: $i + 1;
 
-            // Show previous button
-            @if $prev > 0 {
+            @if $i > 1 {
               ~ .fs-prev-nav {
-                .fs-prev-btn[for='fs-slide-#{$prev}'] {
+                .fs-prev-btn:nth-child(#{$prev}) {
                   @include fs-mixin-prev-next-nav-btn-active;
                 }
               }
             }
 
-            // Show next button
-            @if $next < ($fs-max-slides + 1) {
+            @if $i < $fs-max-slides {
               ~ .fs-next-nav {
-                .fs-next-btn[for='fs-slide-#{$next}'] {
+                .fs-next-btn:nth-child(#{$next}) {
                   @include fs-mixin-prev-next-nav-btn-active;
                 }
               }
