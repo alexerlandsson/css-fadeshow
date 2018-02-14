@@ -12,11 +12,13 @@
 
 @mixin fs-mixin-prev-next-nav-btn-active {
   opacity: 1;
+  visibility: visible;
   z-index: 1;
 }
 
 @mixin fs-mixin-prev-next-nav-btn-inactive {
   opacity: 0;
+  visibility: hidden;
   z-index: 0;
 }
 
