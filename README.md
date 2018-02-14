@@ -15,6 +15,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 - Modular Addons (Modifiers)
 
 ## Quick start
+
 ### 1. Create the HTML markup
 The default markup looks like this:
 
@@ -116,7 +117,9 @@ Add the following line to your HTML file in the head tag:
 ```
 
 ## Customized Installation
-To customize the installation, download the folder named `scss` and include the file `css-fadeshow.scss` in your project. This way of implementation is highly recommended due to the possibility to customize the output. SCSS is required when using the fadeshow in this way.
+To customize the installation, download the folder named `scss` and include the file `css-fadeshow.scss` in your project. This way of implementation is highly recommended due to the possibility to customize the styling. SCSS is required when using the fadeshow in this way.
+
+Global variables and mixins are used and should be taking into consideration before including the scss files into your project. All variables and mixins are prefixed with "fs-".
 
 ### Settings
 All settings are managed from `/global/settings.scss`. In this file you will find variables used through the project.
