@@ -1,7 +1,7 @@
 // ===== QUICK NAVIGATION =====
 
 @mixin fs-quicknav {
-  [data-am-fadeshow~='quick-nav'] {
+  [data-fadeshow~='quick-nav'] {
     .fs-quick-btn {
       // Set active state to first button on load
       &:first-child {
@@ -15,7 +15,7 @@
   @include fs-quicknav;
 } @else {
   // Hide if set to false but added to html
-  [data-am-fadeshow] {
+  [data-fadeshow] {
     .fs-quick-nav {
       display: none !important;
     }

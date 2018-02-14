@@ -1,7 +1,7 @@
 // ===== SLIDE COUNTER =====
 
 @mixin fs-slidecounter {
-  [data-am-fadeshow~='slide-counter'] {
+  [data-fadeshow~='slide-counter'] {
     counter-reset: slideCounter;
 
     input[type='radio'] {
@@ -29,7 +29,7 @@
 @if $fs-include-slidecounter {
   @include fs-slidecounter;
 } @else {
-  [data-am-fadeshow] {
+  [data-fadeshow] {
     // Hide if set to false but added to html
     .fs-slide-counter {
       display: none !important;

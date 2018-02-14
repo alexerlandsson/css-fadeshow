@@ -1,7 +1,7 @@
 // ===== AUTOPLAY =====
 
 @mixin fs-autoplay {
-  [data-am-fadeshow~='autoplay'] {
+  [data-fadeshow~='autoplay'] {
     @for $i from 2 through $fs-max-slides {
       $total-duration: ($fs-autoplay-duration * $i);
 
@@ -144,7 +144,7 @@
         // Ken Burns Animation
         @if $fs-include-kenburns and $fs-autoplay-kenburns {
           @at-root {
-            #{selector-append('[data-am-fadeshow~="ken-burns"]', &)} {
+            #{selector-append('[data-fadeshow~="ken-burns"]', &)} {
               ~ .fs-slides {
                 .fs-slide {
                   .fs-slide-bg {

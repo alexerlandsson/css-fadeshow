@@ -17,7 +17,7 @@
 }
 
 @mixin fs-theme-quicknav {
-  [data-am-fadeshow~='quick-nav'] {
+  [data-fadeshow~='quick-nav'] {
     .fs-quick-nav {
       @include fs-mixin-unselectable;
       @include fs-mixin-transform(translateX(-50%));

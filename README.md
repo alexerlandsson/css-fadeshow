@@ -20,7 +20,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 The default markup looks like this:
 
 ```html
-<div data-am-fadeshow="quick-nav prev-next-nav slide-counter autoplay ken-burns">
+<div data-fadeshow="quick-nav prev-next-nav slide-counter autoplay ken-burns">
 
   <!-- Radio -->
   <input type="radio" name="css-fadeshow" id="fs-slide-1" />
@@ -86,35 +86,35 @@ Modifiers are used to add functions in a modular way. You can choose which modif
 Quick Navigation is the navigation showed at the bottom. This navigation lets you navigate between any slides instantly. Example:
 
 ```html
-<div data-am-fadeshow="quick-nav"></div>
+<div data-fadeshow="quick-nav"></div>
 ```
 
 ##### 2.2.2 prev-next-nav
 Decides if the prev/next buttons should be used or not. If set, the buttons will be used. Example:
 
 ```html
-<div data-am-fadeshow="prev-next-nav"></div>
+<div data-fadeshow="prev-next-nav"></div>
 ```
 
 ##### 2.2.3 slide-counter
 This modifier adds a slide counter to the fadeshow. This will be displayed as "1/5" when on the first slide etc. Example:
 
 ```html
-<div data-am-fadeshow="slide-counter"></div>
+<div data-fadeshow="slide-counter"></div>
 ```
 
 ##### 2.2.4 ken-burns
 This modifier adds Ken Burns effect to the slide's images. Example:
 
 ```html
-<div data-am-fadeshow="ken-burns"></div>
+<div data-fadeshow="ken-burns"></div>
 ```
 
 ##### 2.2.5 autoplay
 Add autoplay to the gallery. Interaction with navigation will result in cancelation of autoplay. Autoplay will work on load. When autoplay is active, Prev/Next Navigation and Slide Counter won't be visible. The only way to cancel the autoplay is to use Quick Navigation to navigate to another slide. When the autoplay is canceled, Prev/Next Navigation and Slide Counter will be displayed if added to the fadeshow. Example:
 
 ```html
-<div data-am-fadeshow="autoplay"></div>
+<div data-fadeshow="autoplay"></div>
 ```
 
 ### 3. Include the CSS to the HTML

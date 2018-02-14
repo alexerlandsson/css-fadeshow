@@ -1,7 +1,7 @@
 // ===== THEME PREV/NEXT NAVIGATION =====
 
 @mixin fs-theme-prevnextnav {
-  [data-am-fadeshow~='prev-next-nav'] {
+  [data-fadeshow~='prev-next-nav'] {
     $breakpoint-small: 500px;
 
     %prev-next {
