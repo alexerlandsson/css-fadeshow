@@ -147,7 +147,7 @@ _Tip: If you want the css as small as possible, I suggest you to disable autopla
 | $fs-fade-color              | hex                         | #fff                         | Background color behind the images. Will be a part of the transitions between images. |
 | $fs-prefix                  | boolean                     | true                         | Set to `false` if you don't want the compiled CSS to include prefixes. |
 | $fs-prevnextnav-loop        | boolean                     | true                         | Set to false to hide the prev button on first slide and the next button on last slide. |
-| $fs-quicknav-duration       | integer                     | 0.2                          | Set the transition speed of the Quick Navigation during autoplay. Value counts in seconds. |
+| $fs-quicknav-duration       | integer                     | 0.2                          | Set the transition duration of the Quick Navigation during autoplay. Value counts in seconds. |
 | $fs-autoplay-duration       | integer                     | 5                            | Set the duration of each slide in autoplay mode. Value counts in seconds. |
 | $fs-autoplay-prevnextnav    | boolean                     | true                         | Adds autoplay to Prev/Next Navigation while autoplay is running. |
 | $fs-autoplay-quicknav       | boolean                     | true                         | Adds autoplay to Quick Navigation while autoplay is running. |
