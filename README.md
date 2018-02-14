@@ -103,7 +103,14 @@ This modifier adds a slide counter to the fadeshow. This will be displayed as "1
 <div data-am-fadeshow="slide-counter"></div>
 ```
 
-##### 2.2.4 autoplay
+##### 2.2.4 ken-burns
+This modifier adds Ken Burns effect to the slide's images. Example:
+
+```html
+<div data-am-fadeshow="ken-burns"></div>
+```
+
+##### 2.2.5 autoplay
 Add autoplay to the gallery. Interaction with navigation will result in cancelation of autoplay. Autoplay will work on load. When autoplay is active, Prev/Next Navigation and Slide Counter won't be visible. The only way to cancel the autoplay is to use Quick Navigation to navigate to another slide. When the autoplay is canceled, Prev/Next Navigation and Slide Counter will be displayed if added to the fadeshow. Example:
 
 ```html
