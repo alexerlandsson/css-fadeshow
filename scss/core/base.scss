@@ -91,7 +91,7 @@
       ~ .fs-slides {
         .fs-slide {
           @include fs-mixin-slide-inactive;
-          transition: opacity #{$fs-fade-time}s linear;
+          transition: opacity #{$fs-fade-time}s linear, z-index #{$fs-fade-time}s step-end;
 
           @if $fs-include-autoplay {
             // Cancel autoplay
