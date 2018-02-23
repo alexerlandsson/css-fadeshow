@@ -5,6 +5,7 @@
     $breakpoint-small: 500px;
 
     %prev-next {
+      @include fs-mixin-unselectable;
       position: absolute;
       top: 0;
       bottom: 0;

@@ -20,10 +20,12 @@
 
   .fs-slide {
     @include fs-mixin-slide-inactive;
+    z-index: -1;
 
     // Display first child on load
     &:first-child {
       @include fs-mixin-slide-active;
+      z-index: 1;
     }
   }
 
@@ -41,6 +43,7 @@
           ~ .fs-slides {
             .fs-slide:nth-child(#{$i}) {
               @include fs-mixin-slide-active;
+              z-index: 1;
             }
           }
 
@@ -91,7 +94,8 @@
       ~ .fs-slides {
         .fs-slide {
           @include fs-mixin-slide-inactive;
-          transition: opacity #{$fs-fade-time}s linear, z-index #{$fs-fade-time}s step-end;
+          z-index: -1;
+          transition: opacity #{$fs-fade-time}s linear, z-index #{$fs-fade-time}s cubic-bezier(0,1,1,0);
 
           @if $fs-include-autoplay {
             // Cancel autoplay
