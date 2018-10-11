@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/alexerlandsson/css-fadeshow#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",

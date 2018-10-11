@@ -1,22 +1,21 @@
-var gulp      = require('gulp'),
-    sass      = require('gulp-sass'),
-    rename    = require('gulp-rename'),
-    minifycss = require('gulp-minify-css')
-;
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var rename = require('gulp-rename');
+var minifycss = require('gulp-minify-css');
 
-// Watch
-gulp.task('watch', function() {
-  gulp.watch('./scss/**/*.scss', ['sass']);
-});
-
-// Sass
-gulp.task('sass', function () {
-  gulp.src('./scss/css-fadeshow.scss')
+function gulpSass() {
+  return gulp
+    .src('./scss/css-fadeshow.scss')
     .pipe(sass())
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(gulp.dest('./css'));
- });
+}
 
- // Default
- gulp.task('default', ['sass']);
+function gulpWatch() {
+  gulp.watch('./scss/**/*.scss', gulpSass);
+}
+
+gulp.task('sass', gulpSass);
+gulp.task('watch', gulpWatch);
+gulp.task('default', gulp.parallel('sass'));
