@@ -14,6 +14,8 @@
 
     .fs-slide-counter-current {
       &:before {
+        // Set default current slide value to be displayed on load
+        // The current slide value is updated in base.scss
         content: '1';
       }
     }
