@@ -3,7 +3,7 @@ This is a fadeshow (slideshow with fade effect) made in CSS only. The slideshow 
 
 **For a stable version, always download from the Release page.**
 
-**Demo: [https://alexerlandsson.com/github/css-fadeshow/](https://alexerlandsson.com/github/css-fadeshow/)**  
+**Demo: [https://alexerlandsson.github.io/css-fadeshow/demo/demo.html)**  
 
 ## Why use CSS Fadeshow?
 
